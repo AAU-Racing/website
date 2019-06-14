@@ -1,14 +1,16 @@
 footer {
+    width: 1100px;
+
     .top-footer {
         background-color: #211d51;
-        width: 1100px;
+        width: 100%;
         margin: 0 auto;
         color: white;
-        padding: 15px;
+        padding: 15px 50px;
     }
 
     .bottom-footer {
-        width: 1100px;
+        width: 100%;
         background-color: #004592;
         margin: 0 auto;
         color: white;
@@ -19,5 +21,29 @@ footer {
 
     a {
         color: white;
+
+        &:hover {
+            color: white;
+            text-decoration: underline;
+        }
+    }
+
+    .back-to-top {
+        display: block;
+        float: right;
+
+        a:hover {
+            text-decoration: none;
+        }
+    }
+
+    .footer-contact-icon {
+        display: inline-block;
+        width: 20px;
+        vertical-align: top;
+    }
+
+    .footer-contact-text {
+        display: inline-block;
     }
 }

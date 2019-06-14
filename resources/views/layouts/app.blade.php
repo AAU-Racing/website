@@ -22,7 +22,6 @@
     <meta property="og:description" content="AAU Racing is the FSAE Team at Aalborg University, Denmark." />
     <meta property="og:image" content="http://aauracing.dk/img/faauracinglogo.png" />
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
