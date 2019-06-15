@@ -1,4 +1,5 @@
 <footer>
+    {{-- TODO: Fix responsiveness --}}
     <div class="top-footer row">
         <div class="col-md-3">
             AAU Racing

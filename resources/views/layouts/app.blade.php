@@ -29,11 +29,11 @@
 <body>
     @component('/layouts/google_scripts')
     @endcomponent
-    <div id="app">
+    <div id="app" class="container">
         @component('/layouts/header')
         @endcomponent
 
-        <main class="py-4 content">
+        <main class="content">
             @yield('content')
         </main>
 

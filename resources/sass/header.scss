@@ -1,0 +1,41 @@
+.navbar {
+  border-bottom: solid 3px #211d51;
+  padding: 0;
+
+  .navbar-toggler {
+    margin-right: 10px;
+  }
+
+  .navbar-brand img {
+    height: 62px;
+    margin-left: 15px;
+  }
+
+  .navbar-nav .nav-item {
+    padding: auto 10px;
+
+    .nav-link {
+      font-weight: bold;
+      color: #211d51;
+
+      &:hover {
+        text-decoration: none;
+        background-color: #eee;
+      }
+    }
+
+    &.active {
+      background-color: #211d51;
+
+      .nav-link {
+        color: white;
+
+        &:hover {
+          text-decoration: none;
+          background-color: #eee;
+          color: #211d51;
+        }
+      }
+    }
+  }
+}
