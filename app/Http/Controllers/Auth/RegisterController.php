@@ -7,8 +7,7 @@ use App\Services\UserService;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use App\Rules\WaistWidth;
-use App\Rules\ShirtSize;
+use App\Rules\HasCar;
 
 class RegisterController extends Controller
 {
@@ -61,11 +60,13 @@ class RegisterController extends Controller
             'address' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'study_number' => ['nullable', 'integer'],
+            'study_card_number' => ['nullable', 'integer'],
             'education' => ['nullable', 'string', 'max:255'],
             'date_of_birth' => ['nullable', 'date'],
             'drivers_license' => ['nullable', 'string', 'max:255', 'unique:drivers_licenses,license_number'],
-            'waist_width' => ['nullable', 'string', 'max:10', new WaistWidth],
-            'shirt_size' => ['nullable', 'string', 'max:10', new ShirtSize]
+            'car' => ['required', 'string', 'max:10', new HasCar],
+            'name_contact_person' => ['required', 'string', 'max:255'],
+            'phone_number_contact_person' => ['required', 'integer']
         ]);
     }
 

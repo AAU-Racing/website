@@ -22,84 +22,84 @@ class RolesAndPermissionsSeeder extends Seeder
         // if additional permissions are required.
 
         // Footer links
-        Permission::findOrCreate(['name' => 'create footer links']);
-        Permission::findOrCreate(['name' => 'edit footer links']);
-        Permission::findOrCreate(['name' => 'delete footer links']);
-        Permission::findOrCreate(['name' => 'view disabled footer links']);
+        Permission::findOrCreate('create footer links');
+        Permission::findOrCreate('edit footer links');
+        Permission::findOrCreate('delete footer links');
+        Permission::findOrCreate('view disabled footer links');
 
         // Carousel
-        Permission::findOrCreate(['name' => 'create carousel slides']);
-        Permission::findOrCreate(['name' => 'edit carousel slides']);
-        Permission::findOrCreate(['name' => 'delete carousel slides']);
+        Permission::findOrCreate('create carousel slides');
+        Permission::findOrCreate('edit carousel slides');
+        Permission::findOrCreate('delete carousel slides');
 
         // About page
-        Permission::findOrCreate(['name' => 'edit about page']);
+        Permission::findOrCreate('edit about page');
 
         // Home page - welcome
-        Permission::findOrCreate(['name' => 'edit home page']);
+        Permission::findOrCreate('edit home page');
 
         // Recruitment page
-        Permission::findOrCreate(['name' => 'edit recruitment page']);
+        Permission::findOrCreate('edit recruitment page');
 
         // Sponsors
-        Permission::findOrCreate(['name' => 'create sponsors']);
-        Permission::findOrCreate(['name' => 'edit sponsors']);
-        Permission::findOrCreate(['name' => 'delete sponsors']);
-        Permission::findOrCreate(['name' => 'view disabled sponsors']);
+        Permission::findOrCreate('create sponsors');
+        Permission::findOrCreate('edit sponsors');
+        Permission::findOrCreate('delete sponsors');
+        Permission::findOrCreate('view disabled sponsors');
 
         // Sponsor page
-        Permission::findOrCreate(['name' => 'edit sponsor page']);
+        Permission::findOrCreate('edit sponsor page');
 
         // Contact page
-        Permission::findOrCreate(['name' => 'edit contact page']);
+        Permission::findOrCreate('edit contact page');
 
         // Cars
-        Permission::findOrCreate(['name' => 'create cars']);
-        Permission::findOrCreate(['name' => 'edit cars']);
-        Permission::findOrCreate(['name' => 'delete cars']);
+        Permission::findOrCreate('create cars');
+        Permission::findOrCreate('edit cars');
+        Permission::findOrCreate('delete cars');
 
         // Competitions
-        Permission::findOrCreate(['name' => 'create competitions']);
-        Permission::findOrCreate(['name' => 'edit competitions']);
-        Permission::findOrCreate(['name' => 'delete competitions']);
+        Permission::findOrCreate('create competitions');
+        Permission::findOrCreate('edit competitions');
+        Permission::findOrCreate('delete competitions');
 
         // Training
-        Permission::findOrCreate(['name' => 'create training sessions']);
-        Permission::findOrCreate(['name' => 'view training sessions']);
-        Permission::findOrCreate(['name' => 'edit training sessions']);
-        Permission::findOrCreate(['name' => 'delete training sessions']);
+        Permission::findOrCreate('create training sessions');
+        Permission::findOrCreate('view training sessions');
+        Permission::findOrCreate('edit training sessions');
+        Permission::findOrCreate('delete training sessions');
 
         // Press
-        Permission::findOrCreate(['name' => 'create news refrences']);
-        Permission::findOrCreate(['name' => 'edit news refrences']);
-        Permission::findOrCreate(['name' => 'view disabled news refrences']);
-        Permission::findOrCreate(['name' => 'delete news refrences']);
+        Permission::findOrCreate('create news refrences');
+        Permission::findOrCreate('edit news refrences');
+        Permission::findOrCreate('view disabled news refrences');
+        Permission::findOrCreate('delete news refrences');
 
         // Pictures
-        Permission::findOrCreate(['name' => 'create pictures']);
-        Permission::findOrCreate(['name' => 'edit pictures']);
-        Permission::findOrCreate(['name' => 'view disabled pictures']);
-        Permission::findOrCreate(['name' => 'delete pictures']);
+        Permission::findOrCreate('create pictures');
+        Permission::findOrCreate('edit pictures');
+        Permission::findOrCreate('view disabled pictures');
+        Permission::findOrCreate('delete pictures');
 
         // Media manager
-        Permission::findOrCreate(['name' => 'create files']);
-        Permission::findOrCreate(['name' => 'rename files']);
-        Permission::findOrCreate(['name' => 'move files']);
-        Permission::findOrCreate(['name' => 'view files']);
-        Permission::findOrCreate(['name' => 'delete files']);
+        Permission::findOrCreate('create files');
+        Permission::findOrCreate('rename files');
+        Permission::findOrCreate('move files');
+        Permission::findOrCreate('view files');
+        Permission::findOrCreate('delete files');
 
         // Avatars
-        Permission::findOrCreate(['name' => 'create avatars']);
-        Permission::findOrCreate(['name' => 'edit avatars']);
-        Permission::findOrCreate(['name' => 'delete avatars']);
+        Permission::findOrCreate('create avatars');
+        Permission::findOrCreate('edit avatars');
+        Permission::findOrCreate('delete avatars');
 
         // Roles
-        Permission::findOrCreate(['name' => 'grant role']);
-        Permission::findOrCreate(['name' => 'revoke role']);
+        Permission::findOrCreate('grant role');
+        Permission::findOrCreate('revoke role');
     }
 
     protected function createRolesAndAssignPermissions() {
-        $role = Role::findOrCreate(['name' => 'member'])->givePermissionTo([
+        $role = Role::findOrCreate('member')->givePermissionTo([
             'view disabled footer links',
             'view disabled sponsors',
             'create training sessions',
@@ -111,7 +111,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'view files'
         ]);
 
-        $role = Role::findOrCreate(['name' => 'alumni'])->givePermissionTo([
+        $role = Role::findOrCreate('alumni')->givePermissionTo([
             'view disabled footer links',
             'view disabled sponsors',
             'view training sessions',
@@ -121,7 +121,7 @@ class RolesAndPermissionsSeeder extends Seeder
         ]);
 
         // or may be done by chaining
-        $role = Role::findOrCreate(['name' => 'moderator'])->givePermissionTo([
+        $role = Role::findOrCreate('moderator')->givePermissionTo([
                 'create footer links',
                 'edit footer links',
                 'delete footer links',
@@ -166,7 +166,7 @@ class RolesAndPermissionsSeeder extends Seeder
                 'delete avatars'
         ]);
 
-        $role = Role::findOrCreate(['name' => 'wesbite-admin']);
+        $role = Role::findOrCreate('website-admin');
         $role->givePermissionTo(Permission::all());
     }
 }

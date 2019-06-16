@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DriversLicence extends Model
+class MemberCar extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,7 +12,7 @@ class DriversLicence extends Model
      * @var array
      */
     protected $fillable = [
-        'license_number'
+        'towbar'
     ];
 
     public function user() {

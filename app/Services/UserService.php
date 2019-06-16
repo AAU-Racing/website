@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class UserService {
     function create($data) {
-        DB::transaction(function() use ($data) {
+        return DB::transaction(function() use ($data) {
             $user = User::create([
                 'firstname' => $data['firstname'],
                 'lastname' => $data['lastname'],
@@ -21,14 +21,21 @@ class UserService {
                 'date_of_birth' => $data['date_of_birth'],
             ]);
 
-            $user->clothesSize()->create([
-                'waist_width' => $data['waist_width'],
-                'shirt_size' => $data['shirt_size'],
-            ]);
-
             if ($data['drivers_license']) {
                 $user->driversLicence()->create([
                     'license_number' => $data['drivers_license']
+                ]);
+            }
+
+            $user->contactPersons()->create([
+                'name' => $data['name_contact_person'],
+                'phone_number' => $data['phone_number_contact_person'],
+                'primary' => true
+            ]);
+
+            if ($data['car'] != 'no') {
+                $user->car()->create([
+                    'towbar' => $data['car'] == 'towbar'
                 ]);
             }
 

@@ -4,7 +4,7 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
-class ShirtSize implements Rule
+class HasCar implements Rule
 {
 
     /**
@@ -16,7 +16,7 @@ class ShirtSize implements Rule
      */
     public function passes($attribute, $value)
     {
-        return in_array($value, array("XS", "S", "M", "L", "XL", "XXL", "XXL"));
+        return in_array($value, array("no", "yes", "towbar"));
     }
 
     /**
@@ -26,6 +26,6 @@ class ShirtSize implements Rule
      */
     public function message()
     {
-        return ':attribute should be a valid shirt size';
+        return 'Specifying if you have a car is required.';
     }
 }

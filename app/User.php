@@ -9,8 +9,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable;
-    use HasRoles;
+    use Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -18,7 +17,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'firstname', 'lastname', 'email', 'password', 'study_number', 'alumni', 'education', 'date_of_birth', 'phone_number'
+        'firstname', 'lastname', 'email', 'password', 'study_number', 'alumni', 'education', 'date_of_birth', 'phone_number', 'study_card_number'
     ];
 
     /**
@@ -48,11 +47,15 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne('App\Avatar');
     }
 
-    public function clothesSize() {
-        return $this->hasOne('App\ClothesSize');
-    }
-
     public function driversLicence() {
         return $this->hasOne('App\DriversLicence');
+    }
+
+    public function car() {
+        return $this->hasOne('App\MemberCar');
+    }
+
+    public function contactPersons() {
+        return $this->hasMany('App\ContactPerson');
     }
 }

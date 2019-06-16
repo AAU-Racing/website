@@ -43,8 +43,10 @@ class AssignWebsiteAdmin extends Command
 
         if (!$user) {
             $this->error(sprintf('No user with email, %s, exists', $email));
-        }
 
-        $user->assignRole('website-admin');
+        }
+        else {
+            $user->assignRole('website-admin');
+        }
     }
 }

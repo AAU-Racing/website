@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-    <div class="container">
+    <div class="container-fluid">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img alt="Logo of AAU Racing" src="{{ asset('images/aauracinglogo.png') }}">
         </a>
@@ -9,7 +9,6 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Right Side Of Navbar -->
-{{--            TODO: Height 100% --}}
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('admin::home') }}">Home</a>

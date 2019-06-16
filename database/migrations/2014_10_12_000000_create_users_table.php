@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('lastname');
             $table->string('email')->unique();
             $table->integer('study_number')->nullable();
+            $table->integer('study_card_number')->nullable();
             $table->boolean('alumni');
             $table->integer('phone_number');
             $table->string('education')->nullable();
