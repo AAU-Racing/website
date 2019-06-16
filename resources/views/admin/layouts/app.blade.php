@@ -26,18 +26,18 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="user-body">
+<body class="admin-body">
     @component('layouts.google_scripts')
     @endcomponent
-    <div id="app" class="container home">
-        @component('layouts.header')
+    <div id="app" class="container-fluid home">
+        @component('admin.layouts.header')
         @endcomponent
 
         <main class="content">
             @yield('content')
         </main>
 
-        @component('layouts.footer')
+        @component('admin.layouts.footer')
         @endcomponent
     </div>
 </body>

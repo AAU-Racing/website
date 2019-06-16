@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DriversLicence extends Model
+class FooterLink extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,11 +12,6 @@ class DriversLicence extends Model
      * @var array
      */
     protected $fillable = [
-        'license_number'
+        'name', 'path', 'target'
     ];
-
-
-    public function user() {
-        return $this->belongsTo('App\User');
-    }
 }

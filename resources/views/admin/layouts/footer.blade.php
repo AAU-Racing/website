@@ -29,19 +29,12 @@
         <div class="col-md-3">
             <a href="http://www.aau.dk/" target="_blank"><img src="{{ asset('images/aau_logo.png') }}" height="140px"></a>
         </div>
-        <div class="col-md-3 right-col">
+        <div class="col-md-3">
             <button type="button" class="btn btn-primary btn-xs back-to-top">
                 <a href="#">
                     <i class="fas fa-chevron-up"></i> Back to top
                 </a>
             </button>
-            <div class="team-member-login">
-                @guest
-                    <a href="{{ route('login') }}">Team login</a>
-                @else
-                    <a href="{{ route('admin::home') }}">Admin page</a>
-                @endguest
-            </div>
         </div>
     </div>
     <div class="bottom-footer">

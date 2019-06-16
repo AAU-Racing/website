@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Services\UserService;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Rules\WaistWidth;
+use App\Rules\ShirtSize;
 
 class RegisterController extends Controller
 {
@@ -28,15 +30,16 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(UserService $userService)
     {
+        $this->userService = $userService;
         $this->middleware('guest');
     }
 
@@ -52,10 +55,17 @@ class RegisterController extends Controller
             'firstname' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone_number' => ['required', 'integer'],
+            'zip' => ['required', 'integer'],
+            'city' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'study_number' => ['nullable', 'integer'],
-            'education' => ['nullable', 'string'],
+            'education' => ['nullable', 'string', 'max:255'],
             'date_of_birth' => ['nullable', 'date'],
+            'drivers_license' => ['nullable', 'string', 'max:255', 'unique:drivers_licenses,license_number'],
+            'waist_width' => ['nullable', 'string', 'max:10', new WaistWidth],
+            'shirt_size' => ['nullable', 'string', 'max:10', new ShirtSize]
         ]);
     }
 
@@ -67,15 +77,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'firstname' => $data['firstname'],
-            'lastname' => $data['lastname'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'study_number' => $data['studynumber'],
-            'alumni' => false,
-            'education' => $data['education'],
-            'date_of_birth' => $data['date_of_birth'],
-        ]);
+        $user = $this->userService->create($data);
+
+        return $user;
     }
 }

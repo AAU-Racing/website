@@ -5,10 +5,12 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +18,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'firstname', 'lastname', 'email', 'password', 'study_number', 'alumni', 'education', 'date_of_birth'
+        'firstname', 'lastname', 'email', 'password', 'study_number', 'alumni', 'education', 'date_of_birth', 'phone_number'
     ];
 
     /**
@@ -39,18 +41,18 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     public function address() {
-        return $this->hasOne('Address');
+        return $this->hasOne('App\Address');
     }
 
     public function avatar() {
-        return $this->hasOne('Avatar');
+        return $this->hasOne('App\Avatar');
     }
 
     public function clothesSize() {
-        return $this->hasOne('ClothesSize');
+        return $this->hasOne('App\ClothesSize');
     }
 
     public function driversLicence() {
-        return $this->hasOne('DriversLicence');
+        return $this->hasOne('App\DriversLicence');
     }
 }
