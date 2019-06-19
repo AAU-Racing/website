@@ -16659,3 +16659,9 @@ footer .footer-contact-text {
   color: #e3342f;
 }
 
+@media (max-width: 767.98px) {
+  .roles-table .roles-email-column {
+    display: none;
+  }
+}
+

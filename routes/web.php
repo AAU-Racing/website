@@ -17,4 +17,10 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'namespace' => 'Admin', 'as' => 'admin::'], function() {
     Route::get('/', 'HomeController@index')->name('home');
+
+    Route::group(['prefix' => 'role/', 'as' => 'role::'], function() {
+        Route::get('/', 'RoleController@index')->name('home');
+        Route::get('/{id}', 'RoleController@showAlterForm')->name('alterForm');
+        Route::post('/{id}', 'RoleController@alter')->name('alter');
+    });
 });

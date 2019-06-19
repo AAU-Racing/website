@@ -48,4 +48,12 @@ class UserService {
             return $user;
         });
     }
+
+    function getAllUsers() {
+        return User::all();
+    }
+
+    function findById($id) {
+        return User::find($id);
+    }
 }

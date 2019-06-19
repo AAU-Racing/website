@@ -94,8 +94,8 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::findOrCreate('delete avatars');
 
         // Roles
-        Permission::findOrCreate('grant role');
-        Permission::findOrCreate('revoke role');
+        Permission::findOrCreate('view roles');
+        Permission::findOrCreate('alter roles');
     }
 
     protected function createRolesAndAssignPermissions() {
@@ -163,7 +163,8 @@ class RolesAndPermissionsSeeder extends Seeder
                 'delete files',
                 'create avatars',
                 'edit avatars',
-                'delete avatars'
+                'delete avatars',
+                'view roles'
         ]);
 
         $role = Role::findOrCreate('website-admin');

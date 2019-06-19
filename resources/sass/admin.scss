@@ -1,0 +1,7 @@
+.roles-table {
+    @include media-breakpoint-down(sm) {
+        .roles-email-column {
+          display: none
+        }
+    }
+}
