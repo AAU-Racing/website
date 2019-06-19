@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@component('components/carousel')
+@component('components.carousel')
 @endcomponent
 <div class="container">
     <div class="row justify-content-center p-4">

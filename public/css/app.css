@@ -16665,3 +16665,21 @@ footer .footer-contact-text {
   }
 }
 
+.profile .card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.profile .card-body:not(:last-child) {
+  padding-bottom: 0;
+}
+
+.profile .profile-item .profile-item-text {
+  color: #6c757d;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+}
+

@@ -5,3 +5,25 @@
         }
     }
 }
+
+.profile {
+    .card-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .card-body:not(:last-child) {
+        padding-bottom: 0;
+    }
+
+    .profile-item {
+
+        .profile-item-title {
+        }
+
+        .profile-item-text {
+            color: #6c757d;
+        }
+    }
+}
