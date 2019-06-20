@@ -173,3 +173,26 @@ footer {
 .required {
     color: $red;
 }
+
+.bg-aau {
+  background-color: #211d51 !important;
+}
+
+.text-aau {
+    color: #211d51;
+}
+
+.narrow-hr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.edit-link-white {
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+        color: white;
+        text-decoration: none;
+    }
+}

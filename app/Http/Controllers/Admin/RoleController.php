@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\AlterRoleRequest;
+use App\Http\Requests\EditRolesRequest;
 use App\Http\Controllers\Controller;
 use App\Services\UserService;
 use Spatie\Permission\Models\Role;
@@ -22,15 +22,15 @@ class RoleController extends Controller
         return view('admin.role.home', ['users' => $users]);
     }
 
-    public function showAlterForm($id) {
+    public function showEditForm($id) {
         $this->authorize('alter roles');
 
         $user = $this->userService->findById($id);
         $roles = Role::all();
-        return view('admin.role.alter', ['user' => $user, 'roles' => $roles]);
+        return view('admin.role.edit', ['user' => $user, 'roles' => $roles]);
     }
 
-    public function alter(AlterRoleRequest $request, $id) {
+    public function edit(EditRolesRequest $request, $id) {
         $this->authorize('alter roles');
 
         $user = $this->userService->findById($id);

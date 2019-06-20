@@ -20,7 +20,12 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'names
 
     Route::group(['prefix' => 'role/', 'as' => 'role::'], function() {
         Route::get('/', 'RoleController@index')->name('home');
-        Route::get('/{id}', 'RoleController@showAlterForm')->name('alterForm');
-        Route::post('/{id}', 'RoleController@alter')->name('alter');
+        Route::get('/{id}', 'RoleController@showEditForm')->name('editForm');
+        Route::post('/{id}', 'RoleController@edit')->name('edit');
+    });
+
+    Route::group(['prefix' => 'profile/', 'as' => 'profile::'], function() {
+        Route::get('/{id}', 'ProfileController@showEditForm')->name('editForm');
+        Route::post('/{id}', 'ProfileController@edit')->name('edit');
     });
 });

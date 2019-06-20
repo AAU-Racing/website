@@ -24,7 +24,7 @@
                                 })->join(', ')
                             }}
                         </td>
-                        <td><a href="{{ route('admin::role::alterForm', ['id' => $user->id]) }}"><i class="fas fa-edit"></i></a></td>
+                        <td><a href="{{ route('admin::role::editForm', ['id' => $user->id]) }}"><i class="fas fa-edit"></i></a></td>
                     </tr>
                 @endforeach
             </tbody>
