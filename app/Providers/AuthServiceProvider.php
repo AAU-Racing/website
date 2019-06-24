@@ -32,7 +32,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('edit profile', function ($authUser, $editUser) {
-            return $authUser->can('edit all profiles') || $authUser->id == $editUser->id;
+            return $authUser->id == $editUser->id || $authUser->can('edit all profiles');
         });
     }
 }

@@ -71,7 +71,7 @@
                             <label for="phone_number" class="col-md-5 col-form-label text-md-right">{{ __('Phone Number') }}<span class="required">*</span></label>
 
                             <div class="col-md-6">
-                                <input id="phone_number" type="text" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required>
+                                <input id="phone_number" type="text" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required pattern="\d{8}">
 
                                 @error('phone_number')
                                 <span class="invalid-feedback" role="alert">
@@ -228,7 +228,7 @@
                             <label for="phone_number_contact_person" class="col-md-5 col-form-label text-md-right">{{ __('Phone Number') }}<span class="required">*</span></label>
 
                             <div class="col-md-6">
-                                <input id="phone_number_contact_person" type="text" class="form-control @error('phone_number_contact_person') is-invalid @enderror" name="phone_number_contact_person" value="{{ old('phone_number_contact_person') }}" required>
+                                <input id="phone_number_contact_person" type="text" class="form-control @error('phone_number_contact_person') is-invalid @enderror" name="phone_number_contact_person" value="{{ old('phone_number_contact_person') }}" required pattern="\d{8}">
 
                                 @error('phone_number_contact_person')
                                 <span class="invalid-feedback" role="alert">

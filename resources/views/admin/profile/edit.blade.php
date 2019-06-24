@@ -187,7 +187,6 @@
 
                             <div class="col-md-6">
                                 <select id="car" class="form-control @error('car') is-invalid @enderror" name="car">
-                                    <option>Not specified</option>
                                     <option value="no" {{ (!old('car') && !$user->car) || old('car') == 'no' ? 'selected': '' }}>No</option>
                                     <option value="yes" {{ (!old('car') && $user->car && !$user->car->towbar) || old('car') == 'yes' ? 'selected': '' }}>Yes</option>
                                     <option value="towbar" {{ (!old('car') && $user->car && $user->car->towbar) || old('car') == 'towbar' ? 'selected': '' }}>Yes, with towbar</option>
@@ -205,38 +204,7 @@
                             <h5 class="text-muted">Contact persons</h5>
                             <hr class="narrow-hr" />
                         </div>
-
-                        @foreach($user->contactPersons as $contactPerson)
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <input id="contact_person_name_{{ $contactPerson->id }}" placeholder="Name" type="text" class="form-control @error('contact_person['.$contactPerson->id.'][name]') is-invalid @enderror" name="contact_person['.$contactPerson->id.'][name]" value="{{ old('contact_person['.$contactPerson->id.'][name]') ?? $contactPerson->name }}">
-
-                                    @error('contact_person['.$contactPerson->id.'][name]')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                                <div class="col-md-3 col-6">
-                                    <input id="contact_person_phone_number_{{ $contactPerson->id }}" placeholder="Phone Number" type="text" class="form-control @error('contact_person['.$contactPerson->id.'][phone_number]') is-invalid @enderror" name="contact_person['.$contactPerson->id.'][name]" value="{{ old('contact_person['.$contactPerson->id.'][phone_number]') ?? $contactPerson->phone_number }}">
-
-                                    @error('contact_person['.$contactPerson->id.'][phone_number]')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                                <div class="col-md-3 col-6 d-flex flex-column justify-content-center">
-                                    <div class="custom-control custom-radio">
-                                      <input type="radio" id="contact_person_primary_{{ $contactPerson->id }}" name="primary" class="custom-control-input" {{ $contactPerson->primary ? 'checked' : ''}}>
-                                      <label class="custom-control-label" for="contact_person_primary_{{ $contactPerson->id }}">Primary</label>
-                                    </div>
-                                </div>
-                            </div>
-                            @if(!$loop->last)
-                                <hr class="narrow-hr" />
-                            @endif
-                        @endforeach
+                        <contact-person-table :contact_persons="{{ json_encode(old('contact_person') ?? $contactPersons)}}" :checked="{{ old('primary') ?? $primary }}"></contact-person-table>
 
                         <div class="form-group row mb-0 mt-5 justify-content-center">
                             <button type="submit" class="btn btn-primary">

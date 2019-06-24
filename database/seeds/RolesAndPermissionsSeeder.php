@@ -98,7 +98,9 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::findOrCreate('alter roles');
 
         // Profiles
+        Permission::findOrCreate('view all profiles');
         Permission::findOrCreate('edit all profiles');
+        Permission::findOrCreate('delete users');
     }
 
     protected function createRolesAndAssignPermissions() {

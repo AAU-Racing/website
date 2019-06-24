@@ -14,7 +14,6 @@ html, body {
     flex-direction: column;
     min-height: 100%;
     background-color: white;
-    // width: 1100px;
     padding: 0;
     margin: 0 auto;
     top: 0;
@@ -34,7 +33,7 @@ html, body {
 
 // header
 .navbar {
-  border-bottom: solid 3px #211d51;
+  border-bottom: solid 3px $aau;
   padding: 0;
 
   .navbar-toggler {
@@ -75,7 +74,7 @@ html, body {
       }
 
       &.active {
-        background-color: #211d51;
+        background-color: $aau;
 
         .nav-link {
           color: white;
@@ -100,7 +99,7 @@ footer {
     width: 100%;
 
     .top-footer {
-        background-color: #211d51;
+        background-color: $aau;
         width: 100%;
         margin: 0 auto;
         color: white;
@@ -109,7 +108,7 @@ footer {
 
     .bottom-footer {
         width: 100%;
-        background-color: #004592;
+        background-color: $aau;
         margin: 0 auto;
         color: white;
         text-align: center;
@@ -175,11 +174,11 @@ footer {
 }
 
 .bg-aau {
-    background-color: #211d51 !important;
+    background-color: $aau !important;
 }
 
 .text-aau {
-    color: #211d51;
+    color: $aau;
 }
 
 .narrow-hr {
@@ -199,6 +198,6 @@ footer {
 
 .table .thead-aau th {
     color: white;
-    background-color: #211d51;
+    background-color: $aau;
     border: 0;
 }
