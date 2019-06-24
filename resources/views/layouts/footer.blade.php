@@ -35,11 +35,11 @@
                     <i class="fas fa-chevron-up"></i> Back to top
                 </a>
             </button>
-            <div class="team-member-login">
+            <div class="team-member-footer">
                 @guest
                     <a href="{{ route('login') }}">Team login</a>
                 @else
-                    <a href="{{ route('admin::home') }}">Admin page</a>
+                    <a href="{{ route('admin::home') }}">Team page</a>
                 @endguest
             </div>
         </div>

@@ -35,6 +35,9 @@
                     <i class="fas fa-chevron-up"></i> Back to top
                 </a>
             </button>
+            <div class="team-member-footer">
+                <a href="{{ route('home') }}">Home page</a>
+            </div>
         </div>
     </div>
     <div class="bottom-footer">

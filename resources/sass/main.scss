@@ -33,7 +33,7 @@ html, body {
 
 // header
 .navbar {
-  border-bottom: solid 3px $aau;
+  border-bottom: solid 3px $aau-primary;
   padding: 0;
 
   .navbar-toggler {
@@ -47,7 +47,9 @@ html, body {
 
   @include media-breakpoint-up(md) {
     .navbar-nav {
-      padding-right: 50px;
+      &:not(.logged-in) {
+        padding-right: 50px;
+      }
 
       .nav-item .nav-link {
           line-height: 46px;
@@ -74,7 +76,7 @@ html, body {
       }
 
       &.active {
-        background-color: $aau;
+        background-color: $aau-primary;
 
         .nav-link {
           color: white;
@@ -99,7 +101,7 @@ footer {
     width: 100%;
 
     .top-footer {
-        background-color: $aau;
+        background-color: $aau-primary;
         width: 100%;
         margin: 0 auto;
         color: white;
@@ -108,7 +110,7 @@ footer {
 
     .bottom-footer {
         width: 100%;
-        background-color: $aau;
+        background-color: $aau-secondary;
         margin: 0 auto;
         color: white;
         text-align: center;
@@ -174,11 +176,11 @@ footer {
 }
 
 .bg-aau {
-    background-color: $aau !important;
+    background-color: $aau-primary !important;
 }
 
 .text-aau {
-    color: $aau;
+    color: $aau-primary;
 }
 
 .narrow-hr {
@@ -198,6 +200,6 @@ footer {
 
 .table .thead-aau th {
     color: white;
-    background-color: $aau;
+    background-color: $aau-primary;
     border: 0;
 }

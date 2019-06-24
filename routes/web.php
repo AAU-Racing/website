@@ -15,6 +15,11 @@ Auth::routes(['verify' => true]);
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::group(['middleware' => ['auth', 'verified'], 'prefix' => '/password', 'as' => 'auth::'], function() {
+    Route::get('', 'Auth\ChangePasswordController@showEditForm')->name('change_password');
+    Route::post('', 'Auth\ChangePasswordController@edit')->name('change_password_post');
+});
+
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'namespace' => 'Admin', 'as' => 'admin::'], function() {
     Route::get('/', 'HomeController@index')->name('home');
 
