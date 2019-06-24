@@ -16682,10 +16682,34 @@ footer .footer-contact-text {
   text-decoration: none;
 }
 
+.table .thead-aau th {
+  color: white;
+  background-color: #211d51;
+  border: 0;
+}
+
 @media (max-width: 767.98px) {
   .roles-table .roles-email-column {
     display: none;
   }
+}
+
+.role-edit-header {
+  margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.role-edit-header h4 {
+  margin: 8px;
+}
+
+.roles-back {
+  font-size: 1.35rem;
+}
+
+.roles-back .fas {
+  margin: 8px;
+  line-height: 1.2;
 }
 
 .profile .card-header {

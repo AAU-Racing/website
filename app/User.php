@@ -43,6 +43,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->firstname . ' ' . $this->lastname;
     }
 
+    public function getFormattedDateOfBirthAttribute() {
+        return $this->date_of_birth ? $this->date_of_birth->format('d-m-Y') : '';
+    }
+
     public function address() {
         return $this->hasOne('App\Address');
     }

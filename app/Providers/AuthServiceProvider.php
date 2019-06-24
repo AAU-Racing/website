@@ -30,5 +30,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::before(function ($user, $ability) {
             return $user->hasRole('website-admin') ? true : null;
         });
+
+        Gate::define('edit profile', function ($authUser, $editUser) {
+            return $authUser->can('edit all profiles') || $authUser->id == $editUser->id;
+        });
     }
 }

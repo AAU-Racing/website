@@ -62,7 +62,7 @@ class RegisterController extends Controller
             'study_number' => ['nullable', 'integer'],
             'study_card_number' => ['nullable', 'integer'],
             'education' => ['nullable', 'string', 'max:255'],
-            'date_of_birth' => ['nullable', 'date'],
+            'date_of_birth' => ['nullable', 'date_format:d-m-Y'],
             'drivers_license' => ['nullable', 'string', 'max:255', 'unique:drivers_licenses,license_number'],
             'car' => ['required', 'string', 'max:10', new HasCar],
             'name_contact_person' => ['required', 'string', 'max:255'],
@@ -78,6 +78,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $data['date_of_birth'] = date('Y-m-d', strtotime($data['date_of_birth']));
         $user = $this->userService->create($data);
 
         return $user;

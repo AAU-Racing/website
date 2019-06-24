@@ -40,7 +40,21 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-5 col-form-label text-md-right">{{ __('Univeristy E-Mail Address') }}<span class="required">*</span></label>
+                            <label for="date_of_birth" class="col-md-5 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="date_of_birth" type="text" data-provide="datepicker" placeholder="dd-mm-yyyy" data-date-format="dd-mm-yyyy" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth" value="{{ old('date_of_birth') }}">
+
+                                @error('date_of_birth')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-5 col-form-label text-md-right">{{ __('University E-Mail Address') }}<span class="required">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -67,6 +81,9 @@
                             </div>
                         </div>
 
+                        <div class="row mt-5">
+                            <h5 class="col-md-5 text-muted text-md-right">Address</h5>
+                        </div>
                         <div class="form-group row">
                             <label for="zip" class="col-md-5 col-form-label text-md-right">{{ __('Zip Code') }}<span class="required">*</span></label>
 
@@ -109,6 +126,23 @@
                             </div>
                         </div>
 
+                        <div class="row mt-5">
+                            <h5 class="col-md-5 text-muted text-md-right">Education</h5>
+                        </div>
+                        <div class="form-group row">
+                            <label for="education" class="col-md-5 col-form-label text-md-right">{{ __('Education') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="education" type="text" class="form-control @error('education') is-invalid @enderror" name="education" value="{{ old('education') }}">
+
+                                @error('education')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <label for="study_number" class="col-md-5 col-form-label text-md-right">{{ __('Study Number') }}</label>
 
@@ -137,20 +171,9 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="education" class="col-md-5 col-form-label text-md-right">{{ __('Education') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="education" type="text" class="form-control @error('education') is-invalid @enderror" name="education" value="{{ old('education') }}">
-
-                                @error('education')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
+                        <div class="row mt-5">
+                            <h5 class="col-md-5 text-muted text-md-right">Car</h5>
                         </div>
-
                         <div class="form-group row">
                             <label for="drivers_license" class="col-md-5 col-form-label text-md-right">{{ __('Driver\'s License') }}</label>
 
@@ -158,20 +181,6 @@
                                 <input id="drivers_license" type="text" class="form-control @error('drivers_license') is-invalid @enderror" name="drivers_license" value="{{ old('drivers_license') }}">
 
                                 @error('drivers_license')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="date_of_birth" class="col-md-5 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="date_of_birth" type="date" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth" value="{{ old('date_of_birth') }}">
-
-                                @error('date_of_birth')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -198,8 +207,11 @@
                             </div>
                         </div>
 
+                        <div class="row mt-5">
+                            <h5 class="col-md-5 text-muted text-md-right">Contact Person</h5>
+                        </div>
                         <div class="form-group row">
-                            <label for="name_contact_person" class="col-md-5 col-form-label text-md-right">{{ __('Name of Contact Person') }}<span class="required">*</span></label>
+                            <label for="name_contact_person" class="col-md-5 col-form-label text-md-right">{{ __('Name') }}<span class="required">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="name_contact_person" type="text" class="form-control @error('name_contact_person') is-invalid @enderror" name="name_contact_person" value="{{ old('name_contact_person') }}" required>
@@ -213,7 +225,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="phone_number_contact_person" class="col-md-5 col-form-label text-md-right">{{ __('Phone Number of Contact Person') }}<span class="required">*</span></label>
+                            <label for="phone_number_contact_person" class="col-md-5 col-form-label text-md-right">{{ __('Phone Number') }}<span class="required">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="phone_number_contact_person" type="text" class="form-control @error('phone_number_contact_person') is-invalid @enderror" name="phone_number_contact_person" value="{{ old('phone_number_contact_person') }}" required>
@@ -226,6 +238,9 @@
                             </div>
                         </div>
 
+                        <div class="row mt-5">
+                            <h5 class="col-md-5 text-muted text-md-right">Credentials</h5>
+                        </div>
                         <div class="form-group row">
                             <label for="password" class="col-md-5 col-form-label text-md-right">{{ __('Password') }}<span class="required">*</span></label>
 

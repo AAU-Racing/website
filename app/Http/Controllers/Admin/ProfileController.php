@@ -14,15 +14,15 @@ class ProfileController extends Controller
     }
 
     public function showEditForm($id) {
-        // abort(403);
-
         $user = $this->userService->findById($id);
+        $this->authorize('edit profile', $user);
+
         return view('admin.profile.edit', ['user' => $user]);
     }
 
     public function edit(EditUserRequest $request, $id) {
         $user = $this->userService->findById($id);
-        // $user->syncRoles($request->input('roles'));
+        $this->authorize('edit profile', $user);
 
         return redirect()->route('admin::home');
     }

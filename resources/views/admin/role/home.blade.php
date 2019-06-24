@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center p-4">
         <table class="table roles-table">
-            <thead class="thead-light">
+            <thead class="thead-aau">
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col" class="roles-email-column">Email</th>

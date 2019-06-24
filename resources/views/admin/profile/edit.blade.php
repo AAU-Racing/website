@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Edit profile') }}</div>
+                <div class="card-header text-white bg-aau">{{ __('Edit profile') }}</div>
 
                 <div class="card-body">
                     <form method="POST">
@@ -15,7 +15,7 @@
                             <label for="firstname" class="col-md-5 col-form-label text-md-right">{{ __('First Name') }}<span class="required">*</span></label>
 
                             <div class="col-md-6">
-                                <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
+                                <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') ?? $user->firstname }}" required autocomplete="firstname" autofocus>
 
                                 @error('firstname')
                                 <span class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
                             <label for="lastname" class="col-md-5 col-form-label text-md-right">{{ __('Last Name') }}<span class="required">*</span></label>
 
                             <div class="col-md-6">
-                                <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname">
+                                <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') ?? $user->lastname }}" required autocomplete="lastname">
 
                                 @error('lastname')
                                 <span class="invalid-feedback" role="alert">
@@ -40,12 +40,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-5 col-form-label text-md-right">{{ __('Univeristy E-Mail Address') }}<span class="required">*</span></label>
+                            <label for="date_of_birth" class="col-md-5 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="date_of_birth" type="text" data-provide="datepicker" placeholder="dd-mm-yyyy" data-date-format="dd-mm-yyyy" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth" value="{{ old('date_of_birth') ?? $user->formatted_date_of_birth }}">
 
-                                @error('email')
+                                @error('date_of_birth')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -54,10 +54,18 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="email" class="col-md-5 col-form-label text-md-right">{{ __('University E-Mail Address') }}</span></label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control" value="{{ $user->email }}" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="phone_number" class="col-md-5 col-form-label text-md-right">{{ __('Phone Number') }}<span class="required">*</span></label>
 
                             <div class="col-md-6">
-                                <input id="phone_number" type="text" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required>
+                                <input id="phone_number" type="text" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') ?? $user->phone_number }}" required>
 
                                 @error('phone_number')
                                 <span class="invalid-feedback" role="alert">
@@ -67,11 +75,14 @@
                             </div>
                         </div>
 
+                        <div class="row mt-5">
+                            <h5 class="col-md-5 text-muted text-md-right">Address</h5>
+                        </div>
                         <div class="form-group row">
                             <label for="zip" class="col-md-5 col-form-label text-md-right">{{ __('Zip Code') }}<span class="required">*</span></label>
 
                             <div class="col-md-6">
-                                <input id="zip" type="text" class="form-control @error('zip') is-invalid @enderror" name="zip" value="{{ old('zip') }}" required>
+                                <input id="zip" type="text" class="form-control @error('zip') is-invalid @enderror" name="zip" value="{{ old('zip') ?? $user->address->zip }}" required>
 
                                 @error('zip')
                                 <span class="invalid-feedback" role="alert">
@@ -85,7 +96,7 @@
                             <label for="city" class="col-md-5 col-form-label text-md-right">{{ __('City') }}<span class="required">*</span></label>
 
                             <div class="col-md-6">
-                                <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}" required>
+                                <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') ?? $user->address->city }}" required>
 
                                 @error('city')
                                 <span class="invalid-feedback" role="alert">
@@ -99,9 +110,26 @@
                             <label for="address" class="col-md-5 col-form-label text-md-right">{{ __('Address') }}<span class="required">*</span></label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address">
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') ?? $user->address->address }}" required autocomplete="address">
 
                                 @error('address')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mt-5">
+                            <h5 class="col-md-5 text-muted text-md-right">Education</h5>
+                        </div>
+                        <div class="form-group row">
+                            <label for="education" class="col-md-5 col-form-label text-md-right">{{ __('Education') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="education" type="text" class="form-control @error('education') is-invalid @enderror" name="education" value="{{ old('education') ?? $user->education }}">
+
+                                @error('education')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -113,7 +141,7 @@
                             <label for="study_number" class="col-md-5 col-form-label text-md-right">{{ __('Study Number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="study_number" type="text" class="form-control @error('study_number') is-invalid @enderror" name="study_number" value="{{ old('study_number') }}">
+                                <input id="study_number" type="text" class="form-control @error('study_number') is-invalid @enderror" name="study_number" value="{{ old('study_number') ?? $user->study_number }}">
 
                                 @error('study_number')
                                 <span class="invalid-feedback" role="alert">
@@ -127,7 +155,7 @@
                             <label for="study_card_number" class="col-md-5 col-form-label text-md-right">{{ __('Study Card Number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="study_card_number" type="text" class="form-control @error('study_card_number') is-invalid @enderror" name="study_card_number" value="{{ old('study_card_number') }}">
+                                <input id="study_card_number" type="text" class="form-control @error('study_card_number') is-invalid @enderror" name="study_card_number" value="{{ old('study_card_number') ?? $user->study_card_number }}">
 
                                 @error('study_card_number')
                                 <span class="invalid-feedback" role="alert">
@@ -137,41 +165,16 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="education" class="col-md-5 col-form-label text-md-right">{{ __('Education') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="education" type="text" class="form-control @error('education') is-invalid @enderror" name="education" value="{{ old('education') }}">
-
-                                @error('education')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
+                        <div class="row mt-5">
+                            <h5 class="col-md-5 text-muted text-md-right">Car</h5>
                         </div>
-
                         <div class="form-group row">
                             <label for="drivers_license" class="col-md-5 col-form-label text-md-right">{{ __('Driver\'s License') }}</label>
 
                             <div class="col-md-6">
-                                <input id="drivers_license" type="text" class="form-control @error('drivers_license') is-invalid @enderror" name="drivers_license" value="{{ old('drivers_license') }}">
+                                <input id="drivers_license" type="text" class="form-control @error('drivers_license') is-invalid @enderror" name="drivers_license" value="{{ old('drivers_license') ?? ($user->drivers_license ? $user->drivers_license->license_number : '') }}">
 
                                 @error('drivers_license')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="date_of_birth" class="col-md-5 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="date_of_birth" type="date" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth" value="{{ old('date_of_birth') }}">
-
-                                @error('date_of_birth')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -185,9 +188,9 @@
                             <div class="col-md-6">
                                 <select id="car" class="form-control @error('car') is-invalid @enderror" name="car">
                                     <option>Not specified</option>
-                                    <option value="no" {{ (old('car') == 'no' ? 'selected': '') }}>No</option>
-                                    <option value="yes" {{ (old('car') == 'yes' ? 'selected': '') }}>Yes</option>
-                                    <option value="towbar" {{ (old('car') == 'towbar' ? 'selected': '') }}>Yes, with towbar</option>
+                                    <option value="no" {{ (!old('car') && !$user->car) || old('car') == 'no' ? 'selected': '' }}>No</option>
+                                    <option value="yes" {{ (!old('car') && $user->car && !$user->car->towbar) || old('car') == 'yes' ? 'selected': '' }}>Yes</option>
+                                    <option value="towbar" {{ (!old('car') && $user->car && $user->car->towbar) || old('car') == 'towbar' ? 'selected': '' }}>Yes, with towbar</option>
                                 </select>
 
                                 @error('car')
@@ -198,62 +201,54 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="name_contact_person" class="col-md-5 col-form-label text-md-right">{{ __('Name of Contact Person') }}<span class="required">*</span></label>
-
-                            <div class="col-md-6">
-                                <input id="name_contact_person" type="text" class="form-control @error('name_contact_person') is-invalid @enderror" name="name_contact_person" value="{{ old('name_contact_person') }}" required>
-
-                                @error('name_contact_person')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
+                        <div class="row mt-5 ml-1">
+                            <h5 class="text-muted">Contact persons</h5>
+                            <hr class="narrow-hr" />
                         </div>
 
-                        <div class="form-group row">
-                            <label for="phone_number_contact_person" class="col-md-5 col-form-label text-md-right">{{ __('Phone Number of Contact Person') }}<span class="required">*</span></label>
+                        @foreach($user->contactPersons as $contactPerson)
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input id="contact_person_name_{{ $contactPerson->id }}" placeholder="Name" type="text" class="form-control @error('contact_person['.$contactPerson->id.'][name]') is-invalid @enderror" name="contact_person['.$contactPerson->id.'][name]" value="{{ old('contact_person['.$contactPerson->id.'][name]') ?? $contactPerson->name }}">
 
-                            <div class="col-md-6">
-                                <input id="phone_number_contact_person" type="text" class="form-control @error('phone_number_contact_person') is-invalid @enderror" name="phone_number_contact_person" value="{{ old('phone_number_contact_person') }}" required>
+                                    @error('contact_person['.$contactPerson->id.'][name]')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <input id="contact_person_phone_number_{{ $contactPerson->id }}" placeholder="Phone Number" type="text" class="form-control @error('contact_person['.$contactPerson->id.'][phone_number]') is-invalid @enderror" name="contact_person['.$contactPerson->id.'][name]" value="{{ old('contact_person['.$contactPerson->id.'][phone_number]') ?? $contactPerson->phone_number }}">
 
-                                @error('phone_number_contact_person')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                                    @error('contact_person['.$contactPerson->id.'][phone_number]')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="col-md-3 col-6 d-flex flex-column justify-content-center">
+                                    <div class="custom-control custom-radio">
+                                      <input type="radio" id="contact_person_primary_{{ $contactPerson->id }}" name="primary" class="custom-control-input" {{ $contactPerson->primary ? 'checked' : ''}}>
+                                      <label class="custom-control-label" for="contact_person_primary_{{ $contactPerson->id }}">Primary</label>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                            @if(!$loop->last)
+                                <hr class="narrow-hr" />
+                            @endif
+                        @endforeach
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-5 col-form-label text-md-right">{{ __('Password') }}<span class="required">*</span></label>
+                        <div class="form-group row mb-0 mt-5 justify-content-center">
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('Update Profile') }}
+                            </button>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-5 col-form-label text-md-right">{{ __('Confirm Password') }}<span class="required">*</span></label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-5">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
+                            {{-- TODO: Change route --}}
+                            @if (Route::has('password.request'))
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Change password') }}
+                                </a>
+                            @endif
                         </div>
                     </form>
                 </div>

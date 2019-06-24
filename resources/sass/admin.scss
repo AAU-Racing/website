@@ -1,3 +1,4 @@
+// roles
 .roles-table {
     @include media-breakpoint-down(sm) {
         .roles-email-column {
@@ -6,6 +7,25 @@
     }
 }
 
+.role-edit-header {
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+
+    h4 {
+        margin: 8px;
+    }
+}
+
+.roles-back {
+    font-size: 1.35rem;
+
+    .fas {
+        margin: 8px;
+        line-height: 1.2;
+    }
+}
+
+// profile
 .profile {
     .card-header {
         display: flex;

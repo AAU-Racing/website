@@ -26,7 +26,7 @@
                 Date of Birth
             </div>
             <div class="profile-item-text col-lg-6">
-                {{ Auth::user()->date_of_birth->toDateString() }}
+                {{ Auth::user()->formatted_date_of_birth }}
             </div>
         </div>
         <div class="profile-item row">

@@ -175,7 +175,7 @@ footer {
 }
 
 .bg-aau {
-  background-color: #211d51 !important;
+    background-color: #211d51 !important;
 }
 
 .text-aau {
@@ -195,4 +195,10 @@ footer {
         color: white;
         text-decoration: none;
     }
+}
+
+.table .thead-aau th {
+    color: white;
+    background-color: #211d51;
+    border: 0;
 }
