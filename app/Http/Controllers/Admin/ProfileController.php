@@ -31,6 +31,9 @@ class ProfileController extends Controller
         $user = $this->userService->findById($id);
         $this->authorize('edit profile', $user);
 
+        $request->merge(array('date_of_birth' => date('Y-m-d', strtotime($request->input('date_of_birth')))));
+        $this->userService->update($user, $request);
+
         return redirect()->route('admin::home');
     }
 }

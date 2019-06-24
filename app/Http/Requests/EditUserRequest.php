@@ -38,6 +38,7 @@ class EditUserRequest extends FormRequest
             'drivers_license' => ['nullable', 'string', 'max:255', 'unique:drivers_licenses,license_number'],
             'car' => ['required', 'string', 'max:10', new HasCar],
             'primary' => ['required', 'in_array:contact_person.*.id'],
+            'contact_person' => ['required', 'min:1'],
             'contact_person.*.id' => ['required'],
             'contact_person.*.name' => ['required', 'string', 'max:255'],
             'contact_person.*.phone_number' => ['required', 'integer'],
