@@ -65,6 +65,7 @@ class UserService {
             $user->lastname = $request->input('lastname');
             $user->phone_number = $request->input('phone_number');
             $user->study_number = $request->input('study_number');
+            $user->study_card_number = $request->input('study_card_number');
             $user->education = $request->input('education');
             $user->date_of_birth = $request->input('date_of_birth');
 
@@ -117,5 +118,9 @@ class UserService {
 
             $user->push();
         });
+    }
+
+    public function all() {
+        return User::all();
     }
 }

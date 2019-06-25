@@ -211,12 +211,9 @@
                                 {{ __('Update Profile') }}
                             </button>
 
-                            {{-- TODO: Change route --}}
-                            @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Change password') }}
-                                </a>
-                            @endif
+                            <a class="btn btn-link" href="{{ route('auth::change_password') }}">
+                                {{ __('Change password') }}
+                            </a>
                         </div>
                     </form>
                 </div>

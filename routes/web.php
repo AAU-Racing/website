@@ -30,6 +30,7 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'names
     });
 
     Route::group(['prefix' => 'profile/', 'as' => 'profile::'], function() {
+        Route::get('/', 'ProfileController@index')->name('home');
         Route::get('/{id}', 'ProfileController@showEditForm')->name('editForm');
         Route::post('/{id}', 'ProfileController@edit')->name('edit');
     });

@@ -16686,12 +16686,6 @@ footer .footer-contact-text {
   border: 0;
 }
 
-@media (max-width: 767.98px) {
-  .roles-table .roles-email-column {
-    display: none;
-  }
-}
-
 .role-edit-header {
   margin-bottom: 0.5rem;
   border-radius: 0.25rem;
@@ -16722,6 +16716,10 @@ footer .footer-contact-text {
 
 .profile .profile-item .profile-item-text {
   color: #6c757d;
+}
+
+.profiles-table .date-of-birth {
+  min-width: 80px;
 }
 
 * {

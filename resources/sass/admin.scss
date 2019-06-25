@@ -1,12 +1,4 @@
 // roles
-.roles-table {
-    @include media-breakpoint-down(sm) {
-        .roles-email-column {
-          display: none
-        }
-    }
-}
-
 .role-edit-header {
     margin-bottom: 0.5rem;
     border-radius: 0.25rem;
@@ -45,5 +37,11 @@
         .profile-item-text {
             color: #6c757d;
         }
+    }
+}
+
+.profiles-table {
+    .date-of-birth {
+        min-width: 80px;
     }
 }

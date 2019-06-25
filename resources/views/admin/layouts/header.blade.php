@@ -10,22 +10,28 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
+                <li class="nav-item {{ Request::is('admin') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('admin::home') }}">Home</a>
                 </li>
+                @if(Auth::user()->hasRole('website-admin') || Auth::user()->hasRole('moderator'))
+                    <li class="nav-item {{ Request::is('admin/profile*') || Request::is('admin/role*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin::profile::home') }}">Users</a>
+                    </li>
+                @endif
 
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
 
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu dropdown-menu-right mb-2" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('auth::change_password') }}">Change password</a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
-                        <a class="dropdown-item" href="{{ route('auth::change_password') }}">Change password</a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf

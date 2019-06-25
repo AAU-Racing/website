@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Services\UserService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EditUserRequest;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
@@ -13,7 +15,16 @@ class ProfileController extends Controller
         $this->userService = $userService;
     }
 
-    public function showEditForm($id) {
+    public function index() {
+        $this->authorize('view all profiles');
+
+        $users = $this->userService->all();
+        return view('admin.profile.home', ['users' => $users]);
+    }
+
+    public function showEditForm(Request $request, $id) {
+        $request->session()->put('before-form', URL::previous());
+
         // We can fetch a user that is not the currently logged in user (e.g. an admin editing a profile)
         $user = $this->userService->findById($id);
         $this->authorize('edit profile', $user);
@@ -34,6 +45,14 @@ class ProfileController extends Controller
         $request->merge(array('date_of_birth' => date('Y-m-d', strtotime($request->input('date_of_birth')))));
         $this->userService->update($user, $request);
 
-        return redirect()->route('admin::home');
+        $previous = $request->session()->get('before-form');
+        $request->session()->forget('before-form');
+
+        if ($previous) {
+            return redirect($previous);
+        }
+        else {
+            return redirect()->route('admin::home');
+        }
     }
 }
