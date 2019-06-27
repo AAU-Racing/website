@@ -17,6 +17,9 @@
                     <li class="nav-item {{ Request::is('admin/profile*') || Request::is('admin/role*') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('admin::profile::home') }}">Users</a>
                     </li>
+                    <li class="nav-item {{ Request::is('admin/page*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin::page::home') }}">Website</a>
+                    </li>
                 @endif
 
                 <li class="nav-item dropdown">

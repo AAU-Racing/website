@@ -14,6 +14,12 @@
 
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="{{ asset('js/tinymce.js') }}" type="text/javascript"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea#editable'
+    });
+</script>
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 

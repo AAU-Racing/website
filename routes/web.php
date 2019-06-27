@@ -13,7 +13,7 @@
 
 Auth::routes(['verify' => true]);
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'PageController@index')->name('home');
 
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => '/password', 'as' => 'auth::'], function() {
     Route::get('', 'Auth\ChangePasswordController@showEditForm')->name('change_password');
@@ -33,5 +33,11 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'names
         Route::get('/', 'ProfileController@index')->name('home');
         Route::get('/{id}', 'ProfileController@showEditForm')->name('editForm');
         Route::post('/{id}', 'ProfileController@edit')->name('edit');
+    });
+
+    Route::group(['prefix' => 'page/', 'as' => 'page::'], function() {
+        Route::get('/', 'PageController@home')->name('home');
+        Route::get('/{page}', 'PageController@editForm')->where('page', 'front|about|contact|sponsor|recruitment')->name('editForm');
+        Route::post('/{page}', 'PageController@edit')->where('page', 'front|about|contact|sponsor|recruitment')->name('edit');
     });
 });
