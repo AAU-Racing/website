@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFooterLinksTable extends Migration
+class CreateCarsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateFooterLinksTable extends Migration
      */
     public function up()
     {
-        Schema::create('footer_links', function (Blueprint $table) {
+        Schema::create('cars', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->smallInteger('first_year');
+            $table->smallInteger('last_year')->nullable();
             $table->string('name');
-            $table->string('path');
-            $table->string('target')->default('_blank');
-            $table->integer('order');
+            $table->string('specifications');
+            $table->boolean('current');
+            $table->char('image_path', 300);
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateFooterLinksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('footer_links');
+        Schema::dropIfExists('cars');
     }
 }

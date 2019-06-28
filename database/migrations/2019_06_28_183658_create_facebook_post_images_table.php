@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFooterLinksTable extends Migration
+class CreateFacebookPostImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateFooterLinksTable extends Migration
      */
     public function up()
     {
-        Schema::create('footer_links', function (Blueprint $table) {
+        Schema::create('facebook_post_images', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('path');
-            $table->string('target')->default('_blank');
-            $table->integer('order');
+            $table->integer('facebook_post_id')->unique();
+            $table->foreign('facebook_post_id')->references('id')->on('facebook_posts')->onDelete('cascade');
+            $table->char('image_path', 300);
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateFooterLinksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('footer_links');
+        Schema::dropIfExists('facebook_post_images');
     }
 }

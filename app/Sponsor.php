@@ -5,11 +5,11 @@ namespace App;
 use App\Traits\Orderable;
 use Illuminate\Database\Eloquent\Model;
 
-class FooterLink extends Model
+class Sponsor extends Model
 {
     use Orderable;
 
     protected $fillable = [
-        'name', 'path', 'target'
+        'name', 'logo_path', 'link', 'active', 'order'
     ];
 }

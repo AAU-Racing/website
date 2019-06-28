@@ -2,21 +2,14 @@
 
 namespace App;
 
+use App\Traits\BelongsToUser;
 use Illuminate\Database\Eloquent\Model;
 
 class Avatar extends Model
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    use BelongsToUser;
+
     protected $fillable = [
         'path'
     ];
-
-
-    public function user() {
-        return $this->belongsTo('App\User');
-    }
 }

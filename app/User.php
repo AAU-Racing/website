@@ -11,29 +11,14 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable, HasRoles;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'firstname', 'lastname', 'email', 'password', 'study_number', 'alumni', 'education', 'date_of_birth', 'phone_number', 'study_card_number'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
         'date_of_birth' => 'date'
@@ -65,5 +50,9 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function contactPersons() {
         return $this->hasMany('App\ContactPerson');
+    }
+
+    public function departments() {
+        return $this->belongsToMany('App\Deparment')->withTimestamps();
     }
 }

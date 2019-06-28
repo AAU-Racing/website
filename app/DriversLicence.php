@@ -2,15 +2,13 @@
 
 namespace App;
 
+use App\Traits\BelongsToUser;
 use Illuminate\Database\Eloquent\Model;
 
 class DriversLicence extends Model
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    use BelongsToUser;
+
     protected $fillable = [
         'license_number'
     ];
