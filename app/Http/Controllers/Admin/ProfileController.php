@@ -27,6 +27,11 @@ class ProfileController extends Controller
 
         // We can fetch a user that is not the currently logged in user (e.g. an admin editing a profile)
         $user = $this->userService->findById($id);
+
+        if (!$user) {
+            abort(404);
+        }
+
         $this->authorize('edit profile', $user);
 
         // Fetch contact persons as a map
@@ -40,6 +45,11 @@ class ProfileController extends Controller
 
     public function edit(EditUserRequest $request, $id) {
         $user = $this->userService->findById($id);
+
+        if (!$user) {
+            abort(404);
+        }
+
         $this->authorize('edit profile', $user);
 
         $request->merge(array('date_of_birth' => date('Y-m-d', strtotime($request->input('date_of_birth')))));

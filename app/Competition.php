@@ -9,4 +9,8 @@ class Competition extends Model
     protected $fillable = [
         'name', 'year', 'country', 'link'
     ];
+
+    protected $casts = [
+        'year' => 'integer'
+    ];
 }

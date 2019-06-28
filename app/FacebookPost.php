@@ -10,6 +10,11 @@ class FacebookPost extends Model
         'facebook_id', 'permalink_url', 'message', 'shares', 'likes'
     ];
 
+    protected $casts = [
+        'shares' => 'integer',
+        'likes' => 'integer'
+    ];
+
     public function front_post(){
         return $this->morphOne('App\FrontPost', 'post');
     }

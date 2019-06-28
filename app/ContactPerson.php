@@ -12,4 +12,8 @@ class ContactPerson extends Model
     protected $fillable = [
         'name', 'phone_number', 'primary'
     ];
+
+    protected $casts = [
+        'primary' => 'boolean'
+    ];
 }

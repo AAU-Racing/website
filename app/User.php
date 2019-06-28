@@ -21,7 +21,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'date_of_birth' => 'date'
+        'date_of_birth' => 'date',
+        'alumni' => 'boolean',
     ];
 
     public function getNameAttribute() {

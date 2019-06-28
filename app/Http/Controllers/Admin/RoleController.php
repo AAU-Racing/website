@@ -26,6 +26,11 @@ class RoleController extends Controller
         $this->authorize('alter roles');
 
         $user = $this->userService->findById($id);
+
+        if (!$user) {
+            abort(404);
+        }
+
         $roles = Role::all();
         return view('admin.role.edit', ['user' => $user, 'roles' => $roles]);
     }
@@ -34,6 +39,11 @@ class RoleController extends Controller
         $this->authorize('alter roles');
 
         $user = $this->userService->findById($id);
+
+        if (!$user) {
+            abort(404);
+        }
+
         $user->syncRoles($request->input('roles'));
 
         return redirect()->route('admin::role::home');

@@ -2,10 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class SponsorController extends Controller
 {
-    //
+    function home() {
+        return view('admin.website.home');
+    }
+
+    function editForm($page) {
+        return view('admin.website.edit');
+    }
+
+    function edit($page) {
+        return view('admin.website.edit');
+    }
 }

@@ -16,8 +16,5 @@
 <script>
     export default {
         props: ['records', 'view', 'aux_data'],
-        updated: function() {
-            console.log('Parent updt');
-        },
     }
 </script>

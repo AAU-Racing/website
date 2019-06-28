@@ -13,4 +13,8 @@ class Car extends Model
     public function competition() {
         return $this->hasMany('App\Competition');
     }
+
+    protected $casts = [
+        'current' => 'boolean'
+    ];
 }

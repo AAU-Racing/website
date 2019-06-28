@@ -17,6 +17,11 @@ class PageController extends Controller
 
     public function page($page_name) {
         $page = Page::where('name', $page_name)->get();
+
+        if (!$page) {
+            abort(404);
+        }
+
         return view('page', ['page' => $page]);
     }
 }

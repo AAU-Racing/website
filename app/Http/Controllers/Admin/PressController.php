@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
-class CarouselSlidesController extends Controller
+class PressController extends Controller
 {
     function home() {
         return view('admin.website.home');

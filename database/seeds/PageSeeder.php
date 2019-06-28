@@ -12,26 +12,27 @@ class PageSeeder extends Seeder
      */
     public function run()
     {
-        $this->findByNameOrCreate('Home', 'home', 0, true, true);
-        $this->findByNameOrCreate('About', 'about', 1);
-        $this->findByNameOrCreate('The Cars', 'cars', 2, true, true);
-        $this->findByNameOrCreate('Pictures and Press', 'press', 3, false, true);
-        $this->findByNameOrCreate('The Team', 'team', 4, false, true);
-        $this->findByNameOrCreate('Join the team', 'join', 5);
-        $this->findByNameOrCreate('Sponsors', 'sponsors', 6);
-        $this->findByNameOrCreate('Contact', 'contact', 7);
+        $this->findByNameOrCreate('Home', 'home', true, true);
+        $this->findByNameOrCreate('About', 'about');
+        $this->findByNameOrCreate('The Cars', 'cars', true, true);
+        $this->findByNameOrCreate('Pictures and Press', 'press', false, true);
+        $this->findByNameOrCreate('The Team', 'team', false, true);
+        $this->findByNameOrCreate('Join the team', 'join');
+        $this->findByNameOrCreate('Sponsors', 'sponsors');
+        $this->findByNameOrCreate('Contact', 'contact');
     }
 
-    private function findByNameOrCreate($title, $name, $order, $editable = true, $special = false) {
-        $page = Page::where('name', $name)->get();
+    private function findByNameOrCreate($title, $name, $editable = true, $special = false) {
+        $page = Page::where('name', $name)->first();
 
         if (!$page) {
-            Page::create(['name' => $name,
-                'content' => 'This page is under construction.',
-                'title' => $title,
-                'order' => $order,
-                'editable' => $editable,
-                'special' => $special]);
+            $page = new Page();
+            $page->name = $name;
+            $page->content = 'This page is under construction.';
+            $page->title = $title;
+            $page->editable = $editable;
+            $page->special = $special;
+            $page->save();
         }
 
     }

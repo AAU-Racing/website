@@ -12,4 +12,8 @@ class MemberCar extends Model
     protected $fillable = [
         'towbar'
     ];
+
+    protected $casts = [
+        'towbar' => 'boolean'
+    ];
 }

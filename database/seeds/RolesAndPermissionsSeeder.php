@@ -33,26 +33,15 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::findOrCreate('edit carousel slides');
         Permission::findOrCreate('delete carousel slides');
 
-        // About page
-        Permission::findOrCreate('edit about page');
-
-        // Home page - welcome
-        Permission::findOrCreate('edit home page');
-
-        // Recruitment page
-        Permission::findOrCreate('edit recruitment page');
+        // Pages
+        Permission::findOrCreate('view pages');
+        Permission::findOrCreate('edit pages');
 
         // Sponsors
         Permission::findOrCreate('create sponsors');
         Permission::findOrCreate('edit sponsors');
         Permission::findOrCreate('delete sponsors');
         Permission::findOrCreate('view disabled sponsors');
-
-        // Sponsor page
-        Permission::findOrCreate('edit sponsor page');
-
-        // Contact page
-        Permission::findOrCreate('edit contact page');
 
         // Cars
         Permission::findOrCreate('create cars');

@@ -24,8 +24,8 @@
 
                                     @error('firstname')
                                     <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
                             </div>
@@ -42,8 +42,8 @@
 
                                     @error('lastname')
                                     <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
                             </div>
@@ -60,8 +60,8 @@
 
                                     @error('date_of_birth')
                                     <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
                             </div>
@@ -78,8 +78,8 @@
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
                             </div>
@@ -97,8 +97,8 @@
 
                                     @error('phone_number')
                                     <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
                             </div>
@@ -116,8 +116,8 @@
 
                                     @error('zip')
                                     <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
                             </div>
@@ -133,8 +133,8 @@
 
                                     @error('city')
                                     <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
                             </div>
@@ -150,8 +150,8 @@
 
                                     @error('address')
                                     <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
                             </div>
@@ -170,8 +170,8 @@
 
                                     @error('education')
                                     <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
                             </div>
@@ -187,8 +187,8 @@
 
                                     @error('study_number')
                                     <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
                             </div>
@@ -204,8 +204,8 @@
 
                                     @error('study_card_number')
                                     <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
                             </div>
@@ -224,8 +224,8 @@
 
                                     @error('drivers_license')
                                     <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
                             </div>
@@ -246,8 +246,8 @@
 
                                     @error('car')
                                     <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
                             </div>
@@ -267,8 +267,8 @@
 
                                     @error('name_contact_person')
                                     <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
                             </div>
@@ -286,8 +286,8 @@
 
                                     @error('phone_number_contact_person')
                                     <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
                             </div>
@@ -306,8 +306,8 @@
 
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
                             </div>
