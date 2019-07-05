@@ -53,8 +53,8 @@
                         </div>
                     </div>
                     <div class="card-text">
-                        <div class="mt-3">
-                            <a href="#" class="btn btn-primary">Gem rækkefølge</a>
+                        <div class="mt-3 float-right">
+                            <a href="#" class="btn btn-primary">Save order</a>
                             <a href="#" class="btn btn-primary"><i class="fas fa-plus"></i></a>
                         </div>
                     </div>

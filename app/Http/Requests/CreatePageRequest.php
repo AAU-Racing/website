@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePageRequest extends FormRequest
+class CreatePageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,9 @@ class UpdatePageRequest extends FormRequest
     public function rules()
     {
         return [
-            // TODO: Add HTML purifier and max length title
+            'name' => ['required', 'string', 'max:255'],
+            'title' => ['required', 'string', 'max:255'],
+            'content' => ['required', 'string']
         ];
     }
 }

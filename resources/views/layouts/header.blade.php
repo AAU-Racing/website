@@ -1,3 +1,5 @@
+@inject('page_service', 'App\Services\PageService')
+
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
@@ -10,9 +12,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto @auth logged-in @endauth">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('home') }}">Home</a>
-                </li>
+                @foreach($page_service->getAllPages() as $page)
+                    <li class="nav-item {{ Request::is($page->name) ? 'active' : '' }}">
+                        <a class="nav-link" href="/{{ $page->name }}">{{ $page -> title }}</a>
+                    </li>
+                @endforeach
 
 
                 @auth

@@ -2,23 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Page;
+use App\Services\PageService;
+use Illuminate\Support\Facades\Log;
 
 class PageController extends Controller
 {
-    public function __construct()
-    {
+    public function __construct(PageService $service) {
+        $this->service = $service;
     }
 
-    public function index()
-    {
+    public function index() {
         return view('home');
     }
 
-    public function page($page_name) {
-        $page = Page::where('name', $page_name)->get();
+    public function page(string $name) {
+        $page = $this->service->findByName($name);
 
-        if (!$page) {
+        Log::info("Getting page", ['page' => $page]);
+
+        if ($page->special) {
             abort(404);
         }
 

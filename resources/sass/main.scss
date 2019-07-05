@@ -64,11 +64,14 @@ html, body {
 
       &:hover {
         text-decoration: none;
+        background-color: #eee;
       }
 
       .nav-link {
         font-weight: bold;
         color: #211d51;
+        padding-left: 0;
+        padding-right: 0;
 
         &:hover {
           text-decoration: none;
@@ -202,4 +205,44 @@ footer {
     color: white;
     background-color: $aau-primary;
     border: 0;
+}
+
+.table td.fit, .table th.fit {
+  white-space: nowrap;
+  width: 1%;
+
+  &:last-child {
+    padding-right: 24px;
+  }
+}
+
+.nav-pills-aau {
+  .nav-link {
+    background-color: white;
+    color: $aau-primary;
+  }
+
+  .nav-link.active {
+    background-color: $aau-primary;
+    color: white;
+  }
+}
+
+.btn.btn-outline-aau {
+  color: $aau-primary;
+  border-color: $aau-primary;
+
+  &:hover {
+    color: white;
+    border-color: $aau-primary;
+    background-color: $aau-primary;
+  }
+}
+
+.no-border {
+  border: none !important;
+}
+
+.no-padding {
+  padding: 0 !important;
 }

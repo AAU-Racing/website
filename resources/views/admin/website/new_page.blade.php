@@ -12,10 +12,10 @@
                     @csrf
 
                     <div class="form-group row">
-                        <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}</label>
+                        <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
-                            <input readonly id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ?? $page->name }}">
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autofocus>
 
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
                         <label for="title" class="col-md-2 col-form-label text-md-right">{{ __('Title') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
-                            <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') ?? $page->title }}" required autofocus>
+                            <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required>
 
                             @error('title')
                             <span class="invalid-feedback" role="alert">
@@ -43,7 +43,7 @@
                         <label for="editable" class="col-md-2 col-form-label text-md-right">{{ __('Content') }}<span class="required">*</span></label>
 
                         <div class="col-md-10">
-                            <textarea id="editable" class="wysiwyg-editor" name="content">{{ old('content') ?? $page->content }}</textarea>
+                            <textarea id="editable" class="wysiwyg-editor" name="content">{{ old('content') }}</textarea>
 
                             @error('content')
                             <span class="invalid-feedback" role="alert">

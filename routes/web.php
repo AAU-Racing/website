@@ -15,6 +15,8 @@ Auth::routes(['verify' => true]);
 
 Route::get('/', 'PageController@index')->name('home');
 
+Route::get('/{page}', 'PageController@page')->name('page');
+
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => '/password', 'as' => 'auth::'], function() {
     Route::get('', 'Auth\ChangePasswordController@showEditForm')->name('change_password');
     Route::post('', 'Auth\ChangePasswordController@edit')->name('change_password_post');
@@ -36,10 +38,13 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'names
     });
 
     Route::group(['prefix' => 'page/', 'as' => 'page::'], function() {
+        Route::get('/new', 'PageController@addForm')->name('addForm');
+        Route::post('/new', 'PageController@add')->name('add');
         Route::get('/', 'PageController@home')->name('home');
         Route::post('/', 'PageController@editOrder')->name('editOrder');
         Route::get('/{id}', 'PageController@editForm')->name('editForm');
         Route::post('/{id}', 'PageController@edit')->name('edit');
+        Route::delete('/{id}', 'PageController@delete')->name('delete');
     });
 
     Route::group(['prefix' => 'car/', 'as' => 'car::'], function() {
