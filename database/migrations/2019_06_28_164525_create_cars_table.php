@@ -19,8 +19,6 @@ class CreateCarsTable extends Migration
             $table->smallInteger('last_year')->nullable();
             $table->string('name');
             $table->string('specifications');
-            $table->boolean('current');
-            $table->char('image_path', 300);
             $table->timestamps();
         });
     }

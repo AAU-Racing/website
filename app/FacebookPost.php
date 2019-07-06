@@ -15,11 +15,13 @@ class FacebookPost extends Model
         'likes' => 'integer'
     ];
 
-    public function front_post(){
+    public function front_post()
+    {
         return $this->morphOne('App\FrontPost', 'post');
     }
 
-    public function images() {
+    public function images()
+    {
         return $this->hasMany('App\FacebookPostImage');
     }
 }

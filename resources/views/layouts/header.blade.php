@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto @auth logged-in @endauth">
-                @foreach($page_service->getAllPages() as $page)
+                @foreach($page_service->getAll() as $page)
                     <li class="nav-item {{ Request::is($page->name) ? 'active' : '' }}">
                         <a class="nav-link" href="/{{ $page->name }}">{{ $page -> title }}</a>
                     </li>

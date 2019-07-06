@@ -11,18 +11,23 @@ use Illuminate\Support\Facades\Validator;
 
 class PageController extends Controller
 {
-    public function __construct(PageService $service) {
+    private $service;
+
+    public function __construct(PageService $service)
+    {
         $this->service = $service;
     }
 
-    public function home() {
+    public function home()
+    {
         $this->authorize('view pages');
         $pages = $this->service->getAll();
 
         return view('admin.website.pages.home', ['pages' => $pages]);
     }
 
-    public function editOrder(Request $request) {
+    public function editOrder(Request $request)
+    {
         $this->authorize('edit pages');
         $data = json_decode($request->input('page_order'), true);
         $rules = [
@@ -39,14 +44,16 @@ class PageController extends Controller
         }
     }
 
-    public function editForm($id) {
+    public function editForm($id)
+    {
         $this->authorize('edit pages');
         $page = $this->service->findById($id);
 
-        return view('admin.website.pages.edit', ['id' => $page->id]);
+        return view('admin.website.pages.edit', ['page' => $page]);
     }
 
-    public function edit($id, EditPageRequest $request) {
+    public function edit($id, EditPageRequest $request)
+    {
         $this->authorize('edit pages');
         $page = $this->service->findById($id);
         $this->service->update($page, $request);
@@ -54,7 +61,8 @@ class PageController extends Controller
         return redirect()->route('admin::page::editForm', ['id' => $page->id]);
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
         $this->authorize('edit pages');
         $page = $this->service->findById($id);
 
@@ -67,15 +75,17 @@ class PageController extends Controller
         return redirect()->route('admin::page::home');
     }
 
-    public function addForm() {
+    public function addForm()
+    {
         $this->authorize('edit pages');
         return view('admin.website.pages.add');
     }
 
-    public function add(CreatePageRequest $request) {
+    public function add(CreatePageRequest $request)
+    {
         $this->authorize('edit pages');
-        $this->service->create($request);
+        $page = $this->service->create($request);
 
-        return redirect()->route('admin::page::editForm');
+        return redirect()->route('admin::page::editForm', ['id' => $page->id]);
     }
 }

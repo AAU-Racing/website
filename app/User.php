@@ -2,14 +2,16 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail, HasMedia
 {
-    use Notifiable, HasRoles;
+    use Notifiable, HasRoles, HasMediaTrait;
 
     protected $fillable = [
         'firstname', 'lastname', 'email', 'password', 'study_number', 'alumni', 'education', 'date_of_birth', 'phone_number', 'study_card_number'
@@ -25,35 +27,44 @@ class User extends Authenticatable implements MustVerifyEmail
         'alumni' => 'boolean',
     ];
 
-    public function getNameAttribute() {
+    public function getNameAttribute()
+    {
         return $this->firstname . ' ' . $this->lastname;
     }
 
-    public function getFormattedDateOfBirthAttribute() {
+    public function getFormattedDateOfBirthAttribute()
+    {
         return $this->date_of_birth ? $this->date_of_birth->format('d-m-Y') : '';
     }
 
-    public function address() {
+    public function address()
+    {
         return $this->hasOne('App\Address');
     }
 
-    public function avatar() {
-        return $this->hasOne('App\Avatar');
-    }
-
-    public function driversLicence() {
+    public function driversLicence()
+    {
         return $this->hasOne('App\DriversLicence');
     }
 
-    public function car() {
+    public function car()
+    {
         return $this->hasOne('App\MemberCar');
     }
 
-    public function contactPersons() {
+    public function contactPersons()
+    {
         return $this->hasMany('App\ContactPerson');
     }
 
-    public function departments() {
+    public function departments()
+    {
         return $this->belongsToMany('App\Deparment')->withTimestamps();
+    }
+
+    public function registerMediaCollections()
+    {
+        $this->addMediaCollection('avatar')
+            ->singleFile();
     }
 }

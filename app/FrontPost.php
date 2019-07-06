@@ -10,7 +10,8 @@ class FrontPost extends Model
         'posted_at'
     ];
 
-    public function post() {
+    public function post()
+    {
         return $this->morphTo();
     }
 }

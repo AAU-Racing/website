@@ -6,15 +6,18 @@ use App\Http\Controllers\Controller;
 
 class SponsorController extends Controller
 {
-    function home() {
+    function home()
+    {
         return view('admin.website.home');
     }
 
-    function editForm($page) {
+    function editForm($page)
+    {
         return view('admin.website.edit');
     }
 
-    function edit($page) {
+    function edit($page)
+    {
         return view('admin.website.edit');
     }
 }

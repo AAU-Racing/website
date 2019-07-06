@@ -7,6 +7,7 @@ Vue.component('edit-row', require('./components/EditRowComponent.vue').default);
 Vue.component('contact-person', require('./components/ContactPersonComponent.vue').default);
 Vue.component('contact-person-table', require('./components/ContactPersonTableComponent.vue').default);
 Vue.component('pages-table', require('./components/PagesTableComponent.vue').default);
+Vue.component('file-upload', require('./components/FileUpload.vue').default);
 
 
 /**

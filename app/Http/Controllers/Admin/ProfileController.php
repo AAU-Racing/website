@@ -2,31 +2,35 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Services\UserService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EditUserRequest;
-use Illuminate\Support\Facades\URL;
+use App\Services\UserService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 
 class ProfileController extends Controller
 {
+    private $service;
+
     public function __construct(UserService $userService)
     {
-        $this->userService = $userService;
+        $this->service = $userService;
     }
 
-    public function index() {
+    public function index()
+    {
         $this->authorize('view all profiles');
 
-        $users = $this->userService->all();
+        $users = $this->service->all();
         return view('admin.profile.home', ['users' => $users]);
     }
 
-    public function showEditForm(Request $request, $id) {
+    public function showEditForm(Request $request, $id)
+    {
         $request->session()->put('before-form', URL::previous());
 
         // We can fetch a user that is not the currently logged in user (e.g. an admin editing a profile)
-        $user = $this->userService->findById($id);
+        $user = $this->service->findById($id);
 
         if (!$user) {
             abort(404);
@@ -43,8 +47,9 @@ class ProfileController extends Controller
         return view('admin.profile.edit', ['user' => $user, 'contactPersons' => $contactPersons, 'primary' => $primary]);
     }
 
-    public function edit(EditUserRequest $request, $id) {
-        $user = $this->userService->findById($id);
+    public function edit(EditUserRequest $request, $id)
+    {
+        $user = $this->service->findById($id);
 
         if (!$user) {
             abort(404);
@@ -53,15 +58,14 @@ class ProfileController extends Controller
         $this->authorize('edit profile', $user);
 
         $request->merge(array('date_of_birth' => date('Y-m-d', strtotime($request->input('date_of_birth')))));
-        $this->userService->update($user, $request);
+        $this->service->update($user, $request);
 
         $previous = $request->session()->get('before-form');
         $request->session()->forget('before-form');
 
         if ($previous) {
             return redirect($previous);
-        }
-        else {
+        } else {
             return redirect()->route('admin::home');
         }
     }

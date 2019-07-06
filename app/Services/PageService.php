@@ -7,8 +7,10 @@ use App\Http\Requests\CreatePageRequest;
 use App\Page;
 use Mews\Purifier\Facades\Purifier;
 
-class PageService {
-    function findById($id) {
+class PageService
+{
+    function findById($id)
+    {
         $page = Page::find($id);
 
         if (!$page) {
@@ -18,7 +20,8 @@ class PageService {
         return $page;
     }
 
-    function findByName(string $name) {
+    function findByName(string $name)
+    {
         $page = Page::where('name', $name)->first();
 
         if (!$page) {
@@ -28,15 +31,18 @@ class PageService {
         return $page;
     }
 
-    function getAll() {
+    function getAll()
+    {
         return Page::ordered()->get();
     }
 
-    function setNewOrder(array $data) {
+    function setNewOrder(array $data)
+    {
         Page::setNewOrder($data);
     }
 
-    function create(CreatePageRequest $request) {
+    function create(CreatePageRequest $request)
+    {
         return Page::create([
             'name' => strtolower($request->input('name')),
             'title' => $request->input('title'),
@@ -44,7 +50,8 @@ class PageService {
         ]);
     }
 
-    function update($page, $request) {
+    function update($page, $request)
+    {
         $page->title = $request->input('title');
         $page->content = Purifier::clean($request->input('content'));
         $page->save();

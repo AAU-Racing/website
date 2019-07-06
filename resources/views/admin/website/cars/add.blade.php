@@ -4,11 +4,11 @@
     <div class="container-fluid">
         <div class="row p-4">
             <div class="col-md-3 col-xl-2">
-                @component('admin.components.website_nav', ['pages' => 'active', 'flex' => 'md'])
+                @component('admin.components.website_nav', ['cars' => 'active', 'flex' => 'md'])
                 @endcomponent
             </div>
             <div class="col-md-9 col-xl-8">
-                <form method="POST">
+                <form method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group row">
@@ -26,12 +26,26 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="title" class="col-md-2 col-form-label text-md-right">{{ __('Title') }}<span class="required">*</span></label>
+                        <label for="first_year" class="col-md-2 col-form-label text-md-right">{{ __('First Year') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
-                            <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required>
+                            <input id="first_year" type="text" class="form-control @error('first_year') is-invalid @enderror" name="first_year" value="{{ old('first_year') }}" required>
 
-                            @error('title')
+                            @error('first_year')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="last_year" class="col-md-2 col-form-label text-md-right">{{ __('Last Year') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="last_year" type="text" class="form-control @error('last_year') is-invalid @enderror" name="last_year" value="{{ old('last_year') }}">
+
+                            @error('last_year')
                             <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -40,12 +54,26 @@
                     </div>
 
                     <div class="form-group row">
+                        <div class="col-md-2 col-form-label text-md-right">{{ __('Photo') }}<span class="required">*</span></div>
+
+                        <div class="col-md-6">
+                            <file-upload invalid="{{ $errors->has('photo') }}" name="photo" placeholder="Choose a photo of the car" required>
+                                @error('photo')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </file-upload>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <label for="editable" class="col-md-2 col-form-label text-md-right">{{ __('Content') }}<span class="required">*</span></label>
 
                         <div class="col-md-10">
-                            <textarea id="editable" class="wysiwyg-editor" name="content">{{ old('content') }}</textarea>
+                            <textarea id="editable" class="wysiwyg-editor" name="specifications">{{ old('specifications') }}</textarea>
 
-                            @error('content')
+                            @error('specifications')
                             <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

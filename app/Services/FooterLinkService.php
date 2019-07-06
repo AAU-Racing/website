@@ -4,6 +4,7 @@
 namespace App\Services;
 
 
-class FooterLinkService {
+class FooterLinkService
+{
 
 }

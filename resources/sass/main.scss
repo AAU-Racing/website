@@ -173,6 +173,33 @@ footer {
     padding: 5px 10px;
 }
 
+// Pages
+.car {
+
+  .car-body {
+    position: relative;
+
+    .car-image {
+      width: 100%;
+    }
+
+    @include media-breakpoint-up(md) {
+      .car-image {
+        position: absolute;
+        top: 0;
+        right: 0;
+        max-width: 20vw;
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      .car-image {
+        max-width: 15vw;
+      }
+    }
+  }
+}
+
 // Misc
 .required {
     color: $red;
@@ -245,4 +272,8 @@ footer {
 
 .no-padding {
   padding: 0 !important;
+}
+
+.page-padding {
+  padding: 1.5rem 60px;
 }

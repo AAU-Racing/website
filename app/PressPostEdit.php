@@ -13,7 +13,8 @@ class PressPostEdit extends Model
         'title', 'content'
     ];
 
-    public function post() {
+    public function post()
+    {
         return $this->belongsTo('App\PressPost');
     }
 }

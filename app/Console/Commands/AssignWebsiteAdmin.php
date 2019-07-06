@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
 use App\User;
+use Illuminate\Console\Command;
 
 class AssignWebsiteAdmin extends Command
 {
@@ -43,8 +43,7 @@ class AssignWebsiteAdmin extends Command
 
         if (!$user) {
             $this->error(sprintf('No user with email, %s, exists', $email));
-        }
-        else {
+        } else {
             $user->assignRole('website-admin');
         }
     }

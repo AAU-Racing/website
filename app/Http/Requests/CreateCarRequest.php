@@ -13,7 +13,7 @@ class CreateCarRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,18 @@ class CreateCarRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required', 'string'],
+            'first_year' => ['required', 'integer'],
+            'last_year' => ['nullable', 'integer', 'gte:first_year'],
+            'specifications' => ['required', 'string'],
+            'photo' => ['required', 'image']
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'photo.image' => 'The file must be an image.',
         ];
     }
 }

@@ -15,7 +15,7 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">First year</th>
                                 <th scope="col">Last year</th>
-                                <th scope="col">Current car</th>
+                                <th scope="col">Image</th>
                                 @can('edit cars')<th scope="col" class="fit"></th>@endcan
                                 @can('delete cars')<th scope="col" class="fit"></th>@endcan
                             </tr>
@@ -26,15 +26,13 @@
                                     <td scope="row">{{ $car->name }}</td>
                                     <td>{{ $car->first_year }}</td>
                                     <td>{{ $car->last_year }}</td>
-                                    <td>
-                                        @if($car->current)<i class="fas fa-times"></i>@endif
-                                    </td>
+                                    <td>{{ $car->getFirstMedia('photos') ? $car->getFirstMedia('photos')->file_name : '' }}</td>
                                     <td class="fit">
                                         <a href="{{ route('admin::car::editForm', ['id' => $car->id]) }}"><i class="fas fa-edit"></i></a>
                                     </td>
                                     @can('delete cars')
                                         <td class="fit">
-                                            <form method="POST" v-if="!page.special" action="{{ route('admin::car::delete', ['id' => $car->id]) }}" >
+                                            <form method="POST" action="{{ route('admin::car::delete', ['id' => $car->id]) }}" >
                                                 @method('delete')
                                                 @csrf
                                                 <button type="submit" class="btn btn-link no-border no-padding"><i class="fas fa-trash"></i></button>

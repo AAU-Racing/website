@@ -29,11 +29,13 @@ class Page extends Model implements Sortable
 
     protected $appends = ['edit_url', 'delete_url'];
 
-    public function getEditUrlAttribute() {
+    public function getEditUrlAttribute()
+    {
         return route('admin::page::editForm', ['id' => $this->id]);
     }
 
-    public function getDeleteUrlAttribute() {
+    public function getDeleteUrlAttribute()
+    {
         return route('admin::page::delete', ['id' => $this->id]);
     }
 }

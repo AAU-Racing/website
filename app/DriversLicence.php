@@ -13,7 +13,8 @@ class DriversLicence extends Model
         'license_number'
     ];
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo('App\User');
     }
 }

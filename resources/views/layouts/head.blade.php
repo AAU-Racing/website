@@ -14,7 +14,7 @@
 
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="{{ asset('js/tinymce.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/tinymce.min.js') }}" type="text/javascript"></script>
 <script>
     tinymce.init({
         selector: 'textarea#editable'

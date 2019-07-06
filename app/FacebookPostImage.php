@@ -10,7 +10,8 @@ class FacebookPostImage extends Model
         'image_path'
     ];
 
-    public function post() {
+    public function post()
+    {
         return $this->belongsTo('App\FacebookPost');
     }
 }

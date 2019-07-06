@@ -5,12 +5,14 @@ namespace App\Services;
 use App\ContactPerson;
 use App\Http\Requests\EditUserRequest;
 use App\User;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
-class UserService {
-    function create($data) {
-        return DB::transaction(function() use ($data) {
+class UserService
+{
+    function create($data)
+    {
+        return DB::transaction(function () use ($data) {
             $user = User::create([
                 'firstname' => $data['firstname'],
                 'lastname' => $data['lastname'],
@@ -51,16 +53,19 @@ class UserService {
         });
     }
 
-    function getAllUsers() {
+    function getAllUsers()
+    {
         return User::all();
     }
 
-    function findById($id) {
+    function findById($id)
+    {
         return User::find($id);
     }
 
-    function update($user, EditUserRequest $request) {
-        DB::transaction(function() use ($user, $request) {
+    function update($user, EditUserRequest $request)
+    {
+        DB::transaction(function () use ($user, $request) {
             $user->firstname = $request->input('firstname');
             $user->lastname = $request->input('lastname');
             $user->phone_number = $request->input('phone_number');
@@ -77,11 +82,9 @@ class UserService {
                 $user->driversLicence()->create([
                     'license_number' => $request->input('drivers_license')
                 ]);
-            }
-            else if ($user->driversLicence && !$request->input('drivers_license')) {
+            } else if ($user->driversLicence && !$request->input('drivers_license')) {
                 $user->driversLicence()->delete();
-            }
-            else if ($user->driversLicence && $request->input('drivers_license')) {
+            } else if ($user->driversLicence && $request->input('drivers_license')) {
                 $user->driversLicence()->license_number = $request->input('drivers_license');
             }
 
@@ -89,11 +92,9 @@ class UserService {
                 $user->car()->create([
                     'towbar' => $request->input('car') == 'towbar'
                 ]);
-            }
-            else if ($user->car && $request->input('car') == 'no') {
+            } else if ($user->car && $request->input('car') == 'no') {
                 $user->car()->delete();
-            }
-            else if (!$user->car && $request->input('car') != 'no') {
+            } else if (!$user->car && $request->input('car') != 'no') {
                 $user->car()->towbar = $request->input('car') == 'towbar';
             }
 
@@ -106,8 +107,7 @@ class UserService {
                     $existing->name = $contactPerson['name'];
                     $existing->phone_number = $contactPerson['phone_number'];
                     $existing->primary = $request->input('primary') == $existing->id;
-                }
-                else {
+                } else {
                     $user->contactPersons()->create([
                         'name' => $contactPerson['name'],
                         'phone_number' => $contactPerson['phone_number'],
@@ -120,7 +120,8 @@ class UserService {
         });
     }
 
-    public function all() {
+    public function all()
+    {
         return User::all();
     }
 }
