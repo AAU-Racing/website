@@ -28,7 +28,7 @@ class PageService {
         return $page;
     }
 
-    function getAllPages() {
+    function getAll() {
         return Page::ordered()->get();
     }
 
@@ -36,7 +36,7 @@ class PageService {
         Page::setNewOrder($data);
     }
 
-    function createNewPage(CreatePageRequest $request) {
+    function create(CreatePageRequest $request) {
         return Page::create([
             'name' => strtolower($request->input('name')),
             'title' => $request->input('title'),
@@ -44,7 +44,7 @@ class PageService {
         ]);
     }
 
-    function updatePage($page, $request) {
+    function update($page, $request) {
         $page->title = $request->input('title');
         $page->content = Purifier::clean($request->input('content'));
         $page->save();

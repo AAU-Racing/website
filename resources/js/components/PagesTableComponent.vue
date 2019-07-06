@@ -1,6 +1,6 @@
 <template>
     <div class="table-responsive">
-        <table class="table roles-table" v-if="!can_edit_pages">
+        <table class="table" v-if="!can_edit_pages">
             <thead class="thead-aau">
                 <tr>
                     <th scope="col">Name</th>
@@ -14,7 +14,7 @@
                 </tr>
             </tbody>
         </table>
-        <table class="table roles-table"
+        <table class="table"
                v-if="can_edit_pages">
             <thead slot="header">
                 <tr class="thead-aau">

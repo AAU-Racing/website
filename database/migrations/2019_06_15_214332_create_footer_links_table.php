@@ -19,6 +19,7 @@ class CreateFooterLinksTable extends Migration
             $table->string('path');
             $table->string('target')->default('_blank');
             $table->integer('order');
+            $table->boolean('active')->default('true');
             $table->timestamps();
         });
     }

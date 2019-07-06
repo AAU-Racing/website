@@ -33,7 +33,7 @@ class RegisterController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @return void
+     * @param UserService $userService
      */
     public function __construct(UserService $userService)
     {

@@ -17,10 +17,11 @@ class FooterLink extends Model implements Sortable
     ];
 
     protected $fillable = [
-        'name', 'path', 'target'
+        'name', 'path', 'target', 'active'
     ];
 
     protected $casts = [
-        'order' => 'integer'
+        'order' => 'integer',
+        'active' => 'boolean'
     ];
 }

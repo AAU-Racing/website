@@ -94,7 +94,7 @@ class RolesAndPermissionsSeeder extends Seeder
     }
 
     protected function createRolesAndAssignPermissions() {
-        $role = Role::findOrCreate('member')->givePermissionTo([
+        Role::findOrCreate('member')->givePermissionTo([
             'view disabled footer links',
             'view disabled sponsors',
             'create training sessions',
@@ -106,7 +106,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'view files'
         ]);
 
-        $role = Role::findOrCreate('alumni')->givePermissionTo([
+        Role::findOrCreate('alumni')->givePermissionTo([
             'view disabled footer links',
             'view disabled sponsors',
             'view training sessions',
@@ -115,8 +115,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'view files'
         ]);
 
-        // or may be done by chaining
-        $role = Role::findOrCreate('moderator')->givePermissionTo([
+        Role::findOrCreate('moderator')->givePermissionTo([
                 'create footer links',
                 'edit footer links',
                 'delete footer links',

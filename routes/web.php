@@ -11,17 +11,21 @@
 |
 */
 
+
+// Authentication and authorization
 Auth::routes(['verify' => true]);
-
-Route::get('/', 'PageController@index')->name('home');
-
-Route::get('/{page}', 'PageController@page')->name('page');
 
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => '/password', 'as' => 'auth::'], function() {
     Route::get('', 'Auth\ChangePasswordController@showEditForm')->name('change_password');
     Route::post('', 'Auth\ChangePasswordController@edit')->name('change_password_post');
 });
 
+// Base
+Route::get('/', function () {
+    return redirect('home');
+});
+
+// Admin
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'namespace' => 'Admin', 'as' => 'admin::'], function() {
     Route::get('/', 'HomeController@index')->name('home');
 
@@ -48,9 +52,12 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'names
     });
 
     Route::group(['prefix' => 'car/', 'as' => 'car::'], function() {
+        Route::get('/new', 'CarController@addForm')->name('addForm');
+        Route::post('/new', 'CarController@add')->name('add');
         Route::get('/', 'CarController@home')->name('home');
         Route::get('/{id}', 'CarController@editForm')->name('editForm');
         Route::post('/{id}', 'CarController@edit')->name('edit');
+        Route::delete('/{id}', 'CarController@delete')->name('delete');
     });
 
     Route::group(['prefix' => 'competition/', 'as' => 'competition::'], function() {
@@ -77,3 +84,8 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'names
         Route::post('/{id}', 'PressController@edit')->name('edit');
     });
 });
+
+// Public pages
+Route::get('/home', 'PageController@index')->name('home');
+
+Route::get('/{page}', 'PageController@page')->name('page');
