@@ -1,6 +1,6 @@
 <template>
     <fragment>
-        <edit-table :view="view" :records="records" :aux_data="aux_data" v-on:add="onAdd" v-on:delete="onDelete"></edit-table>
+        <edit-table :view="view" :records="records" :checked="checked" v-on:add="onAdd" v-on:delete="onDelete"></edit-table>
     </fragment>
 </template>
 <script>
@@ -14,11 +14,6 @@
 
     export default {
         props: ['contact_persons', 'checked'],
-        computed: {
-          aux_data() {
-              return { checked: this.checked }
-          }
-        },
         data: function() {
             return {
                 view: 'contact-person',

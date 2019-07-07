@@ -43,13 +43,9 @@ class CarController extends Controller
     public function delete($id)
     {
         $this->authorize('delete cars');
-        $page = $this->service->findById($id);
+        $car = $this->service->findById($id);
 
-        if ($page->special) {
-            abort(400);
-        }
-
-        $page->delete();
+        $car->delete();
 
         return redirect()->route('admin::car::home');
     }

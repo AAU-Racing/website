@@ -24,7 +24,7 @@
 </template>
 <script>
     export default {
-        props: ['index', 'record', 'aux_data'],
+        props: ['index', 'record', 'checked'],
         computed: {
             id_input_value() {
                 return this.record.id;
@@ -57,7 +57,7 @@
                 return this.record.id;
             },
             primary_input_checked() {
-                return ('' + this.record.id) === ('' + this.aux_data.checked);
+                return ('' + this.record.id) === ('' + this.checked);
             }
         }
     }

@@ -8,6 +8,10 @@
                 @endcomponent
             </div>
             <div class="col-md-9 col-xl-8">
+                <div class="page-header">
+                    <h3>Add new car</h3>
+                    <hr />
+                </div>
                 <form method="POST" enctype="multipart/form-data">
                     @csrf
 
@@ -57,7 +61,7 @@
                         <div class="col-md-2 col-form-label text-md-right">{{ __('Photo') }}<span class="required">*</span></div>
 
                         <div class="col-md-6">
-                            <file-upload invalid="{{ $errors->has('photo') }}" name="photo" placeholder="Choose a photo of the car" required>
+                            <file-upload invalid="{{ $errors->has('photo') }}" name="photo" placeholder="Choose photo" required>
                                 @error('photo')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

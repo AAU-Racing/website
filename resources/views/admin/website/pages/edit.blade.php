@@ -8,6 +8,10 @@
                 @endcomponent
             </div>
             <div class="col-md-9 col-xl-8">
+                <div class="page-header">
+                    <h3>Edit page</h3>
+                    <hr />
+                </div>
                 <form method="POST">
                     @csrf
 

@@ -2,12 +2,15 @@ window.Vue = require('vue');
 import Fragment from 'vue-fragment'
 Vue.use(Fragment.Plugin)
 
-Vue.component('edit-table', require('./components/EditTableComponent.vue').default);
-Vue.component('edit-row', require('./components/EditRowComponent.vue').default);
-Vue.component('contact-person', require('./components/ContactPersonComponent.vue').default);
-Vue.component('contact-person-table', require('./components/ContactPersonTableComponent.vue').default);
-Vue.component('pages-table', require('./components/PagesTableComponent.vue').default);
-Vue.component('file-upload', require('./components/FileUpload.vue').default);
+Vue.component('edit-table', require('./components/admin/EditTable.vue').default);
+Vue.component('edit-row', require('./components/admin/EditRow.vue').default);
+Vue.component('contact-person', require('./components/admin/ContactPerson.vue').default);
+Vue.component('contact-person-table', require('./components/admin/ContactPersonTable.vue').default);
+Vue.component('page-header', require('./components/admin/PageHeader.vue').default);
+Vue.component('page-row', require('./components/admin/PageRow.vue').default);
+Vue.component('footer-link-header', require('./components/admin/FooterLinkHeader.vue').default);
+Vue.component('footer-link-row', require('./components/admin/FooterLinkRow.vue').default);
+Vue.component('sortable-table', require('./components/admin/SortableTable.vue').default);
 
 
 /**

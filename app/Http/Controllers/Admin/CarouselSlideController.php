@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
-class CarouselSlidesController extends Controller
+class CarouselSlideController extends Controller
 {
     function home()
     {

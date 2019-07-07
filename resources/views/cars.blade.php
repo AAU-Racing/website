@@ -8,6 +8,9 @@
                     <h1>{{ $page->title }}</h1>
                     <hr />
                 </div>
+                <div class="mb-5 mt-3">
+                    {!! $page->content !!}
+                </div>
                 @foreach($cars as $car)
                     <div class="car">
                         <div class="car-title">
@@ -18,6 +21,10 @@
                             {!! $car->specifications !!}
                         </div>
                     </div>
+
+                    @if(!$loop->last)
+                        <hr />
+                    @endif
                 @endforeach
             </div>
         </div>

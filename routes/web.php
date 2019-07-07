@@ -60,11 +60,21 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'names
         Route::delete('/{id}', 'CarController@delete')->name('delete');
     });
 
-    Route::group(['prefix' => 'competition/', 'as' => 'competition::'], function() {
-        Route::get('/', 'CompetitionController@home')->name('home');
-        Route::get('/{id}', 'CompetitionController@editForm')->name('editForm');
-        Route::post('/{id}', 'CompetitionController@edit')->name('edit');
+    Route::group(['prefix' => 'footerlink/', 'as' => 'footer_link::'], function() {
+        Route::get('/new', 'FooterLinkController@addForm')->name('addForm');
+        Route::post('/new', 'FooterLinkController@add')->name('add');
+        Route::get('/', 'FooterLinkController@home')->name('home');
+        Route::post('/', 'FooterLinkController@editOrder')->name('editOrder');
+        Route::get('/{id}', 'FooterLinkController@editForm')->name('editForm');
+        Route::post('/{id}', 'FooterLinkController@edit')->name('edit');
+        Route::delete('/{id}', 'FooterLinkController@delete')->name('delete');
     });
+
+//    Route::group(['prefix' => 'competition/', 'as' => 'competition::'], function() {
+//        Route::get('/', 'CompetitionController@home')->name('home');
+//        Route::get('/{id}', 'CompetitionController@editForm')->name('editForm');
+//        Route::post('/{id}', 'CompetitionController@edit')->name('edit');
+//    });
 
     Route::group(['prefix' => 'carousel/', 'as' => 'carousel::'], function() {
         Route::get('/', 'CarousekController@home')->name('home');

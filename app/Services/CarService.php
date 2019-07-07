@@ -5,6 +5,7 @@ namespace App\Services;
 
 use App\Car;
 use App\Http\Requests\CreateCarRequest;
+use App\Http\Requests\EditCarRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Mews\Purifier\Facades\Purifier;
@@ -43,7 +44,7 @@ class CarService
         });
     }
 
-    function update($car, $request)
+    function update(Car $car, EditCarRequest $request)
     {
         $car->name = $request->input('name');
         $car->first_year = $request->input('first_year');

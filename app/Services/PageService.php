@@ -4,6 +4,7 @@
 namespace App\Services;
 
 use App\Http\Requests\CreatePageRequest;
+use App\Http\Requests\EditPageRequest;
 use App\Page;
 use Mews\Purifier\Facades\Purifier;
 
@@ -50,7 +51,7 @@ class PageService
         ]);
     }
 
-    function update($page, $request)
+    function update(Page $page, EditPageRequest $request)
     {
         $page->title = $request->input('title');
         $page->content = Purifier::clean($request->input('content'));

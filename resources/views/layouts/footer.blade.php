@@ -1,3 +1,5 @@
+@inject('footer_link_service', 'App\Services\FooterLinkService')
+
 <footer>
     {{-- TODO: Fix responsiveness --}}
     <div class="top-footer row">
@@ -19,12 +21,9 @@
         </div>
         <div class="col-md-3">
             Links:<br>
-            <a href="http://www.aau.dk/" target="_blank">Aalborg University</a><br>
-            <a href="http://www.formulastudent.com/" target="_blank">Formula Student</a><br>
-            <a href="http://students.sae.org/cds/formulaseries/" target="_blank">SAE International</a><br>
-            <a href="https://www.facebook.com/AAURacing/" target="_blank">Find us on Facebook!</a><br>
-            <a href="https://www.instagram.com/aau_racing/" target="_blank">Find us on Instagram!</a><br>
-            <a href="wiki.aauracing.dk" target="_blank">AAU Racing Wiki</a><br>
+            @foreach($footer_link_service->getActive() as $footer_link)
+                <a href="{{ $footer_link->path }}" target="{{ $footer_link->target }}">{{ $footer_link->name }}</a><br>
+            @endforeach
         </div>
         <div class="col-md-3">
             <a href="http://www.aau.dk/" target="_blank"><img src="{{ asset('images/aau_logo.png') }}" height="140px"></a>

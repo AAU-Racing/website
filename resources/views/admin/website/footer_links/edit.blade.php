@@ -3,13 +3,13 @@
 @section('content')
     <div class="container-fluid">
         <div class="row p-4">
-            <div class="col-md-3 col-xl-2">
-                @component('admin.components.website_nav', ['pages' => 'active', 'flex' => 'md'])
+            <div class="col-lg-3 col-xl-2">
+                @component('admin.components.website_nav', ['footer_links' => 'active', 'flex' => 'lg'])
                 @endcomponent
             </div>
-            <div class="col-md-9 col-xl-8">
+            <div class="col-lg-9 col-xl-8">
                 <div class="page-header">
-                    <h3>Add new page</h3>
+                    <h3>Edit footer link</h3>
                     <hr />
                 </div>
                 <form method="POST">
@@ -19,7 +19,7 @@
                         <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autofocus>
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ?? $footer_link->name }}" required autofocus>
 
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -30,12 +30,12 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="title" class="col-md-2 col-form-label text-md-right">{{ __('Title') }}<span class="required">*</span></label>
+                        <label for="path" class="col-md-2 col-form-label text-md-right">{{ __('Path') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
-                            <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required>
+                            <input id="path" type="text" class="form-control @error('path') is-invalid @enderror" name="path" value="{{ old('path') ?? $footer_link->path }}" required>
 
-                            @error('title')
+                            @error('first_year')
                             <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -44,12 +44,15 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="editable" class="col-md-2 col-form-label text-md-right">{{ __('Content') }}<span class="required">*</span></label>
+                        <label for="target" class="col-md-2 col-form-label text-md-right">{{ __('Target') }}<span class="required">*</span></label>
 
-                        <div class="col-md-10">
-                            <textarea id="editable" class="wysiwyg-editor" name="content">{{ old('content') }}</textarea>
+                        <div class="col-md-6">
+                            <select id="target" class="form-control @error('target') is-invalid @enderror" name="target" required>
+                                <option value="_blank" {{ (old('target') ?? $footer_link->target) == '_blank' ? 'selected' : '' }}>New tab</option>
+                                <option value="_self" {{ (old('target') ?? $footer_link->target) == '_self' ? 'selected' : '' }}>Current tab</option>
+                            </select>
 
-                            @error('content')
+                            @error('target')
                             <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -58,8 +61,8 @@
                     </div>
 
                     <div class="form-group row">
-                        <div class="col-md-10 offset-md-2">
-                            <button type="submit" class="btn btn-primary">Save and continue editing</button>
+                        <div class="col-md-9 offset-md-3 col-lg-10 offset-lg-2">
+                            <button type="submit" class="btn btn-primary">Save</button>
                         </div>
                     </div>
                 </form>

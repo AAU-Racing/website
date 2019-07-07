@@ -27,9 +27,11 @@
                                     <td>{{ $car->first_year }}</td>
                                     <td>{{ $car->last_year }}</td>
                                     <td>{{ $car->getFirstMedia('photos') ? $car->getFirstMedia('photos')->file_name : '' }}</td>
-                                    <td class="fit">
-                                        <a href="{{ route('admin::car::editForm', ['id' => $car->id]) }}"><i class="fas fa-edit"></i></a>
-                                    </td>
+                                    @can('edit cars')
+                                        <td class="fit">
+                                            <a href="{{ route('admin::car::editForm', ['id' => $car->id]) }}"><i class="fas fa-edit"></i></a>
+                                        </td>
+                                    @endcan
                                     @can('delete cars')
                                         <td class="fit">
                                             <form method="POST" action="{{ route('admin::car::delete', ['id' => $car->id]) }}" >

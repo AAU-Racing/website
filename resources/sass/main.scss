@@ -181,6 +181,7 @@ footer {
 
     .car-image {
       width: 100%;
+      border-radius: 5px;
     }
 
     @include media-breakpoint-up(md) {

@@ -3,7 +3,7 @@
         <div>
             <div v-for="(record, index) in records" v-bind:key="record.id">
                 <div class="row">
-                    <edit-row :record="record" :index="index" :view="view" :aux_data="aux_data" v-on:delete="$emit('delete', $event)"></edit-row>
+                    <edit-row :record="record" :index="index" :view="view" v-bind="$attrs" v-on:delete="$emit('delete', $event)"></edit-row>
                 </div>
                 <hr class="narrow-hr" v-if="index < records.length - 1" />
             </div>
@@ -16,5 +16,6 @@
 <script>
     export default {
         props: ['records', 'view', 'aux_data'],
+        inheritAttrs: false
     }
 </script>
