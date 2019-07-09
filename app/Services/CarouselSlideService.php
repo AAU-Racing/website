@@ -23,7 +23,7 @@ class CarouselSlideService
 
     function getAll()
     {
-        return CarouselSlide::all();
+        return CarouselSlide::ordered()->get();
     }
 
     function setNewOrder(array $data)
