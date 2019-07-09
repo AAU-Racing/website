@@ -7,7 +7,6 @@ use App\Car;
 use App\Http\Requests\CreateCarRequest;
 use App\Http\Requests\EditCarRequest;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 use Mews\Purifier\Facades\Purifier;
 
 class CarService
@@ -51,7 +50,6 @@ class CarService
         $car->last_year = $request->input('last_year');
         $car->specifications = Purifier::clean($request->input('specifications'));
 
-        Log::info('request', ['request' => $request]);
         if ($request->hasFile('photo')) {
             $car->clearMediaCollection('photos');
             $car->addMediaFromRequest('photo')->toMediaCollection('photos');

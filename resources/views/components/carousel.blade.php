@@ -1,3 +1,5 @@
+@inject('slider_service', 'App\Services\CarouselSlideService')
+
 <div id="page_carousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#page_carousel" data-slide-to="0" class="active"></li>

@@ -62,7 +62,7 @@
 
                         <div class="col-md-6">
                             @if($car->getFirstMedia('photos'))
-                                <img src="{{ $car->getFirstMedia('photos')->getUrl() }}" class="car-image" alt="{{ $car->name }}"/>
+                                <img src="{{ $car->getFirstMedia('photos')->getUrl() }}" class="edit-car-image" alt="{{ $car->name }}"/>
                             @else
                                 No image
                             @endif
@@ -75,9 +75,9 @@
                         <div class="col-md-6">
                             <file-upload invalid="{{ $errors->has('photo') }}" name="photo" placeholder="Choose new photo">
                                 @error('photo')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                 @enderror
                             </file-upload>
                         </div>

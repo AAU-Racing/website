@@ -7,6 +7,7 @@ use App\Http\Requests\CreateFooterLinkRequest;
 use App\Http\Requests\EditFooterLinkRequest;
 use App\Services\FooterLinkService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class FooterLinkController  extends Controller
@@ -30,18 +31,19 @@ class FooterLinkController  extends Controller
     {
         $this->authorize('edit footer links');
         $data = json_decode($request->input('footer_link_order'), true);
+        Log::info("Reorder footer links", ['order' => $data]);
+
         $rules = [
             '*' => 'exists:footer_links,id'
         ];
 
         $validator = Validator::make($data, $rules);
         if ($validator->passes()) {
+            Log::info("Setting new order");
             $this->service->setNewOrder($data);
-
-            return redirect()->route('admin::footer_link::home');
-        } else {
-            return redirect()->route('admin::footer_link::home');
         }
+
+        return redirect()->route('admin::footer_link::home');
     }
 
     public function editForm($id)

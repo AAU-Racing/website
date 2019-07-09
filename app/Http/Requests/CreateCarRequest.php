@@ -28,7 +28,7 @@ class CreateCarRequest extends FormRequest
             'first_year' => ['required', 'integer'],
             'last_year' => ['nullable', 'integer', 'gte:first_year'],
             'specifications' => ['required', 'string'],
-            'photo' => ['required', 'image']
+            'photo' => ['required', 'image', 'max:'. 32 * 1024]
         ];
     }
 

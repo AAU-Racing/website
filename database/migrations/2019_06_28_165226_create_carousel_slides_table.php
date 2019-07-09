@@ -15,8 +15,7 @@ class CreateCarouselSlidesTable extends Migration
     {
         Schema::create('carousel_slides', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('text');
-            $table->char('path', 300);
+            $table->string('label');
             $table->integer('order');
             $table->timestamps();
         });

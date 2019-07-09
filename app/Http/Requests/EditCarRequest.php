@@ -28,7 +28,7 @@ class EditCarRequest extends FormRequest
             'first_year' => ['required', 'integer'],
             'last_year' => ['nullable', 'integer', 'gte:first_year'],
             'specifications' => ['required', 'string'],
-            //'photo' => ['nullable', 'sometimes', 'image']
+            'photo' => ['nullable', 'sometimes', 'image', 'max:'. 32 * 1024]
         ];
     }
 

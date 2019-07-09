@@ -3,21 +3,86 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateCarouselSlideRequest;
+use App\Http\Requests\EditCarouselSlideRequest;
+use App\Services\CarouselSlideService;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class CarouselSlideController extends Controller
 {
-    function home()
+    private $service;
+
+    public function __construct(CarouselSlideService $service)
     {
-        return view('admin.website.home');
+        $this->service = $service;
     }
 
-    function editForm($page)
+    public function home()
     {
-        return view('admin.website.edit');
+        $slides = $this->service->getAll();
+
+        return view('admin.website.slides.home', ['slides' => $slides]);
     }
 
-    function edit($page)
+    public function editOrder(Request $request)
     {
-        return view('admin.website.edit');
+        $this->authorize('edit carousel slides');
+        $data = json_decode($request->input('carousel_slides_order'), true);
+        Log::info("Reorder slides", ['order' => $data]);
+
+        $rules = [
+            '*' => 'exists:carousel_slides,id'
+        ];
+
+        $validator = Validator::make($data, $rules);
+        if ($validator->passes()) {
+            Log::info("Setting new order");
+            $this->service->setNewOrder($data);
+        }
+
+        return redirect()->route('admin::carousel::home');
+    }
+
+    public function editForm($id)
+    {
+        $this->authorize('edit carousel slides');
+        $slide = $this->service->findById($id);
+
+        return view('admin.website.slides.edit', ['slide' => $slide]);
+    }
+
+    public function edit($id, EditCarouselSlideRequest $request)
+    {
+        $this->authorize('edit carousel slides');
+        $slide = $this->service->findById($id);
+        $this->service->update($slide, $request);
+
+        return redirect()->route('admin::carousel::editForm', ['id' => $slide->id]);
+    }
+
+    public function delete($id)
+    {
+        $this->authorize('delete carousel slides');
+        $car = $this->service->findById($id);
+
+        $car->delete();
+
+        return redirect()->route('admin::carousel::home');
+    }
+
+    public function addForm()
+    {
+        $this->authorize('create carousel slides');
+        return view('admin.website.slides.add');
+    }
+
+    public function add(CreateCarouselSlideRequest $request)
+    {
+        $this->authorize('create carousel slides');
+        $car = $this->service->create($request);
+
+        return redirect()->route('admin::carousel::editForm', ['id' => $car->id]);
     }
 }

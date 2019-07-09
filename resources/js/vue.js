@@ -10,8 +10,10 @@ Vue.component('page-header', require('./components/admin/PageHeader.vue').defaul
 Vue.component('page-row', require('./components/admin/PageRow.vue').default);
 Vue.component('footer-link-header', require('./components/admin/FooterLinkHeader.vue').default);
 Vue.component('footer-link-row', require('./components/admin/FooterLinkRow.vue').default);
+Vue.component('carousel-slide-header', require('./components/admin/CarouselSlideHeader.vue').default);
+Vue.component('carousel-slide-row', require('./components/admin/CarouselSlideRow.vue').default);
 Vue.component('sortable-table', require('./components/admin/SortableTable.vue').default);
-
+Vue.component('file-upload', require('./components/admin/FileUpload.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

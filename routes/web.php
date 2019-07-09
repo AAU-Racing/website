@@ -77,9 +77,13 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'names
 //    });
 
     Route::group(['prefix' => 'carousel/', 'as' => 'carousel::'], function() {
-        Route::get('/', 'CarousekController@home')->name('home');
-        Route::get('/{id}', 'CarouselController@editForm')->name('editForm');
-        Route::post('/{id}', 'CarouselController@edit')->name('edit');
+        Route::get('/new', 'CarouselSlideController@addForm')->name('addForm');
+        Route::post('/new', 'CarouselSlideController@add')->name('add');
+        Route::get('/', 'CarouselSlideController@home')->name('home');
+        Route::post('/', 'CarouselSlideController@editOrder')->name('editOrder');
+        Route::get('/{id}', 'CarouselSlideController@editForm')->name('editForm');
+        Route::post('/{id}', 'CarouselSlideController@edit')->name('edit');
+        Route::delete('/{id}', 'CarouselSlideController@delete')->name('delete');
     });
 
     Route::group(['prefix' => 'sponsor/', 'as' => 'sponsor::'], function() {

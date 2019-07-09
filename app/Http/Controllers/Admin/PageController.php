@@ -7,6 +7,7 @@ use App\Http\Requests\CreatePageRequest;
 use App\Http\Requests\EditPageRequest;
 use App\Services\PageService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class PageController extends Controller
@@ -30,18 +31,19 @@ class PageController extends Controller
     {
         $this->authorize('edit pages');
         $data = json_decode($request->input('page_order'), true);
+        Log::info("Reorder pages", ['order' => $data]);
+
         $rules = [
             '*' => 'exists:pages,id'
         ];
 
         $validator = Validator::make($data, $rules);
         if ($validator->passes()) {
+            Log::info("Setting new order");
             $this->service->setNewOrder($data);
-
-            return redirect()->route('admin::page::home');
-        } else {
-            return redirect()->route('admin::page::home');
         }
+
+        return redirect()->route('admin::page::home');
     }
 
     public function editForm($id)

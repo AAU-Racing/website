@@ -26,7 +26,7 @@
                                     <td scope="row">{{ $car->name }}</td>
                                     <td>{{ $car->first_year }}</td>
                                     <td>{{ $car->last_year }}</td>
-                                    <td>{{ $car->getFirstMedia('photos') ? $car->getFirstMedia('photos')->file_name : '' }}</td>
+                                    <td>@if($car->getFirstMedia('photos'))<a href="{{ $car->getFirstMedia('photos')->getUrl() }}">{{ $car->getFirstMedia('photos')->file_name }}</a>@endif</td>
                                     @can('edit cars')
                                         <td class="fit">
                                             <a href="{{ route('admin::car::editForm', ['id' => $car->id]) }}"><i class="fas fa-edit"></i></a>
