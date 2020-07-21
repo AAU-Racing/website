@@ -2,16 +2,15 @@
 
 namespace App;
 
-use App\Traits\Orderable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 class CarouselSlide extends Model implements Sortable, HasMedia
 {
-    use SortableTrait, HasMediaTrait;
+    use SortableTrait, InteractsWithMedia;
 
     public $sortable = [
         'order_column_name' => 'order',
@@ -26,7 +25,7 @@ class CarouselSlide extends Model implements Sortable, HasMedia
         'order' => 'integer'
     ];
 
-    public function registerMediaCollections()
+    public function registerMediaCollections(): void
     {
         $this->addMediaCollection('photos')
             ->singleFile();

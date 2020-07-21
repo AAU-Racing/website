@@ -5,12 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 class PressPost extends Model implements Sortable, HasMedia
 {
-    use SortableTrait, HasMediaTrait;
+    use SortableTrait, InteractsWithMedia;
 
     protected $fillable = [
         'title', 'content', 'active'
@@ -21,7 +21,7 @@ class PressPost extends Model implements Sortable, HasMedia
         return $this->hasMany('App\PressPostEdit');
     }
 
-    public function registerMediaCollections()
+    public function registerMediaCollections(): void
     {
         $this->addMediaCollection('photos');
     }

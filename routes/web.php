@@ -11,9 +11,8 @@
 |
 */
 
+Auth::routes(["verify" => true]);
 
-// Authentication and authorization
-Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => '/password', 'as' => 'auth::'], function() {
     Route::get('', 'Auth\ChangePasswordController@showEditForm')->name('change_password');
