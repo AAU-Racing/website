@@ -1,5 +1,6 @@
 @inject('slide_service', 'App\Services\CarouselSlideService')
 
+@if($slide_service->getAll()->count() > 0)
 <div id="page_carousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         @foreach($slide_service->getAll() as $slide)
@@ -14,7 +15,7 @@
                     {{ $slide->label }}
                 </div>
             </div>
-        @endforeach>
+        @endforeach
     </div>
     <a class="carousel-control-prev" href="#page_carousel" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -25,3 +26,4 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
+@endif
