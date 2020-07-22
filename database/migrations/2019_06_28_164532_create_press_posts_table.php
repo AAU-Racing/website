@@ -17,7 +17,7 @@ class CreatePressPostsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('content');
-            $table->boolean('active')->default('true');
+            $table->boolean('active')->default(1)->change();
             $table->timestamps();
         });
     }

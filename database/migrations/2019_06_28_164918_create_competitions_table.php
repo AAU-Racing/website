@@ -18,7 +18,7 @@ class CreateCompetitionsTable extends Migration
             $table->string('name');
             $table->integer('year');
             $table->string('country');
-            $table->char('link', 300);
+            $table->char('link', 255);
             $table->timestamps();
         });
     }

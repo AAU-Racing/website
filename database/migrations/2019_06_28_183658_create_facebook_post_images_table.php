@@ -15,9 +15,8 @@ class CreateFacebookPostImagesTable extends Migration
     {
         Schema::create('facebook_post_images', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('facebook_post_id')->unique();
-            $table->foreign('facebook_post_id')->references('id')->on('facebook_posts')->onDelete('cascade');
-            $table->char('image_path', 300);
+            $table->integer('facebook_post_id')->unique()->foreign('facebook_post_id')->references('id')->on('facebook_posts')->onDelete('cascade');
+            $table->char('image_path', 255);
             $table->timestamps();
         });
     }

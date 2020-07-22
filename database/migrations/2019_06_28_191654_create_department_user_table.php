@@ -15,11 +15,9 @@ class CreateDepartmentUserTable extends Migration
     {
         Schema::create('department_user', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('department_id');
-            $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
+            $table->integer('department_id')->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
 
-            $table->integer('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('user_id')->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();
         });

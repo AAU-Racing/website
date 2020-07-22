@@ -16,7 +16,7 @@ class CreateFacebookPostsTable extends Migration
         Schema::create('facebook_posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->char('facebook_id', 100);
-            $table->char('permalink_url', 300);
+            $table->char('permalink_url', 255);
             $table->string('message');
             $table->integer('shares');
             $table->integer('likes');

@@ -15,8 +15,7 @@ class CreateMemberCarsTable extends Migration
     {
         Schema::create('member_cars', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->unique();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('user_id')->unique()->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->boolean('towbar');
             $table->timestamps();
         });

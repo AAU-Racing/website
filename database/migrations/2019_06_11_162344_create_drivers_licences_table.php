@@ -15,8 +15,7 @@ class CreateDriversLicencesTable extends Migration
     {
         Schema::create('drivers_licences', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->unique();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('user_id')->unique()->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->char('license_number', 20)->unique();
             $table->timestamps();
         });

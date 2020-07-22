@@ -15,8 +15,7 @@ class CreatePressPostEditsTable extends Migration
     {
         Schema::create('press_post_edits', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->unique();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('user_id')->unique()->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('title');
             $table->string('content');
             $table->timestamps();
