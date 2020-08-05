@@ -61,24 +61,6 @@
                     </div>
 
                     <div class="form-group row">
-                        <div class="col-md-2 col-form-label text-md-right">{{ __('Active') }}</div>
-
-                        <div class="col-md-6">
-                            <div class="custom-control custom-checkbox">
-                                <!-- Check for old name is because active is not submitted if not checked -->
-                                <input type="checkbox" class="custom-control-input" id="active" name="active" @if(old('active') || (!old('name') and $footer_link->active)) checked @endif>
-                                <label class="custom-control-label" for="active"></label>
-                            </div>
-
-                            @error('active')
-                            <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
                         <div class="col-md-9 offset-md-3 col-lg-10 offset-lg-2">
                             <button type="submit" class="btn btn-primary">Save</button>
                         </div>

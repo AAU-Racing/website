@@ -1,5 +1,5 @@
 <template>
-    <tr v-if="can_view_disabled && element.active">
+    <tr v-if="can_view_disabled">
         <td scope="row">{{ element.name }}</td>
         <td><a :href="element.path" target="_blank">{{ element.path }}</a></td>
         <td>{{ element.formatted_target }}</td>
