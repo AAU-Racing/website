@@ -26,7 +26,7 @@ class UserService
             ]);
 
             if ($data['drivers_license']) {
-                $user->driversLicence()->create([
+                $user->driversLicense()->create([
                     'license_number' => $data['drivers_license']
                 ]);
             }
@@ -78,14 +78,14 @@ class UserService
             $user->address()->city = $request->input('city');
             $user->address()->address = $request->input('address');
 
-            if (!$user->driversLicence && $request->input('drivers_license')) {
-                $user->driversLicence()->create([
+            if (!$user->driversLicense && $request->input('drivers_license')) {
+                $user->driversLicense()->create([
                     'license_number' => $request->input('drivers_license')
                 ]);
-            } else if ($user->driversLicence && !$request->input('drivers_license')) {
-                $user->driversLicence()->delete();
-            } else if ($user->driversLicence && $request->input('drivers_license')) {
-                $user->driversLicence()->license_number = $request->input('drivers_license');
+            } else if ($user->driversLicense && !$request->input('drivers_license')) {
+                $user->driversLicense()->delete();
+            } else if ($user->driversLicense && $request->input('drivers_license')) {
+                $user->driversLicense()->license_number = $request->input('drivers_license');
             }
 
             if (!$user->car && $request->input('car') != 'no') {

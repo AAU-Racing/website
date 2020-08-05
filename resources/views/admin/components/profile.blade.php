@@ -115,8 +115,8 @@
                 Driver's License
             </div>
             <div class="profile-item-text col-lg-6">
-                @if(Auth::user()->drivers_license)
-                    {{ Auth::user()->drivers_license->license_number }}
+                @if(Auth::user()->driversLicense)
+                    {{ Auth::user()->driversLicense->license_number }}
                 @else
                     No
                 @endif

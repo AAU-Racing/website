@@ -69,11 +69,11 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'names
         Route::delete('/{id}', 'FooterLinkController@delete')->name('delete');
     });
 
-//    Route::group(['prefix' => 'competition/', 'as' => 'competition::'], function() {
-//        Route::get('/', 'CompetitionController@home')->name('home');
-//        Route::get('/{id}', 'CompetitionController@editForm')->name('editForm');
-//        Route::post('/{id}', 'CompetitionController@edit')->name('edit');
-//    });
+    Route::group(['prefix' => 'competition/', 'as' => 'competition::'], function() {
+        Route::get('/', 'CompetitionController@home')->name('home');
+        Route::get('/{id}', 'CompetitionController@editForm')->name('editForm');
+        Route::post('/{id}', 'CompetitionController@edit')->name('edit');
+    });
 
     Route::group(['prefix' => 'carousel/', 'as' => 'carousel::'], function() {
         Route::get('/new', 'CarouselSlideController@addForm')->name('addForm');

@@ -42,9 +42,9 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
         return $this->hasOne('App\Address');
     }
 
-    public function driversLicence()
+    public function driversLicense()
     {
-        return $this->hasOne('App\DriversLicence');
+        return $this->hasOne('App\DriversLicense');
     }
 
     public function car()

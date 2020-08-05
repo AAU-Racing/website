@@ -5,7 +5,7 @@ namespace App;
 use App\Traits\BelongsToUser;
 use Illuminate\Database\Eloquent\Model;
 
-class DriversLicence extends Model
+class DriversLicense extends Model
 {
     use BelongsToUser;
 

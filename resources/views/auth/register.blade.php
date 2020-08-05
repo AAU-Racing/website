@@ -231,7 +231,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="car" class="col-md-5 col-form-label text-md-right">{{ __('Available Car') }}
+                                <label for="car" class="col-md-5 col-form-label text-md-right">{{ __('Car Available') }}
                                     <span class="required">*</span></label>
 
                                 <div class="col-md-6">

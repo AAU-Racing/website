@@ -172,7 +172,7 @@
                             <label for="drivers_license" class="col-md-5 col-form-label text-md-right">{{ __('Driver\'s License') }}</label>
 
                             <div class="col-md-6">
-                                <input id="drivers_license" type="text" class="form-control @error('drivers_license') is-invalid @enderror" name="drivers_license" value="{{ old('drivers_license') ?? ($user->drivers_license ? $user->drivers_license->license_number : '') }}">
+                                <input id="drivers_license" type="text" class="form-control @error('drivers_license') is-invalid @enderror" name="drivers_license" value="{{ old('drivers_license') ?? ($user->driversLicense ? $user->driversLicense->license_number : '') }}">
 
                                 @error('drivers_license')
                                 <span class="invalid-feedback" role="alert">

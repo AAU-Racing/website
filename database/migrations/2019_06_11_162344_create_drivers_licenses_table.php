@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDriversLicencesTable extends Migration
+class CreateDriversLicensesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDriversLicencesTable extends Migration
      */
     public function up()
     {
-        Schema::create('drivers_licences', function (Blueprint $table) {
+        Schema::create('drivers_licenses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id')->unique()->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->char('license_number', 20)->unique();
@@ -28,6 +28,6 @@ class CreateDriversLicencesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('drivers_licences');
+        Schema::dropIfExists('drivers_licenses');
     }
 }
