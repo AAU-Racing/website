@@ -201,6 +201,42 @@ footer {
   }
 }
 
+// Sponsor component
+.sponsor-container {
+    @include media-breakpoint-up(sm) {
+        border-left: solid 1px lightgrey;
+        margin-top: 0;
+    }
+
+    border-top: solid 1px lightgrey;
+    margin-top: 5px;
+    padding: 5px;
+
+    h4 {
+        font-family: Dosis, sans-serif;
+        color: #5a5a5a;
+        font-weight: 500;
+        font-size: 18px;
+    }
+
+    > * {
+        margin: 0;
+    }
+
+    .sponsor-image {
+        max-width: 100%;
+        max-height: 15vh
+    }
+
+    .row {
+        margin-bottom: 5px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
 // Misc
 .required {
     color: $red;
