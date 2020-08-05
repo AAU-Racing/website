@@ -30,13 +30,13 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="path" class="col-md-2 col-form-label text-md-right">{{ __('Path') }}<span class="required">*</span></label>
+                        <label for="country" class="col-md-2 col-form-label text-md-right">{{ __('Country') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
-                            <input id="path" type="text" class="form-control @error('path') is-invalid @enderror" name="path" value="{{ old('path') }}" required>
+                            <input id="country" type="text" class="form-control @error('country') is-invalid @enderror" name="country" value="{{ old('country') }}" required>
 
-                            @error('first_year')
-                                <span class="invalid-feedback" role="alert">
+                            @error('country')
+                            <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -44,17 +44,27 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="target" class="col-md-2 col-form-label text-md-right">{{ __('Target') }}<span class="required">*</span></label>
+                        <label for="year" class="col-md-2 col-form-label text-md-right">{{ __('Year') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
-                            <select id="target" class="form-control @error('target') is-invalid @enderror" name="target" required>
-                                <option {{ old('target') ? '' : 'selected' }}>No selected</option>
-                                <option value="_blank" {{ old('target') == '_blank' ? 'selected' : '' }}>New tab</option>
-                                <option value="_self" {{ old('target') == '_self' ? 'selected' : '' }}>Current tab</option>
-                            </select>
+                            <input id="year" type="number" min="2000" max="2200" class="form-control @error('year') is-invalid @enderror" name="year" value="{{ old('year') }}" required>
 
-                            @error('target')
+                            @error('year')
                             <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="link" class="col-md-2 col-form-label text-md-right">{{ __('Link') }}<span class="required">*</span></label>
+
+                        <div class="col-md-6">
+                            <input id="link" type="text" class="form-control @error('link') is-invalid @enderror" name="link" value="{{ old('link') }}" required>
+
+                            @error('link')
+                                <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror

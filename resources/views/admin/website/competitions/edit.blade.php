@@ -4,12 +4,12 @@
     <div class="container-fluid">
         <div class="row p-4">
             <div class="col-lg-3 col-xl-2">
-                @component('admin.components.website_nav', ['footer_links' => 'active', 'flex' => 'lg'])
+                @component('admin.components.website_nav', ['competitions' => 'active', 'flex' => 'lg'])
                 @endcomponent
             </div>
             <div class="col-lg-9 col-xl-8">
                 <div class="page-header">
-                    <h3>Edit footer link</h3>
+                    <h3>Edit competitions</h3>
                     <hr />
                 </div>
                 <form method="POST">
@@ -19,7 +19,7 @@
                         <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ?? $footer_link->name }}" required autofocus>
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ?? $competition->name }}" required autofocus>
 
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -30,12 +30,12 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="path" class="col-md-2 col-form-label text-md-right">{{ __('Path') }}<span class="required">*</span></label>
+                        <label for="country" class="col-md-2 col-form-label text-md-right">{{ __('Country') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
-                            <input id="path" type="text" class="form-control @error('path') is-invalid @enderror" name="path" value="{{ old('path') ?? $footer_link->path }}" required>
+                            <input id="country" type="text" class="form-control @error('country') is-invalid @enderror" name="country" value="{{ old('country') ?? $competition->country }}" required>
 
-                            @error('first_year')
+                            @error('country')
                             <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -44,15 +44,12 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="target" class="col-md-2 col-form-label text-md-right">{{ __('Target') }}<span class="required">*</span></label>
+                        <label for="year" class="col-md-2 col-form-label text-md-right">{{ __('Year') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
-                            <select id="target" class="form-control @error('target') is-invalid @enderror" name="target" required>
-                                <option value="_blank" {{ (old('target') ?? $footer_link->target) == '_blank' ? 'selected' : '' }}>New tab</option>
-                                <option value="_self" {{ (old('target') ?? $footer_link->target) == '_self' ? 'selected' : '' }}>Current tab</option>
-                            </select>
+                            <input id="year" type="number" min="2000" max="2200" class="form-control @error('year') is-invalid @enderror" name="year" value="{{ old('year') ?? $competition->year }}" required>
 
-                            @error('target')
+                            @error('year')
                             <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -61,7 +58,21 @@
                     </div>
 
                     <div class="form-group row">
-                        <div class="col-md-9 offset-md-3 col-lg-10 offset-lg-2">
+                        <label for="link" class="col-md-2 col-form-label text-md-right">{{ __('Link') }}<span class="required">*</span></label>
+
+                        <div class="col-md-6">
+                            <input id="link" type="text" class="form-control @error('link') is-invalid @enderror" name="link" value="{{ old('link') ?? $competition->link }}" required>
+
+                            @error('link')
+                            <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-10 offset-md-2">
                             <button type="submit" class="btn btn-primary">Save</button>
                         </div>
                     </div>

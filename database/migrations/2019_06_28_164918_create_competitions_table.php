@@ -15,9 +15,9 @@ class CreateCompetitionsTable extends Migration
     {
         Schema::create('competitions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->char('name', 255);
             $table->integer('year');
-            $table->string('country');
+            $table->char('country', 255);
             $table->char('link', 255);
             $table->timestamps();
         });

@@ -70,9 +70,12 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'names
     });
 
     Route::group(['prefix' => 'competition/', 'as' => 'competition::'], function() {
+        Route::get('/new', 'CompetitionController@addForm')->name('addForm');
+        Route::post('/new', 'CompetitionController@add')->name('add');
         Route::get('/', 'CompetitionController@home')->name('home');
         Route::get('/{id}', 'CompetitionController@editForm')->name('editForm');
         Route::post('/{id}', 'CompetitionController@edit')->name('edit');
+        Route::delete('/{id}', 'CompetitionController@delete')->name('delete');
     });
 
     Route::group(['prefix' => 'carousel/', 'as' => 'carousel::'], function() {

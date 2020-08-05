@@ -34,13 +34,13 @@
                             </thead>
                             <tbody>
                                 @foreach($footer_links as $footer_link)
-                                    @if($footer_link->active && Auth::user()->can('view disabled footer links'))
+                                    @if($footer_link->active || Auth::user()->can('view disabled footer links'))
                                         <tr>
                                             <td scope="row">{{ $footer_link->name }}</td>
                                             <td><a href="{{ $footer_link->path }}" target="_blank">{{ $footer_link->path }}</a></td>
                                             <td>{{ $footer_link->formatted_target }}</td>
                                             <td>@if($footer_link->active)<i class="fas fa-times"></i>@endif</td>
-                                            @can('delete cars')
+                                            @can('delete footer links')
                                                 <td class="fit">
                                                     <form method="POST" action="{{ route('admin::footer_link::delete', ['id' => $footer_link->id]) }}" >
                                                         @method('delete')
@@ -54,9 +54,9 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        @can('create carousel slides')
+                        @can('create footer links')
                             <div class="float-right">
-                                <a href="{{ route('admin::carousel::addForm') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                                <a href="{{ route('admin::footer_link::addForm') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
                             </div>
                         @endcan
                     @endcan
