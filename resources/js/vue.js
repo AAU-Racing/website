@@ -12,6 +12,8 @@ Vue.component('footer-link-header', require('./components/admin/FooterLinkHeader
 Vue.component('footer-link-row', require('./components/admin/FooterLinkRow.vue').default);
 Vue.component('carousel-slide-header', require('./components/admin/CarouselSlideHeader.vue').default);
 Vue.component('carousel-slide-row', require('./components/admin/CarouselSlideRow.vue').default);
+Vue.component('sponsor-header', require('./components/admin/SponsorHeader.vue').default);
+Vue.component('sponsor-row', require('./components/admin/SponsorRow.vue').default);
 Vue.component('sortable-table', require('./components/admin/SortableTable.vue').default);
 Vue.component('file-upload', require('./components/admin/FileUpload.vue').default);
 

@@ -57,7 +57,13 @@
                             <label for="email" class="col-md-5 col-form-label text-md-right">{{ __('University E-Mail Address') }}</span></label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" value="{{ $user->email }}" disabled>
+                                <input id="email" type="text" class="form-control @error('date_of_birth') is-invalid @enderror" name="email" value="{{ old('email') ?? $user->email }}">
+
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
 

@@ -11,9 +11,7 @@
                 <div class="table-responsive">
                     @can('edit footer links')
                         <sortable-table :elements="{{ json_encode($footer_links) }}"
-                                        :can_edit="{{ Auth::user()->can('edit footer links') }}"
                                         :can_delete="{{ Auth::user()->can('delete footer links') }}"
-                                        :can_view_disabled="{{ Auth::user()->can('view disabled footer links') }}"
                                         header_view="footer-link-header"
                                         row_view="footer-link-row"
                                         order_field_name="footer_link_order">
@@ -34,23 +32,21 @@
                             </thead>
                             <tbody>
                                 @foreach($footer_links as $footer_link)
-                                    @if($footer_link->active || Auth::user()->can('view disabled footer links'))
-                                        <tr>
-                                            <td scope="row">{{ $footer_link->name }}</td>
-                                            <td><a href="{{ $footer_link->path }}" target="_blank">{{ $footer_link->path }}</a></td>
-                                            <td>{{ $footer_link->formatted_target }}</td>
-                                            <td>@if($footer_link->active)<i class="fas fa-times"></i>@endif</td>
-                                            @can('delete footer links')
-                                                <td class="fit">
-                                                    <form method="POST" action="{{ route('admin::footer_link::delete', ['id' => $footer_link->id]) }}" >
-                                                        @method('delete')
-                                                        @csrf
-                                                        <button type="submit" class="btn btn-link no-border no-padding"><i class="fas fa-trash"></i></button>
-                                                    </form>
-                                                </td>
-                                            @endcan
-                                        </tr>
-                                    @endif
+                                    <tr>
+                                        <td scope="row">{{ $footer_link->name }}</td>
+                                        <td><a href="{{ $footer_link->path }}" target="_blank">{{ $footer_link->path }}</a></td>
+                                        <td>{{ $footer_link->formatted_target }}</td>
+                                        <td>@if($footer_link->active)<i class="fas fa-times"></i>@endif</td>
+                                        @can('delete footer links')
+                                            <td class="fit">
+                                                <form method="POST" action="{{ route('admin::footer_link::delete', ['id' => $footer_link->id]) }}" >
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-link no-border no-padding"><i class="fas fa-trash"></i></button>
+                                                </form>
+                                            </td>
+                                        @endcan
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>

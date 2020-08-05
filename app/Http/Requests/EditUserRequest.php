@@ -27,6 +27,7 @@ class EditUserRequest extends FormRequest
         return [
             'firstname' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone_number' => ['required', 'integer'],
             'zip' => ['required', 'integer'],
             'city' => ['required', 'string', 'max:255'],

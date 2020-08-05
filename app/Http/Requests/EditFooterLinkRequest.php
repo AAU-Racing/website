@@ -27,7 +27,7 @@ class EditFooterLinkRequest extends FormRequest
             'name' => ['required', 'string'],
             'path' => ['required', 'string', 'url'],
             'target' => ['required', 'string', 'in:_blank,_self'],
-            'active' => ['boolean']
+            'active' => ['string', 'in:on']
         ];
     }
 }

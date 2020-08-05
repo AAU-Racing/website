@@ -1,8 +1,8 @@
 <template>
     <tr>
         <td scope="row">{{ element.name }}</td>
-        <td><a :href="element.path" target="_blank">{{ element.path }}</a></td>
-        <td>{{ element.formatted_target }}</td>
+        <td><a :href="element.link" target="_blank">{{ element.link }}</a></td>
+        <td><a v-if="element.has_media" :href="element.logo_url" target="_blank">{{ element.logo_file_name }}</a></td>
         <td><i class="fas fa-times" v-if="element.active"></i></td>
         <td class="fit">
             <a :href="element.edit_url"><i class="fas fa-edit"></i></a>

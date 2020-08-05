@@ -7,6 +7,7 @@ use App\Http\Requests\CreateFooterLinkRequest;
 use App\Http\Requests\EditFooterLinkRequest;
 use App\Services\FooterLinkService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
@@ -21,8 +22,13 @@ class FooterLinkController  extends Controller
 
     public function home()
     {
-        $this->authorize('view disabled footer links');
-        $footer_links = $this->service->getAll();
+
+        if (Auth::user()->can('view disabled footer links')) {
+            $footer_links = $this->service->getAll();
+        }
+        else {
+            $footer_links = $this->service->getActive();
+        }
 
         return view('admin.website.footer_links.home', ['footer_links' => $footer_links]);
     }

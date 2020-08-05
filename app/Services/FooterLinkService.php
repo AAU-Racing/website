@@ -42,7 +42,7 @@ class FooterLinkService
             'name' => $request->input('name'),
             'path' => $request->input('path'),
             'target' => $request->input('target'),
-            'active' => $request->input('active', false)
+            'active' => $request->input('active', 'off') == 'on'
         ]);
     }
 
@@ -51,7 +51,7 @@ class FooterLinkService
         $footer_link->name = $request->input('name');
         $footer_link->path = $request->input('path');
         $footer_link->target = $request->input('target');
-        $footer_link->active = $request->input('active', false);
+        $footer_link->active = $request->input('active', 'off') == 'on';
         $footer_link->save();
     }
 }

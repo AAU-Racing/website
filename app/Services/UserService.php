@@ -68,6 +68,7 @@ class UserService
         DB::transaction(function () use ($user, $request) {
             $user->firstname = $request->input('firstname');
             $user->lastname = $request->input('lastname');
+            $user->email = $request->input('email');
             $user->phone_number = $request->input('phone_number');
             $user->study_number = $request->input('study_number');
             $user->study_card_number = $request->input('study_card_number');

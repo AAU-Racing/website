@@ -15,10 +15,9 @@ class CreateSponsorsTable extends Migration
     {
         Schema::create('sponsors', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->char('logo_path', 255);
-            $table->string('link');
-            $table->boolean('active');
+            $table->char('name', 255);
+            $table->char('link', 255);
+            $table->boolean('active')->default(true);
             $table->integer('order');
             $table->timestamps();
         });

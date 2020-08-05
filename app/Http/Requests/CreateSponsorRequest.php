@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateFooterLinkRequest extends FormRequest
+class CreateSponsorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,8 @@ class CreateFooterLinkRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string'],
-            'path' => ['required', 'string', 'url'],
-            'target' => ['required', 'string', 'in:_blank,_self'],
+            'link' => ['required', 'string', 'url'],
+            'logo' => ['required',  'image', 'max:'. 32 * 1024],
             'active' => ['string', 'in:on']
         ];
     }

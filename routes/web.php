@@ -89,9 +89,13 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'names
     });
 
     Route::group(['prefix' => 'sponsor/', 'as' => 'sponsor::'], function() {
+        Route::get('/new', 'SponsorController@addForm')->name('addForm');
+        Route::post('/new', 'SponsorController@add')->name('add');
         Route::get('/', 'SponsorController@home')->name('home');
+        Route::post('/', 'SponsorController@editOrder')->name('editOrder');
         Route::get('/{id}', 'SponsorController@editForm')->name('editForm');
         Route::post('/{id}', 'SponsorController@edit')->name('edit');
+        Route::delete('/{id}', 'SponsorController@delete')->name('delete');
     });
 
     Route::group(['prefix' => 'press/', 'as' => 'press::'], function() {
