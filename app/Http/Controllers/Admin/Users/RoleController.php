@@ -24,7 +24,7 @@ class RoleController extends Controller
         return view('admin.role.home', ['users' => $users]);
     }
 
-    public function showEditForm($id)
+    public function editForm($id)
     {
         $this->authorize('alter roles');
 

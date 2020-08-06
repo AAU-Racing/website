@@ -19,7 +19,7 @@ class ChangePasswordController extends Controller
         $this->middleware('auth');
     }
 
-    public function showEditForm()
+    public function editForm()
     {
         return view('auth.passwords.change_password');
     }

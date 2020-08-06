@@ -79,7 +79,6 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::findOrCreate('delete files');
 
         // Avatars
-        Permission::findOrCreate('create avatars');
         Permission::findOrCreate('edit avatars');
         Permission::findOrCreate('delete avatars');
 
@@ -150,13 +149,11 @@ class RolesAndPermissionsSeeder extends Seeder
                 'move files',
                 'view files',
                 'delete files',
-                'create avatars',
                 'edit avatars',
                 'delete avatars',
                 'view roles'
         ]);
 
-        $role = Role::findOrCreate('website-admin');
-        $role->givePermissionTo(Permission::all());
+        Role::findOrCreate('website-admin')->givePermissionTo(Permission::all());
     }
 }

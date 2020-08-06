@@ -23,10 +23,10 @@
                         <table class="table">
                             <thead class="thead-aau">
                                 <tr>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Path</th>
-                                    <th scope="col">Target</th>
-                                    <th scope="col">Active</th>
+                                    <th scope="col">{{ __('Name') }}</th>
+                                    <th scope="col">{{ __('Path') }}</th>
+                                    <th scope="col">{{ __('Target') }}</th>
+                                    <th scope="col">{{ __('Active') }}</th>
                                     @can('delete footer links')<th scope="col" class="fit"></th>@endcan
                                 </tr>
                             </thead>

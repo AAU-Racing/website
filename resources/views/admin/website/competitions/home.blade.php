@@ -12,10 +12,10 @@
                     <table class="table">
                         <thead class="thead-aau">
                             <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Country</th>
-                                <th scope="col">Year</th>
-                                <th scope="col">Link</th>
+                                <th scope="col">{{ __('Name') }}</th>
+                                <th scope="col">{{ __('Country') }}</th>
+                                <th scope="col">{{ __('Year') }}</th>
+                                <th scope="col">{{ __('Link') }}</th>
                                 @can('edit competitions')<th scope="col" class="fit"></th>@endcan
                                 @can('delete competitions')<th scope="col" class="fit"></th>@endcan
                             </tr>

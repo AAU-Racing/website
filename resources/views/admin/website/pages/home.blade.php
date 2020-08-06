@@ -21,8 +21,8 @@
                         <table class="table">
                             <thead class="thead-aau">
                                 <tr>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Title</th>
+                                    <th scope="col">{{ __('Name') }}</th>
+                                    <th scope="col">{{ __('Title') }}</th>
                                 </tr>
                             </thead>
                             <tbody>

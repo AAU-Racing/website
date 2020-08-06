@@ -9,7 +9,7 @@
             </div>
             <div class="col-lg-9 col-xl-8">
                 <div class="page-header">
-                    <h3>Edit carousel slide</h3>
+                    <h3>{{ __('Edit carousel slide') }}</h3>
                     <hr />
                 </div>
                 <form method="POST" enctype="multipart/form-data">
@@ -57,7 +57,7 @@
 
                     <div class="form-group row">
                         <div class="col-md-9 offset-md-3 col-lg-10 offset-lg-2">
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
                         </div>
                     </div>
                 </form>

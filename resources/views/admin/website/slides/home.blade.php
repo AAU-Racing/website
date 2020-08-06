@@ -24,8 +24,8 @@
                         <table class="table">
                             <thead class="thead-aau">
                                 <tr>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Image</th>
+                                    <th scope="col">{{ __('Name') }}</th>
+                                    <th scope="col">{{ __('Image') }}</th>
                                     @can('delete carousel slides')<th scope="col" class="fit"></th>@endcan
                                 </tr>
                             </thead>

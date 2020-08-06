@@ -34,8 +34,8 @@ class CompetitionController extends Controller
     public function edit($id, EditCompetitionRequest $request)
     {
         $this->authorize('edit competitions');
-        $footer_link = $this->service->findById($id);
-        $this->service->update($footer_link, $request);
+        $competition = $this->service->findById($id);
+        $this->service->update($competition, $request);
 
         return redirect()->route('admin::competition::home');
     }

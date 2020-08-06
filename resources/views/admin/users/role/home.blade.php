@@ -11,9 +11,9 @@
             <table class="table roles-table">
                 <thead class="thead-aau">
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Roles</th>
+                        <th scope="col">{{ __('Name') }}</th>
+                        <th scope="col">{{ __('Email') }}</th>
+                        <th scope="col">{{ __('Roles') }}</th>
                         @can('alter roles')<th scope="col"></th>@endcan
                     </tr>
                 </thead>

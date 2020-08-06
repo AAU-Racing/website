@@ -9,7 +9,7 @@
             </div>
             <div class="col-lg-9 col-xl-8">
                 <div class="page-header">
-                    <h3>Edit competitions</h3>
+                    <h3>{{ __('Edit competition') }}</h3>
                     <hr />
                 </div>
                 <form method="POST">
@@ -73,7 +73,7 @@
 
                     <div class="form-group row">
                         <div class="col-md-10 offset-md-2">
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
                         </div>
                     </div>
                 </form>

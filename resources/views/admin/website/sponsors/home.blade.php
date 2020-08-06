@@ -24,10 +24,10 @@
                         <table class="table">
                             <thead class="thead-aau">
                                 <tr>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Link</th>
-                                    <th scope="col">Logo</th>
-                                    <th scope="col">Active</th>
+                                    <th scope="col">{{ __('Name') }}</th>
+                                    <th scope="col">{{ __('Link') }}</th>
+                                    <th scope="col">{{ __('Logo') }}</th>
+                                    <th scope="col">{{ __('Active') }}</th>
                                     @can('delete sponsors')<th scope="col" class="fit"></th>@endcan
                                 </tr>
                             </thead>

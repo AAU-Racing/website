@@ -60,7 +60,7 @@ class PageController extends Controller
         $page = $this->service->findById($id);
         $this->service->update($page, $request);
 
-        return redirect()->route('admin::page::editForm', ['id' => $page->id]);
+        return redirect()->route('admin::page::home');
     }
 
     public function delete($id)
@@ -88,6 +88,6 @@ class PageController extends Controller
         $this->authorize('edit pages');
         $page = $this->service->create($request);
 
-        return redirect()->route('admin::page::editForm', ['id' => $page->id]);
+        return redirect()->route('admin::page::home');
     }
 }

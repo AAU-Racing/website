@@ -12,10 +12,10 @@
                     <table class="table">
                         <thead slot="header">
                             <tr class="thead-aau">
-                                <th scope="col">Name</th>
-                                <th scope="col">First year</th>
-                                <th scope="col">Last year</th>
-                                <th scope="col">Image</th>
+                                <th scope="col">{{ __('Name') }}</th>
+                                <th scope="col">{{ __('First year') }}</th>
+                                <th scope="col">{{ __('Last year') }}</th>
+                                <th scope="col">{{ __('Image') }}</th>
                                 @can('edit cars')<th scope="col" class="fit"></th>@endcan
                                 @can('delete cars')<th scope="col" class="fit"></th>@endcan
                             </tr>

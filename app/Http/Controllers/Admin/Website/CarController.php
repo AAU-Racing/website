@@ -37,7 +37,7 @@ class CarController extends Controller
         $car = $this->service->findById($id);
         $this->service->update($car, $request);
 
-        return redirect()->route('admin::car::editForm', ['id' => $car->id]);
+        return redirect()->route('admin::car::home');
     }
 
     public function delete($id)
@@ -61,6 +61,6 @@ class CarController extends Controller
         $this->authorize('create cars');
         $car = $this->service->create($request);
 
-        return redirect()->route('admin::car::editForm', ['id' => $car->id]);
+        return redirect()->route('admin::car::home');
     }
 }

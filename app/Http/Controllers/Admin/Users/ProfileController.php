@@ -25,7 +25,7 @@ class ProfileController extends Controller
         return view('admin.profile.home', ['users' => $users]);
     }
 
-    public function showEditForm(Request $request, $id)
+    public function editForm(Request $request, $id)
     {
         $request->session()->put('before-form', URL::previous());
 
