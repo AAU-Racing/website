@@ -84,33 +84,6 @@
                         <div class="row mt-5">
                             <h5 class="col-md-5 text-muted text-md-right">Address</h5>
                         </div>
-                        <div class="form-group row">
-                            <label for="zip" class="col-md-5 col-form-label text-md-right">{{ __('Zip Code') }}<span class="required">*</span></label>
-
-                            <div class="col-md-6">
-                                <input id="zip" type="text" class="form-control @error('zip') is-invalid @enderror" name="zip" value="{{ old('zip') ?? $user->address->zip }}" required>
-
-                                @error('zip')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="city" class="col-md-5 col-form-label text-md-right">{{ __('City') }}<span class="required">*</span></label>
-
-                            <div class="col-md-6">
-                                <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') ?? $user->address->city }}" required>
-
-                                @error('city')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
 
                         <div class="form-group row">
                             <label for="address" class="col-md-5 col-form-label text-md-right">{{ __('Address') }}<span class="required">*</span></label>
@@ -125,6 +98,10 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <danish-zip-code :zip_code_name="'{{ __('Zip Code') }}'" :zip_code_old="'{{ old('zip') ?? $user->address->zip }}'" :zip_code_error="{{ json_encode($errors->get('zip')) }}"
+                                         :city_name="'{{ __('City') }}'" :city_old="'{{ old('city') ?? $user->address->city }}'" :city_error="{{ json_encode($errors->get('city')) }}">
+                        </danish-zip-code>
 
                         <div class="row mt-5">
                             <h5 class="col-md-5 text-muted text-md-right">Education</h5>
