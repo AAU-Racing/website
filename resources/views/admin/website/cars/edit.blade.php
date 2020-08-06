@@ -64,7 +64,7 @@
                             @if($car->getFirstMedia('photos'))
                                 <img src="{{ $car->getFirstMedia('photos')->getUrl() }}" class="edit-car-image" alt="{{ $car->name }}"/>
                             @else
-                                No image
+                                <div class="no-image">{{ __('No image') }}</div>
                             @endif
                         </div>
                     </div>

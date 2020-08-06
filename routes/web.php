@@ -30,22 +30,22 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'names
 
     Route::group(['namespace' => 'Users'], function() {
         Route::group(['prefix' => 'role/', 'as' => 'role::'], function() {
-            Route::get('/', 'RoleController@index')->name('home');
+            Route::get('/', 'RoleController@home')->name('home');
             Route::get('/{id}', 'RoleController@editForm')->name('editForm');
             Route::post('/{id}', 'RoleController@edit')->name('edit');
         });
 
         Route::group(['prefix' => 'profile/', 'as' => 'profile::'], function() {
-            Route::get('/', 'ProfileController@index')->name('home');
+            Route::get('/', 'ProfileController@home')->name('home');
             Route::get('/{id}', 'ProfileController@editForm')->name('editForm');
             Route::post('/{id}', 'ProfileController@edit')->name('edit');
         });
 
         Route::group(['prefix' => 'avatar/', 'as' => 'avatar::'], function() {
-            Route::get('/', 'AvatarController@index')->name('home');
+            Route::post('/delete', 'AvatarController@delete')->name('delete');
+            Route::get('/', 'AvatarController@home')->name('home');
             Route::get('/{id}', 'AvatarController@editForm')->name('editForm');
             Route::post('/{id}', 'AvatarController@edit')->name('edit');
-            Route::delete('/{id}', 'AvatarController@delete')->name('delete');
         });
     });
 

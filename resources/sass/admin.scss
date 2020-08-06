@@ -46,13 +46,35 @@
     }
 }
 
+.no-avatar {
+    font-size: 8rem;
+    color: gray;
+}
+
 // pages
 .wysiwyg-editor {
     min-height: 60vh;
 }
 
+// misc
+.no-image {
+    padding: 7px 0;
+    line-height: 1.6;
+}
+
+// TODO: Make these responsive
 .edit-car-image {
     width: 50%;
+    border-radius: 5px;
+}
+
+.edit-logo-image {
+    width: 50%;
+    border-radius: 5px;
+}
+
+.edit-avatar-image {
+    width: 40%;
     border-radius: 5px;
 }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Users;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EditUserRequest;
@@ -17,12 +17,12 @@ class ProfileController extends Controller
         $this->service = $userService;
     }
 
-    public function index()
+    public function home()
     {
         $this->authorize('view all profiles');
 
         $users = $this->service->all();
-        return view('admin.profile.home', ['users' => $users]);
+        return view('admin.users.profile.home', ['users' => $users]);
     }
 
     public function editForm(Request $request, $id)
@@ -44,7 +44,7 @@ class ProfileController extends Controller
         // Fetch the id of the current primary contact.
         $primary = $user->contactPersons()->where('primary', true)->first()->id;
 
-        return view('admin.profile.edit', ['user' => $user, 'contactPersons' => $contactPersons, 'primary' => $primary]);
+        return view('admin.users.profile.edit', ['user' => $user, 'contactPersons' => $contactPersons, 'primary' => $primary]);
     }
 
     public function edit(EditUserRequest $request, $id)

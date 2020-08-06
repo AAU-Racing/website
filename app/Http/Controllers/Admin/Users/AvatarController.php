@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Users;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EditAvatarRequest;
@@ -19,7 +19,7 @@ class AvatarController extends Controller
     {
         $avatars = $this->service->getAll();
 
-        return view('admin.website.avatars.home', ['avatars' => $avatars]);
+        return view('admin.users.avatars.home', ['avatars' => $avatars]);
     }
 
     public function editForm($id)
@@ -27,7 +27,7 @@ class AvatarController extends Controller
         $this->authorize('edit avatars');
         $avatar = $this->service->findById($id);
 
-        return view('admin.website.avatars.edit', ['avatar' => $avatar]);
+        return view('admin.users.avatars.edit', ['avatar' => $avatar]);
     }
 
     public function edit($id, EditAvatarRequest $request)

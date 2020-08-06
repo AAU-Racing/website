@@ -14,7 +14,7 @@
                     <a class="nav-link" href="{{ route('admin::home') }}">Home</a>
                 </li>
                 @if(Auth::user()->hasRole('website-admin') || Auth::user()->hasRole('moderator'))
-                    <li class="nav-item {{ Request::is('admin/profile*') || Request::is('admin/role*') ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::is('admin/profile*') || Request::is('admin/role*') || Request::is('admin/avatar*') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('admin::profile::home') }}">Users</a>
                     </li>
                     <li class="nav-item {{ Request::is('admin/page*', 'admin/car*', 'admin/footerlink*') ? 'active' : '' }}">

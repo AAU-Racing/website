@@ -23,8 +23,8 @@
 
                             @error('label')
                             <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                <strong>{{ $message }}</strong>
+                            </span>
                             @enderror
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                             @if($slide->getFirstMedia('photos'))
                                 <img src="{{ $slide->getFirstMedia('photos')->getUrl() }}" class="edit-slide-image" alt="{{ $slide->label }}"/>
                             @else
-                                No image
+                                <div class="no-image">{{ __('No image') }}</div>
                             @endif
                         </div>
                     </div>

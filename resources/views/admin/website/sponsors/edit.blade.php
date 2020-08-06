@@ -50,7 +50,7 @@
                             @if($sponsor->getFirstMedia('logo'))
                                 <img src="{{ $sponsor->getFirstMedia('logo')->getUrl() }}" class="edit-logo-image" alt="{{ $sponsor->name }}"/>
                             @else
-                                No image
+                                <div class="no-image">{{ __('No image') }}</div>
                             @endif
                         </div>
                     </div>

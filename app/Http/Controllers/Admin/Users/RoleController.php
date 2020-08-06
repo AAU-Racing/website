@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Users;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EditRolesRequest;
@@ -16,12 +16,12 @@ class RoleController extends Controller
         $this->service = $userService;
     }
 
-    public function index()
+    public function home()
     {
         $this->authorize('view roles');
 
         $users = $this->service->getAllUsers();
-        return view('admin.role.home', ['users' => $users]);
+        return view('admin.users.role.home', ['users' => $users]);
     }
 
     public function editForm($id)
@@ -35,7 +35,7 @@ class RoleController extends Controller
         }
 
         $roles = Role::all();
-        return view('admin.role.edit', ['user' => $user, 'roles' => $roles]);
+        return view('admin.users.role.edit', ['user' => $user, 'roles' => $roles]);
     }
 
     public function edit(EditRolesRequest $request, $id)
