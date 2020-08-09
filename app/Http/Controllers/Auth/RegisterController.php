@@ -31,6 +31,8 @@ class RegisterController extends Controller
      */
     protected $redirectTo = '/login';
 
+    private $userService;
+
     /**
      * Create a new controller instance.
      *
@@ -40,6 +42,7 @@ class RegisterController extends Controller
     {
         $this->userService = $userService;
         $this->middleware('guest');
+        $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
 
     /**
@@ -78,9 +81,9 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $data['date_of_birth'] = date('Y-m-d', strtotime($data['date_of_birth']));
-        $user = $this->userService->create($data);
-
-        return $user;
+        $data['date_of_birth'] = array_key_exists('date_of_birth', $data) ?
+            date('Y-m-d', strtotime($data['date_of_birth'])) :
+            null;
+        return $this->userService->create($data);
     }
 }

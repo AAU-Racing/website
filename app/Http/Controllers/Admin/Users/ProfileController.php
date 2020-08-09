@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\EditUserRequest;
 use App\Services\UserService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
 
 class ProfileController extends Controller
@@ -57,7 +58,10 @@ class ProfileController extends Controller
 
         $this->authorize('edit profile', $user);
 
-        $request->merge(array('date_of_birth' => date('Y-m-d', strtotime($request->input('date_of_birth')))));
+        if ($request->input('date_of_birth')) {
+            $request->merge(array('date_of_birth' => date('Y-m-d', strtotime($request->input('date_of_birth')))));
+        }
+        Log::info($request->input('date_of_birth'));
         $this->service->update($user, $request);
 
         $previous = $request->session()->get('before-form');

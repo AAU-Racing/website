@@ -20,6 +20,7 @@ class UserService
                 'phone_number' => $data['phone_number'],
                 'password' => Hash::make($data['password']),
                 'study_number' => $data['study_number'],
+                'study_card_number' => $data['study_card_number'],
                 'alumni' => false,
                 'education' => $data['education'],
                 'date_of_birth' => $data['date_of_birth'],
@@ -75,9 +76,9 @@ class UserService
             $user->education = $request->input('education');
             $user->date_of_birth = $request->input('date_of_birth');
 
-            $user->address()->zip = $request->input('zip');
-            $user->address()->city = $request->input('city');
-            $user->address()->address = $request->input('address');
+            $user->address->zip = $request->input('zip');
+            $user->address->city = $request->input('city');
+            $user->address->address = $request->input('address');
 
             if (!$user->driversLicense && $request->input('drivers_license')) {
                 $user->driversLicense()->create([
@@ -86,7 +87,7 @@ class UserService
             } else if ($user->driversLicense && !$request->input('drivers_license')) {
                 $user->driversLicense()->delete();
             } else if ($user->driversLicense && $request->input('drivers_license')) {
-                $user->driversLicense()->license_number = $request->input('drivers_license');
+                $user->driversLicense->license_number = $request->input('drivers_license');
             }
 
             if (!$user->car && $request->input('car') != 'no') {
@@ -96,7 +97,7 @@ class UserService
             } else if ($user->car && $request->input('car') == 'no') {
                 $user->car()->delete();
             } else if (!$user->car && $request->input('car') != 'no') {
-                $user->car()->towbar = $request->input('car') == 'towbar';
+                $user->car->towbar = $request->input('car') == 'towbar';
             }
 
             $ids = $user->contactPersons()->pluck('id')->except($request->input('contact_person.*.id'));
