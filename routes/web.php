@@ -123,6 +123,6 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'names
 // Public pages
 Route::get('/home', 'PageController@home')->name('home');
 Route::get('/cars', 'PageController@cars')->name('cars');
-Route::get('press', 'PageController@press')->name('press');
+Route::get('/press', 'PageController@press')->name('press');
 
 Route::get('/{page}', 'PageController@page')->name('page');

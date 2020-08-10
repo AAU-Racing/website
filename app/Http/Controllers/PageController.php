@@ -33,8 +33,9 @@ class PageController extends Controller
 
     public function press() {
         $press_posts = $this->pressPostService->getActive();
+        $page = $this->pageService->findByName('press');
 
-        return view('press', ['press_posts' => $press_posts]);
+        return view('press', ['page' => $page, 'press_posts' => $press_posts]);
     }
 
     public function page(string $name)
