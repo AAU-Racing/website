@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateCarouselSlideRequest extends FormRequest
+class CreatePressPostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,15 +24,9 @@ class CreateCarouselSlideRequest extends FormRequest
     public function rules()
     {
         return [
-            'label' => ['required', 'string', 'max:200'],
-            'photo' => ['required', 'image', 'max:'. 32 * 1024]  # 32 MB
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            'photo.image' => 'The file must be an image.',
+            'title' => ['required', 'string'],
+            'content' => ['required', 'string'],
+            'active' => ['string', 'in:on']
         ];
     }
 }

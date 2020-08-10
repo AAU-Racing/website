@@ -86,7 +86,7 @@ class PageController extends Controller
     public function add(CreatePageRequest $request)
     {
         $this->authorize('edit pages');
-        $page = $this->service->create($request);
+        $this->service->create($request);
 
         return redirect()->route('admin::page::home');
     }

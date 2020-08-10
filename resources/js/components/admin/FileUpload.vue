@@ -1,6 +1,6 @@
 <template>
     <div class="custom-file">
-        <input type="file" :class="'custom-file-input' +  (invalid ? ' is-invalid' : '')" :id="name" :name="name" @change="onFileChange" v-bind="$attrs">
+        <input type="file" class="custom-file-input" v-bind:class="{'is-invalid': invalid}" :id="name" :name="name" @change="onFileChange" v-bind="$attrs">
         <label class="custom-file-label" :for="name">
             {{ filename ? filename : placeholder }}
         </label>

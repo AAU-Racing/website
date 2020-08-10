@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin\Users;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EditAvatarRequest;
 use App\Services\AvatarService;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class AvatarController extends Controller
 {

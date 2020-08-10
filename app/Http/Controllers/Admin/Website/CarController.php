@@ -59,7 +59,7 @@ class CarController extends Controller
     public function add(CreateCarRequest $request)
     {
         $this->authorize('create cars');
-        $car = $this->service->create($request);
+        $this->service->create($request);
 
         return redirect()->route('admin::car::home');
     }

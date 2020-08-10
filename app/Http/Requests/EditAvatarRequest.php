@@ -24,7 +24,7 @@ class EditAvatarRequest extends FormRequest
     public function rules()
     {
         return [
-            'avatar' => ['required', 'image', 'max:'. 32 * 1024]
+            'avatar' => ['required', 'image', 'max:'. 32 * 1024]  # 32 MB
         ];
     }
 }

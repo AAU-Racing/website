@@ -42,10 +42,10 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'names
         });
 
         Route::group(['prefix' => 'avatar/', 'as' => 'avatar::'], function() {
-            Route::post('/delete', 'AvatarController@delete')->name('delete');
             Route::get('/', 'AvatarController@home')->name('home');
             Route::get('/{id}', 'AvatarController@editForm')->name('editForm');
             Route::post('/{id}', 'AvatarController@edit')->name('edit');
+            Route::delete('/{id}', 'AvatarController@delete')->name('delete');
         });
     });
 
@@ -109,9 +109,13 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'names
         });
 
         Route::group(['prefix' => 'press/', 'as' => 'press::'], function () {
-            Route::get('/', 'PressController@home')->name('home');
-            Route::get('/{id}', 'PressController@editForm')->name('editForm');
-            Route::post('/{id}', 'PressController@edit')->name('edit');
+            Route::get('/new', 'PressPostController@addForm')->name('addForm');
+            Route::post('/new', 'PressPostController@add')->name('add');
+            Route::get('/', 'PressPostController@home')->name('home');
+            Route::post('/', 'PressPostController@editOrder')->name('editOrder');
+            Route::get('/{id}', 'PressPostController@editForm')->name('editForm');
+            Route::post('/{id}', 'PressPostController@edit')->name('edit');
+            Route::delete('/{id}', 'PressPostController@delete')->name('delete');
         });
     });
 });
@@ -119,5 +123,6 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'names
 // Public pages
 Route::get('/home', 'PageController@home')->name('home');
 Route::get('/cars', 'PageController@cars')->name('cars');
+Route::get('press', 'PageController@press')->name('press');
 
 Route::get('/{page}', 'PageController@page')->name('page');

@@ -25,7 +25,7 @@ class EditCarouselSlideRequest extends FormRequest
     {
         return [
             'label' => ['required', 'string', 'max:200'],
-            'photo' => ['nullable', 'sometimes', 'image', 'max:'. 32 * 1024]
+            'photo' => ['nullable', 'sometimes', 'max:'. 32 * 1024]  # 32 MB
         ];
     }
 

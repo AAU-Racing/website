@@ -62,8 +62,8 @@ class SponsorController extends Controller
     public function edit($id, EditSponsorRequest $request)
     {
         $this->authorize('edit sponsors');
-        $footer_link = $this->service->findById($id);
-        $this->service->update($footer_link, $request);
+        $sponsor = $this->service->findById($id);
+        $this->service->update($sponsor, $request);
 
         return redirect()->route('admin::sponsor::home');
     }
@@ -71,9 +71,9 @@ class SponsorController extends Controller
     public function delete($id)
     {
         $this->authorize('delete sponsors');
-        $footer_link = $this->service->findById($id);
+        $sponsor = $this->service->findById($id);
 
-        $footer_link->delete();
+        $sponsor->delete();
 
         return redirect()->route('admin::sponsor::home');
     }
@@ -86,7 +86,6 @@ class SponsorController extends Controller
 
     public function add(CreateSponsorRequest $request)
     {
-        Log::info($request);
         $this->authorize('create sponsors');
         $this->service->create($request);
 

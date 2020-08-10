@@ -60,10 +60,10 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::findOrCreate('delete training sessions');
 
         // Press
-        Permission::findOrCreate('create news refrences');
-        Permission::findOrCreate('edit news refrences');
-        Permission::findOrCreate('view disabled news refrences');
-        Permission::findOrCreate('delete news refrences');
+        Permission::findOrCreate('create press posts');
+        Permission::findOrCreate('edit press posts');
+        Permission::findOrCreate('view disabled press posts');
+        Permission::findOrCreate('delete press posts');
 
         // Pictures
         Permission::findOrCreate('create pictures');
@@ -100,7 +100,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'view training sessions',
             'edit training sessions',
             'delete training sessions',
-            'view disabled news refrences',
+            'view disabled press posts',
             'view disabled pictures',
             'view files'
         ]);
@@ -109,7 +109,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'view disabled footer links',
             'view disabled sponsors',
             'view training sessions',
-            'view disabled news refrences',
+            'view disabled press posts',
             'view disabled pictures',
             'view files'
         ]);
@@ -136,10 +136,10 @@ class RolesAndPermissionsSeeder extends Seeder
                 'view training sessions',
                 'edit training sessions',
                 'delete training sessions',
-                'create news refrences',
-                'edit news refrences',
-                'view disabled news refrences',
-                'delete news refrences',
+                'create press posts',
+                'edit press posts',
+                'view disabled press posts',
+                'delete press posts',
                 'create pictures',
                 'edit pictures',
                 'view disabled pictures',

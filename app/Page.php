@@ -3,12 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
 
 class Page extends Model implements Sortable
 {
-    use SortableTrait;
+    use SortableTrait, LogsActivity;
+
+    protected static $logAttributes = ['*'];
 
     public $sortable = [
         'order_column_name' => 'order',

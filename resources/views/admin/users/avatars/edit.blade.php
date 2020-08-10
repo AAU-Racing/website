@@ -42,12 +42,10 @@
                                 {{ __('Update Avatar') }}
                             </button>
 
-                            <form action="{{ route('admin::avatar::delete') }}" method="POST">
-                                @csrf
-                                <button type="submit" class="btn btn-link">
-                                    {{ __('Delete Avatar') }}
-                                </button>
-                            </form>
+                            {{-- _method: delete is magic that makes laravel interpret the POST as a DELETE --}}
+                            <button type="submit" class="btn btn-link" name="_method" value="delete">
+                                {{ __('Delete Avatar') }}
+                            </button>
                         </div>
                     </form>
                 </div>

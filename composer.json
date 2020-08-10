@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.4",
         "mews/purifier": "^3.2",
         "spatie/eloquent-sortable": "^3.8",
+        "spatie/laravel-activitylog": "^3.14",
         "spatie/laravel-medialibrary": "^8.3",
         "spatie/laravel-permission": "^3.13"
     },

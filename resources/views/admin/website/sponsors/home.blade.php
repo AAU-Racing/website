@@ -11,7 +11,6 @@
                 <div class="table-responsive">
                     @can('edit sponsors')
                         <sortable-table :elements="{{ json_encode($sponsors) }}"
-                                        :can_edit="{{ Auth::user()->can('edit sponsors') }}"
                                         :can_delete="{{ Auth::user()->can('delete sponsors') }}"
                                         header_view="sponsor-header"
                                         row_view="sponsor-row"
