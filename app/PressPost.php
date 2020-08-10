@@ -9,9 +9,9 @@ use Spatie\EloquentSortable\SortableTrait;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-class PressPost extends Model implements Sortable, HasMedia
+class PressPost extends Model implements Sortable
 {
-    use SortableTrait, InteractsWithMedia, LogsActivity;
+    use SortableTrait, LogsActivity;
 
     protected static $logAttributes = ['*'];
 
@@ -29,8 +29,15 @@ class PressPost extends Model implements Sortable, HasMedia
         'order' => 'integer'
     ];
 
-    public function registerMediaCollections(): void
+    protected $appends = ['edit_url', 'delete_url'];
+
+    public function getEditUrlAttribute()
     {
-        $this->addMediaCollection('photos');
+        return route('admin::press::editForm', ['id' => $this->id]);
+    }
+
+    public function getDeleteUrlAttribute()
+    {
+        return route('admin::press::delete', ['id' => $this->id]);
     }
 }

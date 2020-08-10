@@ -19,6 +19,7 @@ class AvatarController extends Controller
 
     public function home()
     {
+        $this->authorize('view avatars');
         $avatars = $this->service->getAll();
 
         return view('admin.users.avatars.home', ['avatars' => $avatars]);

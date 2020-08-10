@@ -21,6 +21,8 @@ class CarouselSlideController extends Controller
 
     public function home()
     {
+        $this->authorize('view carousel slides');
+
         $slides = $this->service->getAll();
 
         return view('admin.website.slides.home', ['slides' => $slides]);

@@ -4,24 +4,24 @@
     <div class="container-fluid">
         <div class="row p-4">
             <div class="col-md-3 col-xl-2">
-                @component('admin.components.website_nav', ['sponsors' => 'active', 'flex' => 'md'])
+                @component('admin.components.website_nav', ['press' => 'active', 'flex' => 'md'])
                 @endcomponent
             </div>
             <div class="col-md-9 col-xl-8">
                 <div class="page-header">
-                    <h3>{{ __('Add new sponsor') }}</h3>
+                    <h3>{{ __('Add new press post') }}</h3>
                     <hr />
                 </div>
-                <form method="POST" enctype="multipart/form-data">
+                <form method="POST">
                     @csrf
 
                     <div class="form-group row">
-                        <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}<span class="required">*</span></label>
+                        <label for="title" class="col-md-2 col-form-label text-md-right">{{ __('Title') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autofocus>
+                            <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autofocus>
 
-                            @error('name')
+                            @error('title')
                             <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -30,30 +30,16 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="link" class="col-md-2 col-form-label text-md-right">{{ __('Link') }}<span class="required">*</span></label>
+                        <label for="editable" class="col-md-2 col-form-label text-md-right">{{ __('Content') }}<span class="required">*</span></label>
 
-                        <div class="col-md-6">
-                            <input id="link" type="text" class="form-control @error('link') is-invalid @enderror" name="link" value="{{ old('link') }}" required>
+                        <div class="col-md-10">
+                            <textarea id="editable" class="wysiwyg-editor" name="content">{{ old('content') }}</textarea>
 
-                            @error('link')
-                                <span class="invalid-feedback" role="alert">
+                            @error('content')
+                            <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="col-md-2 col-form-label text-md-right">{{ __('Logo') }}<span class="required">*</span></div>
-
-                        <div class="col-md-6">
-                            <file-upload invalid="{{ $errors->has('logo') }}" name="logo" placeholder="Choose logo" required>
-                                @error('logo')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </file-upload>
                         </div>
                     </div>
 

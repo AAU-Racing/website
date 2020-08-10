@@ -18,6 +18,7 @@ class CompetitionController extends Controller
 
     public function home()
     {
+        $this->authorize('view competitions');
         $competitions = $this->service->getAll();
 
         return view('admin.website.competitions.home', ['competitions' => $competitions]);

@@ -33,7 +33,7 @@
                                 @foreach($press_posts as $press_post)
                                     <tr>
                                         <td scope="row">{{ $press_post->name }}</td>
-                                        <td>{{ $press_post->content }}</td>
+                                        <td>{!! $press_post->content !!}</td>
                                         <td>@if($press_post->active)<i class="fas fa-times"></i>@endif</td>
                                         @can('delete press posts')
                                             <td class="fit">

@@ -17,6 +17,8 @@ Vue.component('sponsor-row', require('./components/admin/SponsorRow.vue').defaul
 Vue.component('sortable-table', require('./components/admin/SortableTable.vue').default);
 Vue.component('file-upload', require('./components/admin/FileUpload.vue').default);
 Vue.component('danish-zip-code', require('./components/admin/DanishZipCode.vue').default);
+Vue.component('press-post-header', require('./components/admin/PressPostHeader.vue').default);
+Vue.component('press-post-row', require('./components/admin/PressPostRow.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

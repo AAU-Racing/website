@@ -23,12 +23,14 @@ class RolesAndPermissionsSeeder extends Seeder
         // if additional permissions are required.
 
         // Footer links
+        Permission::findOrCreate('view footer links');
         Permission::findOrCreate('create footer links');
         Permission::findOrCreate('edit footer links');
         Permission::findOrCreate('delete footer links');
         Permission::findOrCreate('view disabled footer links');
 
         // Carousel
+        Permission::findOrCreate('view carousel slides');
         Permission::findOrCreate('create carousel slides');
         Permission::findOrCreate('edit carousel slides');
         Permission::findOrCreate('delete carousel slides');
@@ -38,17 +40,20 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::findOrCreate('edit pages');
 
         // Sponsors
+        Permission::findOrCreate('view sponsors');
         Permission::findOrCreate('create sponsors');
         Permission::findOrCreate('edit sponsors');
         Permission::findOrCreate('delete sponsors');
         Permission::findOrCreate('view disabled sponsors');
 
         // Cars
+        Permission::findOrCreate('view cars');
         Permission::findOrCreate('create cars');
         Permission::findOrCreate('edit cars');
         Permission::findOrCreate('delete cars');
 
         // Competitions
+        Permission::findOrCreate('view competitions');
         Permission::findOrCreate('create competitions');
         Permission::findOrCreate('edit competitions');
         Permission::findOrCreate('delete competitions');
@@ -60,16 +65,18 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::findOrCreate('delete training sessions');
 
         // Press
+        Permission::findOrCreate('view press posts');
         Permission::findOrCreate('create press posts');
         Permission::findOrCreate('edit press posts');
-        Permission::findOrCreate('view disabled press posts');
         Permission::findOrCreate('delete press posts');
+        Permission::findOrCreate('view disabled press posts');
 
         // Pictures
+        Permission::findOrCreate('view pictures');
         Permission::findOrCreate('create pictures');
         Permission::findOrCreate('edit pictures');
-        Permission::findOrCreate('view disabled pictures');
         Permission::findOrCreate('delete pictures');
+        Permission::findOrCreate('view disabled pictures');
 
         // Media manager
         Permission::findOrCreate('create files');
@@ -79,6 +86,7 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::findOrCreate('delete files');
 
         // Avatars
+        Permission::findOrCreate('view avatars');
         Permission::findOrCreate('edit avatars');
         Permission::findOrCreate('delete avatars');
 
@@ -102,7 +110,15 @@ class RolesAndPermissionsSeeder extends Seeder
             'delete training sessions',
             'view disabled press posts',
             'view disabled pictures',
-            'view files'
+            'view files',
+            'view footer links',
+            'view sponsors',
+            'view press posts',
+            'view pictures',
+            'view carousel slides',
+            'view cars',
+            'view competitions',
+            'view avatars'
         ]);
 
         Role::findOrCreate('alumni')->givePermissionTo([
@@ -111,47 +127,63 @@ class RolesAndPermissionsSeeder extends Seeder
             'view training sessions',
             'view disabled press posts',
             'view disabled pictures',
-            'view files'
+            'view files',
+            'view footer links',
+            'view sponsors',
+            'view press posts',
+            'view pictures',
+            'view carousel slides',
+            'view cars',
+            'view competitions',
+            'view avatars'
         ]);
 
         Role::findOrCreate('moderator')->givePermissionTo([
-                'create footer links',
-                'edit footer links',
-                'delete footer links',
-                'view disabled footer links',
-                'create carousel slides',
-                'edit carousel slides',
-                'delete carousel slides',
-                'create sponsors',
-                'edit sponsors',
-                'delete sponsors',
-                'view disabled sponsors',
-                'create cars',
-                'edit cars',
-                'delete cars',
-                'create competitions',
-                'edit competitions',
-                'delete competitions',
-                'create training sessions',
-                'view training sessions',
-                'edit training sessions',
-                'delete training sessions',
-                'create press posts',
-                'edit press posts',
-                'view disabled press posts',
-                'delete press posts',
-                'create pictures',
-                'edit pictures',
-                'view disabled pictures',
-                'delete pictures',
-                'create files',
-                'rename files',
-                'move files',
-                'view files',
-                'delete files',
-                'edit avatars',
-                'delete avatars',
-                'view roles'
+            'create footer links',
+            'edit footer links',
+            'delete footer links',
+            'view disabled footer links',
+            'create carousel slides',
+            'edit carousel slides',
+            'delete carousel slides',
+            'create sponsors',
+            'edit sponsors',
+            'delete sponsors',
+            'view disabled sponsors',
+            'create cars',
+            'edit cars',
+            'delete cars',
+            'create competitions',
+            'edit competitions',
+            'delete competitions',
+            'create training sessions',
+            'view training sessions',
+            'edit training sessions',
+            'delete training sessions',
+            'create press posts',
+            'edit press posts',
+            'view disabled press posts',
+            'delete press posts',
+            'create pictures',
+            'edit pictures',
+            'view disabled pictures',
+            'delete pictures',
+            'create files',
+            'rename files',
+            'move files',
+            'view files',
+            'delete files',
+            'edit avatars',
+            'delete avatars',
+            'view roles',
+            'view footer links',
+            'view sponsors',
+            'view press posts',
+            'view pictures',
+            'view carousel slides',
+            'view cars',
+            'view competitions',
+            'view avatars'
         ]);
 
         Role::findOrCreate('website-admin')->givePermissionTo(Permission::all());

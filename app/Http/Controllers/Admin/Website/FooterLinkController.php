@@ -22,12 +22,14 @@ class FooterLinkController  extends Controller
 
     public function home()
     {
-
         if (Auth::user()->can('view disabled footer links')) {
             $footer_links = $this->service->getAll();
         }
-        else {
+        else if (Auth::user()->can('view footer links')) {
             $footer_links = $this->service->getActive();
+        }
+        else {
+            abort(403);
         }
 
         return view('admin.website.footer_links.home', ['footer_links' => $footer_links]);

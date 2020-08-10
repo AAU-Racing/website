@@ -18,6 +18,8 @@ class CarController extends Controller
 
     public function home()
     {
+        $this->authorize('view cars');
+
         $cars = $this->service->getAll();
 
         return view('admin.website.cars.home', ['cars' => $cars]);

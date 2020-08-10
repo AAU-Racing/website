@@ -25,8 +25,11 @@ class SponsorController extends Controller
         if (Auth::user()->can('view disabled sponsors')) {
             $sponsors = $this->service->getAll();
         }
-        else {
+        else if (Auth::user()->can('view sponsors')) {
             $sponsors = $this->service->getActive();
+        }
+        else {
+            abort(403);
         }
 
         return view('admin.website.sponsors.home', ['sponsors' => $sponsors]);

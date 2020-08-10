@@ -72,7 +72,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="editable" class="col-md-2 col-form-label text-md-right">{{ __('Content') }}<span class="required">*</span></label>
+                        <label for="editable" class="col-md-2 col-form-label text-md-right">{{ __('Specifications') }}<span class="required">*</span></label>
 
                         <div class="col-md-10">
                             <textarea id="editable" class="wysiwyg-editor" name="specifications">{{ old('specifications') }}</textarea>

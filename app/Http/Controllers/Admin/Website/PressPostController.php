@@ -7,6 +7,7 @@ use App\Http\Requests\CreatePressPostRequest;
 use App\Http\Requests\EditPressPostRequest;
 use App\Services\PressPostService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
@@ -21,11 +22,14 @@ class PressPostController extends Controller
 
     public function home()
     {
-        if ($this->authorize('view disabled press posts')) {
+        if (Auth::user()->can('view disabled press posts')) {
+            $press_posts = $this->service->getAll();
+        }
+        else if (Auth::user()->can('view press posts')) {
             $press_posts = $this->service->getActive();
         }
         else {
-            $press_posts = $this->service->getAll();
+            abort(403);
         }
 
         return view('admin.website.press.home', ['press_posts' => $press_posts]);
@@ -64,7 +68,7 @@ class PressPostController extends Controller
         $press_post = $this->service->findById($id);
         $this->service->update($press_post, $request);
 
-        return redirect()->route('admin::press::editForm', ['id' => $press_post->id]);
+        return redirect()->route('admin::press::home');
     }
 
     public function delete($id)
