@@ -4,8 +4,7 @@
 <div class="container-fluid">
     <div class="row p-4">
         <div class="col-lg-3 col-md-4">
-            @component('admin.components.profile')
-            @endcomponent
+            @include('admin.components.profile')
         </div>
     </div>
 </div>

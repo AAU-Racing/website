@@ -4,8 +4,7 @@
     <div class="container-fluid">
         <div class="row p-4">
             <div class="col-md-3 col-xl-2">
-                @component('admin.components.website_nav', ['footer_links' => 'active', 'flex' => 'md'])
-                @endcomponent
+                @include('admin.components.website_nav', ['footer_links' => 'active', 'flex' => 'md'])
             </div>
             <div class="col-md-9 col-xl-8">
                 <div class="page-header">

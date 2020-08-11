@@ -16,8 +16,7 @@
                 {!! $page->content !!}
             </div>
 
-            @component('layouts.sponsors')
-            @endcomponent
+            <x-sponsors></x-sponsors>
         </div>
     </div>
 @endsection

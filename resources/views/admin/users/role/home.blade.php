@@ -4,8 +4,7 @@
 <div class="container-fluid">
     <div class="row p-4">
         <div class="col-md-3 col-lg-2">
-            @component('admin.components.users_nav', ['roles' => 'active', 'flex' => 'md'])
-            @endcomponent
+            @include('admin.components.users_nav', ['roles' => 'active', 'flex' => 'md'])
         </div>
         <div class="col-md-9 col-xl-6 offset-lg-1 table-responsive">
             <table class="table roles-table">

@@ -4,13 +4,12 @@
     <div class="container-fluid">
         <div class="row p-4">
             <div class="col-md-3 col-lg-2">
-                @component('admin.components.website_nav', ['footer_links' => 'active', 'flex' => 'md'])
-                @endcomponent
+                @include('admin.components.website_nav', ['footer_links' => 'active', 'flex' => 'md'])
             </div>
             <div class="col-md-9 col-xl-6 offset-lg-1">
                 <div class="table-responsive">
                     @can('edit footer links')
-                        <sortable-table :elements="{{ json_encode($footer_links) }}"
+                        <sortable-table :elements="{{ $footer_links->toJson() }}"
                                         :can_delete="{{ Auth::user()->can('delete footer links') }}"
                                         header_view="footer-link-header"
                                         row_view="footer-link-row"

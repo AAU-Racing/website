@@ -1,9 +1,12 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<div class="container p-4">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<div class="container-fluid p-4">
+    <div class="row">
+        <div class="col-lg-3 col-xl-2">
+            @include('admin.components.users_nav', ['avatars' => 'active', 'flex' => 'lg'])
+        </div>
+        <div class="col-lg-9 col-xl-6 offset-xl-1">
             <div class="card">
                 <div class="card-header text-white bg-aau">{{ __('users.edit_avatar', ['name' => $avatar->name]) }}</div>
 
@@ -12,7 +15,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="current_photo" class="col-md-3 col-form-label text-md-right">{{ __('Current Avatar') }}</label>
+                            <label for="current_photo" class="col-md-4 col-form-label text-md-right">{{ __('Current Avatar') }}</label>
 
                             <div class="col-md-6">
                                 @if($avatar->getFirstMedia('avatar'))
@@ -24,7 +27,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-md-3 col-form-label text-md-right">{{ __('New Avatar') }}</div>
+                            <div class="col-md-4 col-form-label text-md-right">{{ __('New Avatar') }}</div>
 
                             <div class="col-md-6">
                                 <file-upload invalid="{{ $errors->has('avatar') }}" name="avatar" placeholder="Choose new avatar">

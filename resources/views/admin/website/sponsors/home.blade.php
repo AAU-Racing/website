@@ -4,13 +4,12 @@
     <div class="container-fluid">
         <div class="row p-4">
             <div class="col-md-3 col-lg-2">
-                @component('admin.components.website_nav', ['sponsors' => 'active', 'flex' => 'md'])
-                @endcomponent
+                @include('admin.components.website_nav', ['sponsors' => 'active', 'flex' => 'md'])
             </div>
             <div class="col-md-9 col-xl-6 offset-lg-1">
                 <div class="table-responsive">
                     @can('edit sponsors')
-                        <sortable-table :elements="{{ json_encode($sponsors) }}"
+                        <sortable-table :elements="{{ $sponsors->toJson() }}"
                                         :can_delete="{{ Auth::user()->can('delete sponsors') }}"
                                         header_view="sponsor-header"
                                         row_view="sponsor-row"

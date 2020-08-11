@@ -4,13 +4,12 @@
     <div class="container-fluid">
         <div class="row p-4">
             <div class="col-md-3 col-lg-2">
-                @component('admin.components.website_nav', ['pages' => 'active', 'flex' => 'md'])
-                @endcomponent
+                @include('admin.components.website_nav', ['pages' => 'active', 'flex' => 'md'])
             </div>
             <div class="col-md-9 col-xl-6 offset-lg-1">
                 <div class="table-responsive">
                     @can('edit pages')
-                        <sortable-table :elements="{{ json_encode($pages) }}"
+                        <sortable-table :elements="{{ $pages->toJson() }}"
                                         :can_edit="{{ Auth::user()->can('edit pages') }}"
                                         header_view="page-header"
                                         row_view="page-row"
