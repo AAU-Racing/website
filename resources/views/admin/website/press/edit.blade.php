@@ -19,7 +19,7 @@
                         <label for="title" class="col-md-2 col-form-label text-md-right">{{ __('Title') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
-                            <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') ?? $press_post->title }}" required autofocus>
+                            <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title', $press_post->title) }}" required autofocus>
 
                             @error('title')
                             <span class="invalid-feedback" role="alert">
@@ -33,7 +33,7 @@
                         <label for="editable" class="col-md-3 col-lg-2 col-form-label text-md-right">{{ __('Content') }}<span class="required">*</span></label>
 
                         <div class="col-md-9 col-lg-10">
-                            <textarea id="editable" class="wysiwyg-editor" name="content">{{ old('content') ?? $press_post->content }}</textarea>
+                            <textarea id="editable" class="wysiwyg-editor" name="content">{{ old('content', $press_post->content) }}</textarea>
 
                             @error('content')
                             <span class="invalid-feedback" role="alert">
@@ -49,7 +49,7 @@
                         <div class="col-md-6">
                             <div class="custom-control custom-checkbox">
                                 <!-- Check for old name is because active is not submitted if not checked -->
-                                <input type="checkbox" class="custom-control-input" id="active" name="active" @if(old('active') || (!old('name') and $press_post->active)) checked @endif>
+                                <input type="checkbox" class="custom-control-input" id="active" name="active" @if(old('active') || (!old('notfirst') && $footer_link->active)) checked @endif>
                                 <label class="custom-control-label" for="active"></label>
                             </div>
 

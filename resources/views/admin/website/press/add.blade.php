@@ -14,6 +14,7 @@
                 </div>
                 <form method="POST">
                     @csrf
+                    <input type="hidden" name="notfirst" value="1">
 
                     <div class="form-group row">
                         <label for="title" class="col-md-2 col-form-label text-md-right">{{ __('Title') }}<span class="required">*</span></label>
@@ -49,7 +50,7 @@
                         <div class="col-md-6">
                             <div class="custom-control custom-checkbox">
                                 <!-- Check for old name is because active is not submitted if not checked -->
-                                <input type="checkbox" class="custom-control-input" id="active" name="active" @if(old('active') || !old('name')) checked @endif>
+                                <input type="checkbox" class="custom-control-input" id="active" name="active" @if(old('active') || !old('notfirst')) checked @endif>
                                 <label class="custom-control-label" for="active"></label>
                             </div>
 

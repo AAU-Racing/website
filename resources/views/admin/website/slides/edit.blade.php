@@ -19,7 +19,7 @@
                         <label for="label" class="col-md-2 col-form-label text-md-right">{{ __('Label') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
-                            <input id="label" type="text" class="form-control @error('label') is-invalid @enderror" name="label" value="{{ old('label') ?? $slide->label }}" required autofocus>
+                            <input id="label" type="text" class="form-control @error('label') is-invalid @enderror" name="label" value="{{ old('label', $slide->label) }}" required autofocus>
 
                             @error('label')
                             <span class="invalid-feedback" role="alert">

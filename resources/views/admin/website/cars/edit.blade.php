@@ -19,7 +19,7 @@
                         <label for="name" class="col-md-3 col-lg-2 col-form-label text-md-right">{{ __('Name') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ?? $car->name }}" required autofocus>
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $car->name) }}" required autofocus>
 
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -33,7 +33,7 @@
                         <label for="first_year" class="col-md-3 col-lg-2 col-form-label text-md-right">{{ __('First Year') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
-                            <input id="first_year" type="text" class="form-control @error('first_year') is-invalid @enderror" name="first_year" value="{{ old('first_year') ?? $car->first_year }}" required>
+                            <input id="first_year" type="text" class="form-control @error('first_year') is-invalid @enderror" name="first_year" value="{{ old('first_year', $car->first_year) }}" required>
 
                             @error('first_year')
                             <span class="invalid-feedback" role="alert">
@@ -47,7 +47,7 @@
                         <label for="last_year" class="col-md-3 col-lg-2 col-form-label text-md-right">{{ __('Last Year') }}</label>
 
                         <div class="col-md-6">
-                            <input id="last_year" type="text" class="form-control @error('last_year') is-invalid @enderror" name="last_year" value="{{ old('last_year') ?? $car->last_year }}">
+                            <input id="last_year" type="text" class="form-control @error('last_year') is-invalid @enderror" name="last_year" value="{{ old('last_year', $car->last_year) }}">
 
                             @error('last_year')
                             <span class="invalid-feedback" role="alert">
@@ -87,7 +87,7 @@
                         <label for="editable" class="col-md-3 col-lg-2 col-form-label text-md-right">{{ __('Specifications') }}<span class="required">*</span></label>
 
                         <div class="col-md-9 col-lg-10">
-                            <textarea id="editable" class="wysiwyg-editor" name="specifications">{{ old('specifications') ?? $car->specifications }}</textarea>
+                            <textarea id="editable" class="wysiwyg-editor" name="specifications">{{ old('specifications', $car->specifications) }}</textarea>
 
                             @error('specifications')
                                 <span class="invalid-feedback" role="alert">
