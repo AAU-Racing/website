@@ -121,9 +121,4 @@ class UserService
             $user->push();
         });
     }
-
-    public function all()
-    {
-        return User::all();
-    }
 }

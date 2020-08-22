@@ -6,6 +6,7 @@ namespace App\Services;
 use App\CarouselSlide;
 use App\Http\Requests\CreateCarouselSlideRequest;
 use App\Http\Requests\EditCarouselSlideRequest;
+use App\Http\Requests\OrderCarouselSlidesRequest;
 use Illuminate\Support\Facades\DB;
 
 class CarouselSlideService
@@ -26,9 +27,9 @@ class CarouselSlideService
         return CarouselSlide::ordered()->get();
     }
 
-    function setNewOrder(array $data)
+    function setNewOrder(OrderCarouselSlidesRequest $request)
     {
-        CarouselSlide::setNewOrder($data);
+        CarouselSlide::setNewOrder($request->input('carousel_slides_order'));
     }
 
     function create(CreateCarouselSlideRequest $request)

@@ -5,6 +5,7 @@ namespace App\Services;
 
 use App\Http\Requests\CreateSponsorRequest;
 use App\Http\Requests\EditSponsorRequest;
+use App\Http\Requests\OrderSponsorsRequest;
 use App\Sponsor;
 use Illuminate\Support\Facades\DB;
 
@@ -31,9 +32,9 @@ class SponsorService
         return Sponsor::ordered()->where('active', true)->get();
     }
 
-    function setNewOrder(array $data)
+    function setNewOrder(OrderSponsorsRequest $request)
     {
-        Sponsor::setNewOrder($data);
+        Sponsor::setNewOrder($request->input('sponsor_order'));
     }
 
     function create(CreateSponsorRequest $request)

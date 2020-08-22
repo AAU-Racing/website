@@ -19,6 +19,9 @@ Vue.component('file-upload', require('./components/admin/FileUpload.vue').defaul
 Vue.component('danish-zip-code', require('./components/admin/DanishZipCode.vue').default);
 Vue.component('press-post-header', require('./components/admin/PressPostHeader.vue').default);
 Vue.component('press-post-row', require('./components/admin/PressPostRow.vue').default);
+Vue.component('department-header', require('./components/admin/DepartmentHeader.vue').default);
+Vue.component('department-row', require('./components/admin/DepartmentRow.vue').default);
+Vue.component('department-assignment', require('./components/admin/DepartmentAssignment.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

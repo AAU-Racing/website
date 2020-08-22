@@ -22,7 +22,7 @@ class ProfileController extends Controller
     {
         $this->authorize('view all profiles');
 
-        $users = $this->service->all();
+        $users = $this->service->getAllUsers();
         return view('admin.users.profile.home', ['users' => $users]);
     }
 

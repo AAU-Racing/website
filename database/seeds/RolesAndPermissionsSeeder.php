@@ -35,6 +35,13 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::findOrCreate('edit carousel slides');
         Permission::findOrCreate('delete carousel slides');
 
+        // Deparments
+        Permission::findOrCreate('view departments');
+        Permission::findOrCreate('create departments');
+        Permission::findOrCreate('edit departments');
+        Permission::findOrCreate('delete departments');
+        Permission::findOrCreate('assign departments');
+
         // Pages
         Permission::findOrCreate('view pages');
         Permission::findOrCreate('edit pages');
@@ -118,7 +125,8 @@ class RolesAndPermissionsSeeder extends Seeder
             'view carousel slides',
             'view cars',
             'view competitions',
-            'view avatars'
+            'view avatars',
+            'view departments'
         ]);
 
         Role::findOrCreate('alumni')->givePermissionTo([
@@ -135,7 +143,8 @@ class RolesAndPermissionsSeeder extends Seeder
             'view carousel slides',
             'view cars',
             'view competitions',
-            'view avatars'
+            'view avatars',
+            'view departments'
         ]);
 
         Role::findOrCreate('moderator')->givePermissionTo([
@@ -183,7 +192,12 @@ class RolesAndPermissionsSeeder extends Seeder
             'view carousel slides',
             'view cars',
             'view competitions',
-            'view avatars'
+            'view avatars',
+            'view departments',
+            'create departments',
+            'edit departments',
+            'delete departments',
+            'assign departments',
         ]);
 
         Role::findOrCreate('website-admin')->givePermissionTo(Permission::all());

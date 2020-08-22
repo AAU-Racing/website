@@ -4,12 +4,15 @@ namespace App;
 
 use App\Traits\BelongsToUser;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
 
 class DepartmentUser extends Model implements Sortable
 {
-    use SortableTrait, BelongsToUser;
+    use SortableTrait, BelongsToUser, LogsActivity;
+
+    protected static $logAttributes = ['*'];
 
     public $sortable = [
         'order_column_name' => 'order',

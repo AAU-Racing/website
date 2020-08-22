@@ -5,10 +5,11 @@ namespace App\Services;
 
 
 use App\Department;
+use App\Http\Requests\AssignDepartmentRequest;
 use App\Http\Requests\CreateDepartmentRequest;
-use App\Http\Requests\CreateFooterLinkRequest;
 use App\Http\Requests\EditDepartmentRequest;
-use App\Http\Requests\EditFooterLinkRequest;
+use App\Http\Requests\OrderDepartmentsRequest;
+use Mews\Purifier\Facades\Purifier;
 
 class DepartmentService
 {
@@ -25,26 +26,31 @@ class DepartmentService
 
     function getAll()
     {
-        return Department::all();
+        return Department::ordered()->get();
     }
 
-    function setNewOrder(array $data)
+    function setNewOrder(OrderDepartmentsRequest $request)
     {
-        Department::setNewOrder($data);
+        Department::setNewOrder($request->get('department_order'));
     }
 
     function create(CreateDepartmentRequest $request)
     {
         return Department::create([
             'name' => $request->input('name'),
-            'description' => $request->input('description'),
+            'description' => Purifier::clean($request->input('description')),
         ]);
     }
 
     function update(Department $department, EditDepartmentRequest $request)
     {
         $department->name = $request->input('name');
-        $department->description = $request->input('description');
+        $department->description = Purifier::clean($request->input('description'));
         $department->save();
+    }
+
+    function assign(Department $department, AssignDepartmentRequest $request)
+    {
+
     }
 }

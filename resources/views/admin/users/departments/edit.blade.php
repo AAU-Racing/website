@@ -1,0 +1,59 @@
+@extends('admin.layouts.app')
+
+@push('extra-head')
+    @include('admin.components.tinymce')
+@endpush
+
+@section('content')
+    <div class="container-fluid">
+        <div class="row p-4">
+            <div class="col-lg-3 col-xl-2">
+                @include('admin.components.users_nav', ['departments' => 'active', 'flex' => 'lg'])
+            </div>
+            <div class="col-lg-9 col-xl-8">
+                <div class="page-header">
+                    <h3>{{ __('Edit department') }}</h3>
+                    <hr />
+                </div>
+                <form method="POST">
+                    @csrf
+                    <input type="hidden" name="notfirst" value="1">
+
+                    <div class="form-group row">
+                        <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}<span class="required">*</span></label>
+
+                        <div class="col-md-6">
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $department->name) }}" required autofocus>
+
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="editable" class="col-md-3 col-lg-2 col-form-label text-md-right">{{ __('Description') }}<span class="required">*</span></label>
+
+                        <div class="col-md-9 col-lg-10">
+                            <textarea id="editable" class="wysiwyg-editor" name="description">{{ old('description', $department->description) }}</textarea>
+
+                            @error('description')
+                            <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-9 offset-md-3 col-lg-10 offset-lg-2">
+                            <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+@endsection

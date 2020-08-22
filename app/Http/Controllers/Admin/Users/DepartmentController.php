@@ -3,89 +3,78 @@
 namespace App\Http\Controllers\Admin\Users;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AssignDepartmentRequest;
+use App\Http\Requests\CreateDepartmentRequest;
+use App\Http\Requests\OrderDepartmentsRequest;
 use App\Services\DepartmentService;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Services\UserService;
 
 class DepartmentController extends Controller
 {
     private $service;
+    private $userService;
 
-    public function __construct(DepartmentService $service)
+    public function __construct(DepartmentService $service, UserService $userService)
     {
         $this->service = $service;
+        $this->userService = $userService;
     }
 
     public function home()
     {
+        $this->authorize('view departments');
+        $departments = $this->service->getAll();
 
-        if (Auth::user()->can('view disabled footer links')) {
-            $footer_links = $this->service->getAll();
-        }
-        else {
-            $footer_links = $this->service->getActive();
-        }
-
-        return view('admin.website.footer_links.home', ['footer_links' => $footer_links]);
+        return view('admin.users.departments.home', ['departments' => $departments]);
     }
 
-    public function editOrder(Request $request)
+    public function editOrder(OrderDepartmentsRequest $request)
     {
-        $this->authorize('edit footer links');
-        $data = json_decode($request->input('footer_link_order'), true);
-        Log::info("Reorder footer links", ['order' => $data]);
+        $this->authorize('edit departments');
+        $this->service->setNewOrder($request);
 
-        $rules = [
-            '*' => 'exists:footer_links,id'
-        ];
-
-        $validator = Validator::make($data, $rules);
-        if ($validator->passes()) {
-            Log::info("Setting new order");
-            $this->service->setNewOrder($data);
-        }
-
-        return redirect()->route('admin::footer_link::home');
+        return redirect()->route('admin::department::home');
     }
 
-    public function editForm($id)
+    public function assignForm()
     {
-        $this->authorize('edit footer links');
-        $footer_link = $this->service->findById($id);
+        $this->authorize('assign departments');
+        $departments = $this->service->getAll();
+        $users = $this->userService->getAllUsers();
 
-        return view('admin.website.footer_links.edit', ['footer_link' => $footer_link]);
+        return view('admin.users.departments.assign', ['departments' => $departments, 'users' => $users]);
     }
 
-    public function edit($id, EditFooterLinkRequest $request)
+    public function assign(AssignDepartmentRequest $request)
     {
-        $this->authorize('edit footer links');
-        $footer_link = $this->service->findById($id);
-        $this->service->update($footer_link, $request);
+        $this->authorize('assign departments');
+        $departments = $this->service->getAll();
+        $this->service->assign($departments, $request);
 
-        return redirect()->route('admin::footer_link::home');
+        return redirect()->route('admin::department::home');
     }
 
     public function delete($id)
     {
-        $this->authorize('delete footer links');
+        $this->authorize('delete departments');
         $footer_link = $this->service->findById($id);
 
         $footer_link->delete();
 
-        return redirect()->route('admin::footer_link::home');
+        return redirect()->route('admin::department::home');
     }
 
     public function addForm()
     {
-        $this->authorize('create footer links');
-        return view('admin.website.footer_links.add');
+        $this->authorize('create departments');
+        return view('admin.users.departments.add');
     }
 
-    public function add(CreateFooterLinkRequest $request)
+    public function add(CreateDepartmentRequest $request)
     {
-        $this->authorize('create footer links');
+        $this->authorize('create departments');
         $this->service->create($request);
 
-        return redirect()->route('admin::footer_link::home');
+        return redirect()->route('admin::department::home');
     }
 }

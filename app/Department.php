@@ -26,6 +26,18 @@ class Department extends Model implements Sortable
         'order' => 'integer'
     ];
 
+    protected $appends = ['edit_url', 'delete_url'];
+
+    public function getEditUrlAttribute()
+    {
+        return route('admin::department::editForm', ['id' => $this->id]);
+    }
+
+    public function getDeleteUrlAttribute()
+    {
+        return route('admin::department::delete', ['id' => $this->id]);
+    }
+
     public function users()
     {
         return $this->belongsToMany('App\DepartmentUser')->withTimestamps();

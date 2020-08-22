@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Website;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreatePageRequest;
 use App\Http\Requests\EditPageRequest;
+use App\Http\Requests\OrderPagesRequest;
 use App\Services\PageService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -27,21 +28,10 @@ class PageController extends Controller
         return view('admin.website.pages.home', ['pages' => $pages]);
     }
 
-    public function editOrder(Request $request)
+    public function editOrder(OrderPagesRequest $request)
     {
         $this->authorize('edit pages');
-        $data = json_decode($request->input('page_order'), true);
-        Log::info("Reorder pages", ['order' => $data]);
-
-        $rules = [
-            '*' => 'exists:pages,id'
-        ];
-
-        $validator = Validator::make($data, $rules);
-        if ($validator->passes()) {
-            Log::info("Setting new order");
-            $this->service->setNewOrder($data);
-        }
+        $this->service->setNewOrder($request);
 
         return redirect()->route('admin::page::home');
     }

@@ -24,8 +24,8 @@ class EditDepartmentRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['string', 'required', 'max:255'],
-            'description' => ['string', 'null']
+            'name' => ['required', 'string', 'max:255'],
+            'description' => ['nullable', 'string']
         ];
     }
 }
