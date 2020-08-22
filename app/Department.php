@@ -25,6 +25,6 @@ class Department extends Model implements Sortable
 
     public function users()
     {
-        return $this->belongsToMany('App\User')->withTimestamps();
+        return $this->belongsToMany('App\DepartmentUser')->withTimestamps();
     }
 }
