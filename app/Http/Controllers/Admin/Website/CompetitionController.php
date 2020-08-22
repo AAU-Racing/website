@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Website;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateCompetitionRequest;
@@ -18,6 +18,7 @@ class CompetitionController extends Controller
 
     public function home()
     {
+        $this->authorize('view competitions');
         $competitions = $this->service->getAll();
 
         return view('admin.website.competitions.home', ['competitions' => $competitions]);

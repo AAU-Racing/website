@@ -4,8 +4,7 @@
     <div class="container-fluid">
         <div class="row p-4">
             <div class="col-lg-3 col-xl-2">
-                @component('admin.components.website_nav', ['footer_links' => 'active', 'flex' => 'lg'])
-                @endcomponent
+                @include('admin.components.website_nav', ['footer_links' => 'active', 'flex' => 'lg'])
             </div>
             <div class="col-lg-9 col-xl-8">
                 <div class="page-header">
@@ -14,12 +13,13 @@
                 </div>
                 <form method="POST">
                     @csrf
+                    <input type="hidden" name="notfirst" value="1">
 
                     <div class="form-group row">
                         <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ?? $footer_link->name }}" required autofocus>
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $footer_link->name) }}" required autofocus>
 
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -33,7 +33,7 @@
                         <label for="path" class="col-md-2 col-form-label text-md-right">{{ __('Path') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
-                            <input id="path" type="text" class="form-control @error('path') is-invalid @enderror" name="path" value="{{ old('path') ?? $footer_link->path }}" required>
+                            <input id="path" type="text" class="form-control @error('path') is-invalid @enderror" name="path" value="{{ old('path', $footer_link->path) }}" required>
 
                             @error('path')
                             <span class="invalid-feedback" role="alert">
@@ -48,8 +48,8 @@
 
                         <div class="col-md-6">
                             <select id="target" class="form-control @error('target') is-invalid @enderror" name="target" required>
-                                <option value="_blank" {{ (old('target') ?? $footer_link->target) == '_blank' ? 'selected' : '' }}>New tab</option>
-                                <option value="_self" {{ (old('target') ?? $footer_link->target) == '_self' ? 'selected' : '' }}>Current tab</option>
+                                <option value="_blank" {{ old('target', $footer_link->target) == '_blank' ? 'selected' : '' }}>New tab</option>
+                                <option value="_self" {{ old('target', $footer_link->target) == '_self' ? 'selected' : '' }}>Current tab</option>
                             </select>
 
                             @error('target')
@@ -65,8 +65,8 @@
 
                         <div class="col-md-6">
                             <div class="custom-control custom-checkbox">
-                                <!-- Check for old name is because active is not submitted if not checked -->
-                                <input type="checkbox" class="custom-control-input" id="active" name="active" @if(old('active') || (!old('name') and $footer_link->active)) checked @endif>
+                                <!-- Check for old('notfirst') is because active is not submitted if not checked -->
+                                <input type="checkbox" class="custom-control-input" id="active" name="active" @if(old('active') || (!old('notfirst') && $footer_link->active)) checked @endif>
                                 <label class="custom-control-label" for="active"></label>
                             </div>
 

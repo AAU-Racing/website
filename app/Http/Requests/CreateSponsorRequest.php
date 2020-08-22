@@ -26,7 +26,7 @@ class CreateSponsorRequest extends FormRequest
         return [
             'name' => ['required', 'string'],
             'link' => ['required', 'string', 'url'],
-            'logo' => ['required',  'image', 'max:'. 32 * 1024],
+            'logo' => ['required',  'image', 'max:'. 32 * 1024],  # 32 MB
             'active' => ['string', 'in:on']
         ];
     }

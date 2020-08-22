@@ -1,5 +1,3 @@
-@inject('footer_link_service', 'App\Services\FooterLinkService')
-
 <footer>
     {{-- TODO: Fix responsiveness --}}
     <div class="top-footer row">
@@ -21,7 +19,7 @@
         </div>
         <div class="col-md-3">
             Links:<br>
-            @foreach($footer_link_service->getActive() as $footer_link)
+            @foreach($footer_links as $footer_link)
                 <a href="{{ $footer_link->path }}" target="{{ $footer_link->target }}">{{ $footer_link->name }}</a><br>
             @endforeach
         </div>

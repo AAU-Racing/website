@@ -1,11 +1,14 @@
 @extends('admin.layouts.app')
 
+@push('extra-head')
+    @include('admin.components.tinymce')
+@endpush
+
 @section('content')
     <div class="container-fluid">
         <div class="row p-4">
             <div class="col-md-3 col-xl-2">
-                @component('admin.components.website_nav', ['cars' => 'active', 'flex' => 'md'])
-                @endcomponent
+                @include('admin.components.website_nav', ['cars' => 'active', 'flex' => 'md'])
             </div>
             <div class="col-md-9 col-xl-8">
                 <div class="page-header">
@@ -72,7 +75,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="editable" class="col-md-2 col-form-label text-md-right">{{ __('Content') }}<span class="required">*</span></label>
+                        <label for="editable" class="col-md-2 col-form-label text-md-right">{{ __('Specifications') }}<span class="required">*</span></label>
 
                         <div class="col-md-10">
                             <textarea id="editable" class="wysiwyg-editor" name="specifications">{{ old('specifications') }}</textarea>

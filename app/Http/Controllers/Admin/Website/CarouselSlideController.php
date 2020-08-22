@@ -21,6 +21,8 @@ class CarouselSlideController extends Controller
 
     public function home()
     {
+        $this->authorize('view carousel slides');
+
         $slides = $this->service->getAll();
 
         return view('admin.website.slides.home', ['slides' => $slides]);
@@ -65,9 +67,9 @@ class CarouselSlideController extends Controller
     public function delete($id)
     {
         $this->authorize('delete carousel slides');
-        $car = $this->service->findById($id);
+        $slide = $this->service->findById($id);
 
-        $car->delete();
+        $slide->delete();
 
         return redirect()->route('admin::carousel::home');
     }
@@ -81,8 +83,8 @@ class CarouselSlideController extends Controller
     public function add(CreateCarouselSlideRequest $request)
     {
         $this->authorize('create carousel slides');
-        $car = $this->service->create($request);
+        $this->service->create($request);
 
-        return redirect()->route('admin::carousel::editForm', ['id' => $car->id]);
+        return redirect()->route('admin::carousel::home');
     }
 }

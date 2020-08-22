@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    @component('layouts.head')
-    @endcomponent()
+    @include('layouts.head')
 </head>
 <body class="admin-body">
-    @component('layouts.google_scripts')
-    @endcomponent
+    @include('layouts.google_scripts')
     <div id="app" class="container-fluid home">
-        @component('admin.layouts.header')
-        @endcomponent
+        @include('admin.layouts.header')
 
         <main class="content">
             @yield('content')
         </main>
 
-        @component('admin.layouts.footer')
-        @endcomponent
+        @include('admin.layouts.footer')
     </div>
 </body>
 </html>

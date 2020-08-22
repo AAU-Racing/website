@@ -4,13 +4,12 @@
     <div class="container-fluid">
         <div class="row p-4">
             <div class="col-md-3 col-lg-2">
-                @component('admin.components.website_nav', ['carousel' => 'active', 'flex' => 'md'])
-                @endcomponent
+                @include('admin.components.website_nav', ['carousel' => 'active', 'flex' => 'md'])
             </div>
             <div class="col-md-9 col-xl-6 offset-lg-1">
                 <div class="table-responsive">
                     @can('edit carousel slides')
-                        <sortable-table :elements="{{ json_encode($slides) }}"
+                        <sortable-table :elements="{{ $slides->toJson() }}"
                                         :can_edit="{{ Auth::user()->can('edit carousel slides') }}"
                                         :can_delete="{{ Auth::user()->can('delete carousel slides') }}"
                                         header_view="carousel-slide-header"

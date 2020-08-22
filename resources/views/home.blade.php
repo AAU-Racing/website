@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@component('components.carousel')
-@endcomponent
+<x-carousel></x-carousel>
 <div class="container page-padding">
     <div class="row justify-content-center">
         <div class="col-md-8">

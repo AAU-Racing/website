@@ -15,7 +15,7 @@
                             <label for="firstname" class="col-md-5 col-form-label text-md-right">{{ __('First Name') }}<span class="required">*</span></label>
 
                             <div class="col-md-6">
-                                <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') ?? $user->firstname }}" required autocomplete="firstname" autofocus>
+                                <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname', $user->firstname) }}" required autocomplete="firstname" autofocus>
 
                                 @error('firstname')
                                 <span class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
                             <label for="lastname" class="col-md-5 col-form-label text-md-right">{{ __('Last Name') }}<span class="required">*</span></label>
 
                             <div class="col-md-6">
-                                <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') ?? $user->lastname }}" required autocomplete="lastname">
+                                <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname', $user->lastname) }}" required autocomplete="lastname">
 
                                 @error('lastname')
                                 <span class="invalid-feedback" role="alert">
@@ -43,7 +43,7 @@
                             <label for="date_of_birth" class="col-md-5 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
 
                             <div class="col-md-6">
-                                <input id="date_of_birth" type="text" data-provide="datepicker" placeholder="dd-mm-yyyy" data-date-format="dd-mm-yyyy" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth" value="{{ old('date_of_birth') ?? $user->formatted_date_of_birth }}">
+                                <input id="date_of_birth" type="text" data-provide="datepicker" placeholder="dd-mm-yyyy" data-date-format="dd-mm-yyyy" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth" value="{{ old('date_of_birth', $user->formatted_date_of_birth) }}">
 
                                 @error('date_of_birth')
                                 <span class="invalid-feedback" role="alert">
@@ -57,7 +57,7 @@
                             <label for="email" class="col-md-5 col-form-label text-md-right">{{ __('University E-Mail Address') }}</span></label>
 
                             <div class="col-md-6">
-                                <input id="email" type="text" class="form-control @error('date_of_birth') is-invalid @enderror" name="email" value="{{ old('email') ?? $user->email }}">
+                                <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}">
 
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -71,7 +71,7 @@
                             <label for="phone_number" class="col-md-5 col-form-label text-md-right">{{ __('Phone Number') }}<span class="required">*</span></label>
 
                             <div class="col-md-6">
-                                <input id="phone_number" type="text" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') ?? $user->phone_number }}" required>
+                                <input id="phone_number" type="text" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number', $user->phone_number) }}" required>
 
                                 @error('phone_number')
                                 <span class="invalid-feedback" role="alert">
@@ -89,7 +89,7 @@
                             <label for="address" class="col-md-5 col-form-label text-md-right">{{ __('Address') }}<span class="required">*</span></label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') ?? $user->address->address }}" required autocomplete="address">
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address', $user->address->address) }}" required autocomplete="address">
 
                                 @error('address')
                                 <span class="invalid-feedback" role="alert">
@@ -99,8 +99,8 @@
                             </div>
                         </div>
 
-                        <danish-zip-code :zip_code_name="'{{ __('Zip Code') }}'" :zip_code_old="'{{ old('zip') ?? $user->address->zip }}'" :zip_code_error="{{ json_encode($errors->get('zip')) }}"
-                                         :city_name="'{{ __('City') }}'" :city_old="'{{ old('city') ?? $user->address->city }}'" :city_error="{{ json_encode($errors->get('city')) }}">
+                        <danish-zip-code :zip_code_name="'{{ __('Zip Code') }}'" :zip_code_old="'{{ old('zip', $user->address->zip) }}'" :zip_code_error="{{ json_encode($errors->get('zip')) }}"
+                                         :city_name="'{{ __('City') }}'" :city_old="'{{ old('city', $user->address->city) }}'" :city_error="{{ json_encode($errors->get('city')) }}">
                         </danish-zip-code>
 
                         <div class="row mt-5">
@@ -110,7 +110,7 @@
                             <label for="education" class="col-md-5 col-form-label text-md-right">{{ __('Education') }}</label>
 
                             <div class="col-md-6">
-                                <input id="education" type="text" class="form-control @error('education') is-invalid @enderror" name="education" value="{{ old('education') ?? $user->education }}">
+                                <input id="education" type="text" class="form-control @error('education') is-invalid @enderror" name="education" value="{{ old('education', $user->education) }}">
 
                                 @error('education')
                                 <span class="invalid-feedback" role="alert">
@@ -124,7 +124,7 @@
                             <label for="study_number" class="col-md-5 col-form-label text-md-right">{{ __('Study Number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="study_number" type="text" class="form-control @error('study_number') is-invalid @enderror" name="study_number" value="{{ old('study_number') ?? $user->study_number }}">
+                                <input id="study_number" type="text" class="form-control @error('study_number') is-invalid @enderror" name="study_number" value="{{ old('study_number', $user->study_number) }}">
 
                                 @error('study_number')
                                 <span class="invalid-feedback" role="alert">
@@ -138,7 +138,7 @@
                             <label for="study_card_number" class="col-md-5 col-form-label text-md-right">{{ __('Study Card Number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="study_card_number" type="text" class="form-control @error('study_card_number') is-invalid @enderror" name="study_card_number" value="{{ old('study_card_number') ?? $user->study_card_number }}">
+                                <input id="study_card_number" type="text" class="form-control @error('study_card_number') is-invalid @enderror" name="study_card_number" value="{{ old('study_card_number', $user->study_card_number) }}">
 
                                 @error('study_card_number')
                                 <span class="invalid-feedback" role="alert">
@@ -155,7 +155,7 @@
                             <label for="drivers_license" class="col-md-5 col-form-label text-md-right">{{ __('Driver\'s License') }}</label>
 
                             <div class="col-md-6">
-                                <input id="drivers_license" type="text" class="form-control @error('drivers_license') is-invalid @enderror" name="drivers_license" value="{{ old('drivers_license') ?? ($user->driversLicense ? $user->driversLicense->license_number : '') }}">
+                                <input id="drivers_license" type="text" class="form-control @error('drivers_license') is-invalid @enderror" name="drivers_license" value="{{ old('drivers_license', optional($user->driversLicense)->license_number) }}">
 
                                 @error('drivers_license')
                                 <span class="invalid-feedback" role="alert">
@@ -170,9 +170,9 @@
 
                             <div class="col-md-6">
                                 <select id="car" class="form-control @error('car') is-invalid @enderror" name="car">
-                                    <option value="no" {{ (!old('car') && !$user->car) || old('car') == 'no' ? 'selected': '' }}>No</option>
-                                    <option value="yes" {{ (!old('car') && $user->car && !$user->car->towbar) || old('car') == 'yes' ? 'selected': '' }}>Yes</option>
-                                    <option value="towbar" {{ (!old('car') && $user->car && $user->car->towbar) || old('car') == 'towbar' ? 'selected': '' }}>Yes, with towbar</option>
+                                    <option value="no" {{ old('car', $user->car ? ($user->car->towbar ? 'towbar' : 'yes') : 'no') == 'no' ? 'selected': '' }}>No</option>
+                                    <option value="yes" {{ old('car', $user->car ? ($user->car->towbar ? 'towbar' : 'yes') : 'no') == 'yes' ? 'selected': '' }}>Yes</option>
+                                    <option value="towbar" {{ old('car', $user->car ? ($user->car->towbar ? 'towbar' : 'yes') : 'no') == 'towbar' ? 'selected': '' }}>Yes, with towbar</option>
                                 </select>
 
                                 @error('car')
@@ -187,7 +187,7 @@
                             <h5 class="text-muted">Contact persons</h5>
                             <hr class="narrow-hr" />
                         </div>
-                        <contact-person-table :contact_persons="{{ json_encode(old('contact_person') ?? $contactPersons)}}" :checked="{{ old('primary') ?? $primary }}"></contact-person-table>
+                        <contact-person-table :contact_persons="{{ json_encode(old('contact_person', $contactPersons)) }}" :checked="{{ old('primary', $primary) }}"></contact-person-table>
 
                         <div class="form-group row mb-0 mt-5 justify-content-center">
                             <button type="submit" class="btn btn-primary">

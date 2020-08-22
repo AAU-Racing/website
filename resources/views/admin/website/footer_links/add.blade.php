@@ -4,8 +4,7 @@
     <div class="container-fluid">
         <div class="row p-4">
             <div class="col-md-3 col-xl-2">
-                @component('admin.components.website_nav', ['footer_links' => 'active', 'flex' => 'md'])
-                @endcomponent
+                @include('admin.components.website_nav', ['footer_links' => 'active', 'flex' => 'md'])
             </div>
             <div class="col-md-9 col-xl-8">
                 <div class="page-header">
@@ -14,6 +13,7 @@
                 </div>
                 <form method="POST">
                     @csrf
+                    <input type="hidden" name="notfirst" value="1">
 
                     <div class="form-group row">
                         <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}<span class="required">*</span></label>
@@ -66,8 +66,8 @@
 
                         <div class="col-md-6">
                             <div class="custom-control custom-checkbox">
-                                <!-- Check for old name is because active is not submitted if not checked -->
-                                <input type="checkbox" class="custom-control-input" id="active" name="active" @if(old('active') || !old('name')) checked @endif>
+                                <!-- Check for old('notfirst') is because active is not submitted if not checked -->
+                                <input type="checkbox" class="custom-control-input" id="active" name="active" @if(old('active') || !old('notfirst')) checked @endif>
                                 <label class="custom-control-label" for="active"></label>
                             </div>
 

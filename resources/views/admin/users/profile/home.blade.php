@@ -4,8 +4,7 @@
 <div class="container-fluid">
     <div class="row p-4">
         <div class="col-lg-2">
-            @component('admin.components.users_nav', ['profiles' => 'active', 'flex' => 'lg'])
-            @endcomponent
+            @include('admin.components.users_nav', ['profiles' => 'active', 'flex' => 'lg'])
         </div>
         <div class="col-lg-10 table-responsive">
             <table class="table profiles-table">

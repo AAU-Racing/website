@@ -43,10 +43,7 @@ class EditUserRequest extends FormRequest
             $driversLicenseRule = $driversLicenseRule->ignore($user->driversLicense->id);
         }
 
-        $emailRule = Rule::unique('users', 'email');
-        if ($user->email) {
-            $emailRule = $emailRule->ignore($user->email);
-        }
+        $emailRule = Rule::unique('users', 'email')->ignore($user->id);
 
         return [
             'firstname' => ['required', 'string', 'max:255'],

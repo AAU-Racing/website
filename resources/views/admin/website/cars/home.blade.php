@@ -4,8 +4,7 @@
     <div class="container-fluid">
         <div class="row p-4">
             <div class="col-md-3 col-lg-2">
-                @component('admin.components.website_nav', ['cars' => 'active', 'flex' => 'md'])
-                @endcomponent
+                @include('admin.components.website_nav', ['cars' => 'active', 'flex' => 'md'])
             </div>
             <div class="col-md-9 col-xl-6 offset-lg-1">
                 <div class="table-responsive">

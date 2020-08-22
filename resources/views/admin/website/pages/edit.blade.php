@@ -1,11 +1,14 @@
 @extends('admin.layouts.app')
 
+@push('extra-head')
+    @include('admin.components.tinymce')
+@endpush
+
 @section('content')
     <div class="container-fluid">
         <div class="row p-4">
             <div class="col-md-3 col-xl-2">
-                @component('admin.components.website_nav', ['pages' => 'active', 'flex' => 'md'])
-                @endcomponent
+                @include('admin.components.website_nav', ['pages' => 'active', 'flex' => 'md'])
             </div>
             <div class="col-md-9 col-xl-8">
                 <div class="page-header">
@@ -19,7 +22,7 @@
                         <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}</label>
 
                         <div class="col-md-6">
-                            <input readonly id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') ?? $page->name }}">
+                            <input readonly id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $page->name) }}">
 
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -33,7 +36,7 @@
                         <label for="title" class="col-md-2 col-form-label text-md-right">{{ __('Title') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
-                            <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') ?? $page->title }}" required autofocus>
+                            <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title', $page->title) }}" required autofocus>
 
                             @error('title')
                             <span class="invalid-feedback" role="alert">
@@ -47,7 +50,7 @@
                         <label for="editable" class="col-md-2 col-form-label text-md-right">{{ __('Content') }}<span class="required">*</span></label>
 
                         <div class="col-md-10">
-                            <textarea id="editable" class="wysiwyg-editor" name="content">{{ old('content') ?? $page->content }}</textarea>
+                            <textarea id="editable" class="wysiwyg-editor" name="content">{{ old('content', $page->content) }}</textarea>
 
                             @error('content')
                             <span class="invalid-feedback" role="alert">

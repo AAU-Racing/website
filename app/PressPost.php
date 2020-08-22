@@ -3,26 +3,41 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-class PressPost extends Model implements Sortable, HasMedia
+class PressPost extends Model implements Sortable
 {
-    use SortableTrait, InteractsWithMedia;
+    use SortableTrait, LogsActivity;
+
+    protected static $logAttributes = ['*'];
 
     protected $fillable = [
         'title', 'content', 'active'
     ];
 
-    public function edits()
+    public $sortable = [
+        'order_column_name' => 'order',
+        'sort_when_creating' => true,
+    ];
+
+    protected $casts = [
+        'active' => 'boolean',
+        'order' => 'integer'
+    ];
+
+    protected $appends = ['edit_url', 'delete_url'];
+
+    public function getEditUrlAttribute()
     {
-        return $this->hasMany('App\PressPostEdit');
+        return route('admin::press::editForm', ['id' => $this->id]);
     }
 
-    public function registerMediaCollections(): void
+    public function getDeleteUrlAttribute()
     {
-        $this->addMediaCollection('photos');
+        return route('admin::press::delete', ['id' => $this->id]);
     }
 }

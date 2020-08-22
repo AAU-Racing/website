@@ -26,7 +26,7 @@ class EditSponsorRequest extends FormRequest
         return [
             'name' => ['required', 'string'],
             'link' => ['required', 'string', 'url'],
-            'logo' => ['nullable', 'sometimes', 'image', 'max:'. 32 * 1024],
+            'logo' => ['nullable', 'sometimes', 'image', 'max:'. 32 * 1024],  # 32 MB
             'active' => ['string', 'in:on']
         ];
     }

@@ -25,7 +25,7 @@ class CreateCarouselSlideRequest extends FormRequest
     {
         return [
             'label' => ['required', 'string', 'max:200'],
-            'photo' => ['required', 'image', 'max:'. 32 * 1024]
+            'photo' => ['required', 'image', 'max:'. 32 * 1024]  # 32 MB
         ];
     }
 
