@@ -295,6 +295,23 @@
                                 </div>
                             </div>
 
+                            <div class="form-group row">
+                                <label for="team_secret" class="col-md-5 col-form-label text-md-right">{{ __('Team Secret') }}
+                                    <span class="required">*</span></label>
+
+                                <div class="col-md-6">
+                                    <input id="team_secret" type="text"
+                                           class="form-control @error('team_secret') is-invalid @enderror" name="team_secret"
+                                           required>
+
+                                    @error('team_secret')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-5">
                                     <button type="submit" class="btn btn-primary">

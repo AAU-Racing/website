@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Rules\HasCar;
+use App\Rules\TeamSecret;
 use App\Services\UserService;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -69,7 +70,8 @@ class RegisterController extends Controller
             'drivers_license' => ['nullable', 'string', 'max:255', 'unique:drivers_licenses,license_number'],
             'car' => ['required', 'string', 'max:10', new HasCar],
             'name_contact_person' => ['required', 'string', 'max:255'],
-            'phone_number_contact_person' => ['required', 'integer']
+            'phone_number_contact_person' => ['required', 'integer'],
+            'team_secret' => ['required', 'string', new TeamSecret]
         ]);
     }
 
