@@ -37,6 +37,11 @@ class PageService
         return Page::ordered()->get();
     }
 
+    function getAllInHeader()
+    {
+        return Page::ordered()->where('in_title', true);
+    }
+
     function setNewOrder(array $data)
     {
         Page::setNewOrder($data);

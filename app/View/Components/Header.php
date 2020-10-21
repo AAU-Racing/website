@@ -16,7 +16,7 @@ class Header extends Component
      */
     public function __construct(PageService $service)
     {
-        $this->pages = $service->getAll();
+        $this->pages = $service->getAllInHeader();
     }
 
     /**

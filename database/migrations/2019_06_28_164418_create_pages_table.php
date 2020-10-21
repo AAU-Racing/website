@@ -17,6 +17,7 @@ class CreatePagesTable extends Migration
             $table->bigIncrements('id');
             $table->boolean('editable')->default(true);
             $table->boolean('special')->default(false);
+            $table->boolean('in_header')->default(true);
             $table->char('name', 100);
             $table->string('title');
             $table->string('content');

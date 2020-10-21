@@ -20,9 +20,10 @@ class PageSeeder extends Seeder
         $this->findByNameOrCreate('Join the team', 'join');
         $this->findByNameOrCreate('Sponsors', 'sponsors');
         $this->findByNameOrCreate('Contact', 'contact');
+        $this->findByNameOrCreate('Privacy Policy', 'privacy', true, true, false);
     }
 
-    private function findByNameOrCreate($title, $name, $editable = true, $special = false) {
+    private function findByNameOrCreate($title, $name, $editable = true, $special = false, $in_header = true) {
         $page = Page::where('name', $name)->first();
 
         if (!$page) {
@@ -32,6 +33,7 @@ class PageSeeder extends Seeder
             $page->title = $title;
             $page->editable = $editable;
             $page->special = $special;
+            $page->in_header = $in_header;
             $page->save();
         }
 

@@ -19,12 +19,13 @@ class Page extends Model implements Sortable
     ];
 
     protected $fillable = [
-        'editable', 'special', 'name', 'title', 'content', 'active'
+        'editable', 'special', 'in_header', 'name', 'title', 'content', 'active'
     ];
 
     protected $casts = [
         'editable' => 'boolean',
         'special' => 'boolean',
+        'in_header' => 'boolean',
         'active' => 'boolean',
         'order' => 'integer'
     ];
