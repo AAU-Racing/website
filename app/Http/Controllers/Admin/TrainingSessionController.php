@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Website;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
