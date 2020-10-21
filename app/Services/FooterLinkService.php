@@ -7,6 +7,7 @@ namespace App\Services;
 use App\FooterLink;
 use App\Http\Requests\CreateFooterLinkRequest;
 use App\Http\Requests\EditFooterLinkRequest;
+use App\Http\Requests\OrderFooterLinksRequest;
 
 class FooterLinkService
 {
@@ -31,9 +32,9 @@ class FooterLinkService
         return FooterLink::ordered()->where('active', true)->get();
     }
 
-    function setNewOrder(array $data)
+    function setNewOrder(OrderFooterLinksRequest $request)
     {
-        FooterLink::setNewOrder($data);
+        FooterLink::setNewOrder($request->input('footer_link_order'));
     }
 
     function create(CreateFooterLinkRequest $request)

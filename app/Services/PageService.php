@@ -5,6 +5,7 @@ namespace App\Services;
 
 use App\Http\Requests\CreatePageRequest;
 use App\Http\Requests\EditPageRequest;
+use App\Http\Requests\OrderPagesRequest;
 use App\Page;
 use Mews\Purifier\Facades\Purifier;
 
@@ -42,9 +43,9 @@ class PageService
         return Page::ordered()->where('in_title', true);
     }
 
-    function setNewOrder(array $data)
+    function setNewOrder(OrderPagesRequest $request)
     {
-        Page::setNewOrder($data);
+        Page::setNewOrder($request->input('page_order'));
     }
 
     function create(CreatePageRequest $request)

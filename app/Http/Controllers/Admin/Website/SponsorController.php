@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Website;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateSponsorRequest;
 use App\Http\Requests\EditSponsorRequest;
+use App\Http\Requests\OrderSponsorsRequest;
 use App\Services\SponsorService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,21 +36,10 @@ class SponsorController extends Controller
         return view('admin.website.sponsors.home', ['sponsors' => $sponsors]);
     }
 
-    public function editOrder(Request $request)
+    public function editOrder(OrderSponsorsRequest $request)
     {
         $this->authorize('edit sponsors');
-        $data = json_decode($request->input('sponsor_order'), true);
-        Log::info("Reorder sponsors", ['order' => $data]);
-
-        $rules = [
-            '*' => 'exists:sponsors,id'
-        ];
-
-        $validator = Validator::make($data, $rules);
-        if ($validator->passes()) {
-            Log::info("Setting new order");
-            $this->service->setNewOrder($data);
-        }
+        $this->service->setNewOrder($request);
 
         return redirect()->route('admin::sponsor::home');
     }

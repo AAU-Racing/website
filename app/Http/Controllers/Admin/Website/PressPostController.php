@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Website;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreatePressPostRequest;
 use App\Http\Requests\EditPressPostRequest;
+use App\Http\Requests\OrderPressPostsRequest;
 use App\Services\PressPostService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,21 +36,10 @@ class PressPostController extends Controller
         return view('admin.website.press.home', ['press_posts' => $press_posts]);
     }
 
-    public function editOrder(Request $request)
+    public function editOrder(OrderPressPostsRequest $request)
     {
         $this->authorize('edit press posts');
-        $data = json_decode($request->input('press_post_order'), true);
-        Log::info("Reorder press posts", ['order' => $data]);
-
-        $rules = [
-            '*' => 'exists:press_posts,id'
-        ];
-
-        $validator = Validator::make($data, $rules);
-        if ($validator->passes()) {
-            Log::info("Setting new order");
-            $this->service->setNewOrder($data);
-        }
+        $this->service->setNewOrder($request);
 
         return redirect()->route('admin::press::home');
     }

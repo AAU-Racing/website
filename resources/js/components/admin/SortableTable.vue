@@ -13,7 +13,8 @@
         <div class="float-right">
             <form method="POST" class="d-inline mr-1">
                 <input type="hidden" name="_token" :value="csrf"/>
-                <input type="hidden" :name="order_field_name" :value="JSON.stringify(local_elements.map(element => element.id))"/>
+                <input type="hidden" v-for="(item, index) in local_elements" :name="order_field_name + '[' + index + ']'" :value="item.id">
+<!--                <input type="hidden"  :value="JSON.stringify(local_elements.map(element => element.id))"/>-->
                 <button class="btn btn-primary">Save order</button>
             </form>
             <slot></slot>

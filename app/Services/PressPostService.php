@@ -6,6 +6,7 @@ namespace App\Services;
 
 use App\Http\Requests\CreatePressPostRequest;
 use App\Http\Requests\EditPressPostRequest;
+use App\Http\Requests\OrderPressPostsRequest;
 use App\PressPost;
 use Mews\Purifier\Facades\Purifier;
 
@@ -32,9 +33,9 @@ class PressPostService
         return PressPost::ordered()->where('active', true)->get();
     }
 
-    function setNewOrder(array $data)
+    function setNewOrder(OrderPressPostsRequest $request)
     {
-        PressPost::setNewOrder($data);
+        PressPost::setNewOrder($request->input('press_post_order'));
     }
 
     function create(CreatePressPostRequest $request)

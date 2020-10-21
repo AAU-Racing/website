@@ -47,6 +47,18 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'names
             Route::post('/{id}', 'AvatarController@edit')->name('edit');
             Route::delete('/{id}', 'AvatarController@delete')->name('delete');
         });
+
+        Route::group(['prefix' => 'department/', 'as' => 'department::'], function () {
+            Route::get('/new', 'DepartmentController@addForm')->name('addForm');
+            Route::post('/new', 'DepartmentController@add')->name('add');
+            Route::get('/assign', 'DepartmentController@assignForm')->name('assignForm');
+            Route::post('/assign', 'DepartmentController@assign')->name('assign');
+            Route::get('/', 'DepartmentController@home')->name('home');
+            Route::post('/', 'DepartmentController@editOrder')->name('editOrder');
+            Route::get('/{id}', 'DepartmentController@editForm')->name('editForm');
+            Route::post('/{id}', 'DepartmentController@edit')->name('edit');
+            Route::delete('/{id}', 'DepartmentController@delete')->name('delete');
+        });
     });
 
     Route::group(['namespace' => 'Website'], function() {

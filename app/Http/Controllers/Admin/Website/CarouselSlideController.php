@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Website;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateCarouselSlideRequest;
 use App\Http\Requests\EditCarouselSlideRequest;
+use App\Http\Requests\OrderCarouselSlidesRequest;
 use App\Services\CarouselSlideService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -28,21 +29,10 @@ class CarouselSlideController extends Controller
         return view('admin.website.slides.home', ['slides' => $slides]);
     }
 
-    public function editOrder(Request $request)
+    public function editOrder(OrderCarouselSlidesRequest $request)
     {
         $this->authorize('edit carousel slides');
-        $data = json_decode($request->input('carousel_slides_order'), true);
-        Log::info("Reorder slides", ['order' => $data]);
-
-        $rules = [
-            '*' => 'exists:carousel_slides,id'
-        ];
-
-        $validator = Validator::make($data, $rules);
-        if ($validator->passes()) {
-            Log::info("Setting new order");
-            $this->service->setNewOrder($data);
-        }
+        $this->service->setNewOrder($request);
 
         return redirect()->route('admin::carousel::home');
     }

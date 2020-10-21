@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Website;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateFooterLinkRequest;
 use App\Http\Requests\EditFooterLinkRequest;
+use App\Http\Requests\OrderFooterLinksRequest;
 use App\Services\FooterLinkService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,21 +36,10 @@ class FooterLinkController  extends Controller
         return view('admin.website.footer_links.home', ['footer_links' => $footer_links]);
     }
 
-    public function editOrder(Request $request)
+    public function editOrder(OrderFooterLinksRequest $request)
     {
         $this->authorize('edit footer links');
-        $data = json_decode($request->input('footer_link_order'), true);
-        Log::info("Reorder footer links", ['order' => $data]);
-
-        $rules = [
-            '*' => 'exists:footer_links,id'
-        ];
-
-        $validator = Validator::make($data, $rules);
-        if ($validator->passes()) {
-            Log::info("Setting new order");
-            $this->service->setNewOrder($data);
-        }
+        $this->service->setNewOrder($request);
 
         return redirect()->route('admin::footer_link::home');
     }
