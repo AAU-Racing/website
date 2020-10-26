@@ -22,7 +22,7 @@
                         :users="{{ $users->toJson() }}"
                         :errors="{{ json_encode($errors->get('assignment')) }}">
                     </department-assignment>
-                    <button type="submit" class="btn btn-link no-border no-padding">Save assignment</button>
+                    <button type="submit" class="btn btn-primary">Save assignment</button>
                 </form>
             </div>
         </div>

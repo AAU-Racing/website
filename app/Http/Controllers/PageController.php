@@ -38,7 +38,7 @@ class PageController extends Controller
 //            $store_in_seconds = 60;
 //            Cache::put('facebook_page', $page, $store_in_seconds);
 //        }
-        $page = ['html' => 'test'];
+        $page = ['html' => 'AAU Racing is the FSAE team at Aalborg University'];
 
         return view('home', ['page' => $page]);
     }

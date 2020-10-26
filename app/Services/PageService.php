@@ -40,7 +40,7 @@ class PageService
 
     function getAllInHeader()
     {
-        return Page::ordered()->where('in_title', true);
+        return Page::ordered()->where('in_header', true)->get();
     }
 
     function setNewOrder(OrderPagesRequest $request)

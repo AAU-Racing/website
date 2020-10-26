@@ -60,7 +60,7 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
 
     public function departments()
     {
-        return $this->belongsToMany('App\Deparment')->withTimestamps();
+        return $this->hasMany('App\DepartmentUser');
     }
 
     public function registerMediaCollections(): void

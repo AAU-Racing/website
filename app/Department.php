@@ -26,7 +26,7 @@ class Department extends Model implements Sortable
         'order' => 'integer'
     ];
 
-    protected $appends = ['edit_url', 'delete_url'];
+    protected $appends = ['edit_url', 'delete_url', 'users'];
 
     public function getEditUrlAttribute()
     {
@@ -40,6 +40,11 @@ class Department extends Model implements Sortable
 
     public function users()
     {
-        return $this->belongsToMany('App\DepartmentUser')->withTimestamps();
+        return $this->hasMany('App\DepartmentUser');
+    }
+
+    public function getUsersAttribute()
+    {
+        return $this->users()->get();
     }
 }

@@ -17,7 +17,7 @@
                     <li class="nav-item {{ Request::is('admin/profile*') || Request::is('admin/role*') || Request::is('admin/avatar*') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('admin::profile::home') }}">Users</a>
                     </li>
-                    <li class="nav-item {{ Request::is('admin/page*', 'admin/car*', 'admin/footerlink*') ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::is('admin/page*', 'admin/car*', 'admin/footerlink*', 'admin/sponsor*', 'admin/press*', 'admin/competition*') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('admin::page::home') }}">Website</a>
                     </li>
                 @endif

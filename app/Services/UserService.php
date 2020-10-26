@@ -56,7 +56,7 @@ class UserService
 
     function getAllUsers()
     {
-        return User::all();
+        return User::orderBy('created_at')->get();
     }
 
     function findById($id)

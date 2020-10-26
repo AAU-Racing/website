@@ -13,7 +13,7 @@ class CreateDepartmentUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('department_user', function (Blueprint $table) {
+        Schema::create('department_users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('department_id')->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
             $table->integer('user_id')->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -29,6 +29,6 @@ class CreateDepartmentUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('department_user');
+        Schema::dropIfExists('department_users');
     }
 }
