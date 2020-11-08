@@ -33,7 +33,7 @@ class PageController extends Controller
         else {
             Log::info('Access token', ['token' => $this->facebook->getDefaultAccessToken()]);
             $url = config('facebook.page');
-            $response = $this->facebook->get('/oembed_page?url=' . $url . '&omitscript=true');
+            $response = $this->facebook->get('/instagram_oembed?url=' . $url . '&omitscript=true');
             $page = $response->getDecodedBody();
 
             $store_in_seconds = 60;
