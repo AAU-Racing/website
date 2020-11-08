@@ -10,3 +10,17 @@
     </div>
 </div>
 @endsection
+
+@push('extra-head')
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId            : '677139815792629',
+                autoLogAppEvents : true,
+                xfbml            : true,
+                version          : 'v8.0'
+            });
+        };
+    </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+@endpush

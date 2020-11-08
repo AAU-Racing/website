@@ -8,6 +8,7 @@ use App\Services\PressPostService;
 use Facebook\Facebook;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class PageController extends Controller
 {
@@ -26,21 +27,23 @@ class PageController extends Controller
 
     public function home()
     {
-//        if (Cache::has('facebook_page')) {
-//            $page = Cache::get('facebook_page');
-//        }
-//        else {
-//            Log::info('Access token', ['token' => $this->facebook->getDefaultAccessToken()]);
-//            $url = config('facebook.page');
-//            $response = $this->facebook->get('/oembed_page?url=' . $url);
-//            $page = $response->getDecodedBody();
-//
-//            $store_in_seconds = 60;
-//            Cache::put('facebook_page', $page, $store_in_seconds);
-//        }
-        $page = ['html' => 'AAU Racing is the FSAE team at Aalborg University'];
+        if (Cache::has('facebook_page')) {
+            $page = Cache::get('facebook_page');
+        }
+        else {
+            Log::info('Access token', ['token' => $this->facebook->getDefaultAccessToken()]);
+            $url = config('facebook.page');
+            $response = $this->facebook->get('/oembed_page?url=' . $url . '&omitscript=true');
+            $page = $response->getDecodedBody();
 
-        return view('home', ['page' => $page]);
+            $store_in_seconds = 60;
+            Cache::put('facebook_page', $page, $store_in_seconds);
+        }
+
+        $script = '<script' . Str::between($page['html'], '<script', 'script>') . 'script>';
+        $container = Str::replaceFirst($script, '', $page['html']);
+
+        return view('home', ['script' => $script, 'container' => $container, 'page' => $page]);
     }
 
     public function cars() {

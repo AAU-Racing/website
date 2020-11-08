@@ -18,6 +18,7 @@
         "mews/purifier": "^3.2",
         "spatie/eloquent-sortable": "^3.8",
         "spatie/laravel-activitylog": "^3.14",
+        "spatie/laravel-cookie-consent": "^2.12",
         "spatie/laravel-medialibrary": "^8.3",
         "spatie/laravel-permission": "^3.13"
     },
@@ -28,7 +29,8 @@
         "laravel/ui": "^2.1",
         "mockery/mockery": "^1.4",
         "nunomaduro/collision": "^4.2",
-        "phpunit/phpunit": "^9.2"
+        "phpunit/phpunit": "^9.2",
+        "spatie/laravel-web-tinker": "^1.7"
     },
     "config": {
         "optimize-autoloader": true,

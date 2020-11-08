@@ -5,6 +5,7 @@
 </head>
 <body class="user-body">
     @include('layouts.google_scripts')
+    @include('cookieConsent::index')
     <div id="app" class="container home">
         <x-header></x-header>
 
