@@ -15,6 +15,10 @@
 7. Validate user using the validation link found in the logfile in /storage/log. 
 8. Run the `php artisan register:website-admin` command.
 
+### Run development server
+1. `php artisan serve`
+2. `npm run watch`
+
 ### Clean database
 Run the command `php artisan migrate:fresh --seed`.
 
