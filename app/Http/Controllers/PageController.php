@@ -24,7 +24,9 @@ class PageController extends Controller
 
     public function home()
     {
-        return view('home');
+        $page = ['html' => 'this is a test'];
+
+        return view('home', ['page' => $page]);
 
 //        if (Cache::has('facebook_page')) {
 //            $page = Cache::get('facebook_page');

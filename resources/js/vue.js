@@ -1,5 +1,7 @@
-window.Vue = require('vue');
+import Vue from 'vue/dist/vue'
 import Fragment from 'vue-fragment'
+
+window.Vue = Vue
 Vue.use(Fragment.Plugin)
 
 Vue.component('edit-table', require('./components/admin/EditTable.vue').default);
