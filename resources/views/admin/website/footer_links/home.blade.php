@@ -15,7 +15,7 @@
                                         row_view="footer-link-row"
                                         order_field_name="footer_link_order">
                             @can('create footer links')
-                                <a href="{{ route('admin::footer_link::addForm') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                                <a href="{{ route('admin::footer_link::addForm') }}" class="btn btn-aau"><i class="fas fa-plus"></i></a>
                             @endcan
                         </sortable-table>
                     @else
@@ -50,7 +50,7 @@
                             </tbody>
                         </table>
                         @can('create footer links')
-                            <div class="float-right">
+                            <div class="float-end">
                                 <a href="{{ route('admin::footer_link::addForm') }}" class="btn btn-aau"><i class="fas fa-plus"></i></a>
                             </div>
                         @endcan

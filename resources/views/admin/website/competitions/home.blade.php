@@ -45,7 +45,7 @@
                         </tbody>
                     </table>
                     @can('create competitions')
-                        <div class="float-right">
+                        <div class="float-end">
                             <a href="{{ route('admin::competition::addForm') }}" class="btn btn-aau"><i class="fas fa-plus"></i></a>
                         </div>
                     @endcan

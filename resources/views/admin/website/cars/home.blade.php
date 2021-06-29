@@ -44,7 +44,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <div class="float-right">
+                    <div class="float-end">
                         @can('create cars')<a href="{{ route('admin::car::addForm') }}" class="btn btn-aau"><i class="fas fa-plus"></i></a>@endcan
                     </div>
                 </div>

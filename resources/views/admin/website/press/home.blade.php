@@ -48,8 +48,8 @@
                             </tbody>
                         </table>
                         @can('create press posts')
-                            <div class="float-right">
-                                <a href="{{ route('admin::press::addForm') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                            <div class="float-end">
+                                <a href="{{ route('admin::press::addForm') }}" class="btn btn-aau"><i class="fas fa-plus"></i></a>
                             </div>
                         @endcan
                     @endcan

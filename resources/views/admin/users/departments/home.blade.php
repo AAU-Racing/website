@@ -15,10 +15,10 @@
                                         row_view="department-row"
                                         order_field_name="department_order">
                             @can('assign departments')
-                                <a href="{{ route('admin::department::assignForm') }}" class="btn btn-primary mr-1">Assign members to departments</a>
+                                <a href="{{ route('admin::department::assignForm') }}" class="btn btn-aau mr-1">Assign members to departments</a>
                             @endcan
                             @can('create departments')
-                                <a href="{{ route('admin::department::addForm') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                                <a href="{{ route('admin::department::addForm') }}" class="btn btn-aau"><i class="fas fa-plus"></i></a>
                             @endcan
                         </sortable-table>
                     @else
@@ -48,12 +48,12 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <div class="float-right">
+                        <div class="float-end">
                             @can('assign departments')
-                                <a href="{{ route('admin::department::assignForm') }}" class="btn btn-primary mr-1">Assign members to departments</a>
+                                <a href="{{ route('admin::department::assignForm') }}" class="btn btn-aau mr-1">Assign members to departments</a>
                             @endcan
                             @can('create departments')
-                                <a href="{{ route('admin::department::addForm') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                                <a href="{{ route('admin::department::addForm') }}" class="btn btn-aau"><i class="fas fa-plus"></i></a>
                             @endcan
                         </div>
                     @endcan

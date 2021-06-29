@@ -343,3 +343,8 @@ footer {
 a .fas, .btn.btn-link .fas {
     color: $aau-secondary;
 }
+
+.btn.btn-aau .fas {
+    background-color: $aau-secondary;
+    color: white;
+}

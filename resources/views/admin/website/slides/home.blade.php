@@ -47,8 +47,8 @@
                             </tbody>
                         </table>
                         @can('create carousel slides')
-                            <div class="float-right">
-                                <a href="{{ route('admin::carousel::addForm') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                            <div class="float-end">
+                                <a href="{{ route('admin::carousel::addForm') }}" class="btn btn-aau"><i class="fas fa-plus"></i></a>
                             </div>
                         @endcan
                     @endcan
