@@ -19,8 +19,8 @@
                     @csrf
                     <input type="hidden" name="notfirst" value="1">
 
-                    <div class="form-group row">
-                        <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}<span class="required">*</span></label>
+                    <div class="form-group row mb-2">
+                        <label for="name" class="col-md-2 col-form-label text-md-end">{{ __('Name') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $department->name) }}" required autofocus>
@@ -33,8 +33,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="editable" class="col-md-3 col-lg-2 col-form-label text-md-right">{{ __('Description') }}<span class="required">*</span></label>
+                    <div class="form-group row mb-4">
+                        <label for="editable" class="col-md-3 col-lg-2 col-form-label text-md-end">{{ __('Description') }}<span class="required">*</span></label>
 
                         <div class="col-md-9 col-lg-10">
                             <textarea id="editable" class="wysiwyg-editor" name="description">{{ old('description', $department->description) }}</textarea>
@@ -47,9 +47,9 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row mb-0">
                         <div class="col-md-9 offset-md-3 col-lg-10 offset-lg-2">
-                            <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                            <button type="submit" class="btn btn-aau">{{ __('Save') }}</button>
                         </div>
                     </div>
                 </form>
