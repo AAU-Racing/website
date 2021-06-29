@@ -11,8 +11,8 @@
                     <form method="POST">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="firstname" class="col-md-5 col-form-label text-md-right">{{ __('First Name') }}<span class="required">*</span></label>
+                        <div class="form-group row mb-2">
+                            <label for="firstname" class="col-md-5 col-form-label text-md-end">{{ __('First Name') }}<span class="required">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname', $user->firstname) }}" required autocomplete="firstname" autofocus>
@@ -25,8 +25,8 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="lastname" class="col-md-5 col-form-label text-md-right">{{ __('Last Name') }}<span class="required">*</span></label>
+                        <div class="form-group row mb-2">
+                            <label for="lastname" class="col-md-5 col-form-label text-md-end">{{ __('Last Name') }}<span class="required">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname', $user->lastname) }}" required autocomplete="lastname">
@@ -39,8 +39,8 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="date_of_birth" class="col-md-5 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
+                        <div class="form-group row mb-2">
+                            <label for="date_of_birth" class="col-md-5 col-form-label text-md-end">{{ __('Date of Birth') }}</label>
 
                             <div class="col-md-6">
                                 <input id="date_of_birth" type="text" data-provide="datepicker" placeholder="dd-mm-yyyy" data-date-format="dd-mm-yyyy" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth" value="{{ old('date_of_birth', $user->formatted_date_of_birth) }}">
@@ -53,8 +53,8 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-5 col-form-label text-md-right">{{ __('University E-Mail Address') }}</span></label>
+                        <div class="form-group row mb-2">
+                            <label for="email" class="col-md-5 col-form-label text-md-end">{{ __('University E-Mail Address') }}</span></label>
 
                             <div class="col-md-6">
                                 <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}">
@@ -67,8 +67,8 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="phone_number" class="col-md-5 col-form-label text-md-right">{{ __('Phone Number') }}<span class="required">*</span></label>
+                        <div class="form-group row mb-0">
+                            <label for="phone_number" class="col-md-5 col-form-label text-md-end">{{ __('Phone Number') }}<span class="required">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="phone_number" type="text" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number', $user->phone_number) }}" required>
@@ -82,11 +82,11 @@
                         </div>
 
                         <div class="row mt-5">
-                            <h5 class="col-md-5 text-muted text-md-right">Address</h5>
+                            <h5 class="col-md-5 text-muted text-md-end">Address</h5>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="address" class="col-md-5 col-form-label text-md-right">{{ __('Address') }}<span class="required">*</span></label>
+                        <div class="form-group row mb-2">
+                            <label for="address" class="col-md-5 col-form-label text-md-end">{{ __('Address') }}<span class="required">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address', $user->address->address) }}" required autocomplete="address">
@@ -104,10 +104,10 @@
                         </danish-zip-code>
 
                         <div class="row mt-5">
-                            <h5 class="col-md-5 text-muted text-md-right">Education</h5>
+                            <h5 class="col-md-5 text-muted text-md-end">Education</h5>
                         </div>
-                        <div class="form-group row">
-                            <label for="education" class="col-md-5 col-form-label text-md-right">{{ __('Education') }}</label>
+                        <div class="form-group row mb-2">
+                            <label for="education" class="col-md-5 col-form-label text-md-end">{{ __('Education') }}</label>
 
                             <div class="col-md-6">
                                 <input id="education" type="text" class="form-control @error('education') is-invalid @enderror" name="education" value="{{ old('education', $user->education) }}">
@@ -120,8 +120,8 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="study_number" class="col-md-5 col-form-label text-md-right">{{ __('Study Number') }}</label>
+                        <div class="form-group row mb-2">
+                            <label for="study_number" class="col-md-5 col-form-label text-md-end">{{ __('Study Number') }}</label>
 
                             <div class="col-md-6">
                                 <input id="study_number" type="text" class="form-control @error('study_number') is-invalid @enderror" name="study_number" value="{{ old('study_number', $user->study_number) }}">
@@ -134,8 +134,8 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="study_card_number" class="col-md-5 col-form-label text-md-right">{{ __('Study Card Number') }}</label>
+                        <div class="form-group row mb-0">
+                            <label for="study_card_number" class="col-md-5 col-form-label text-md-end">{{ __('Study Card Number') }}</label>
 
                             <div class="col-md-6">
                                 <input id="study_card_number" type="text" class="form-control @error('study_card_number') is-invalid @enderror" name="study_card_number" value="{{ old('study_card_number', $user->study_card_number) }}">
@@ -149,10 +149,10 @@
                         </div>
 
                         <div class="row mt-5">
-                            <h5 class="col-md-5 text-muted text-md-right">Car</h5>
+                            <h5 class="col-md-5 text-muted text-md-end">Car</h5>
                         </div>
-                        <div class="form-group row">
-                            <label for="drivers_license" class="col-md-5 col-form-label text-md-right">{{ __('Driver\'s License') }}</label>
+                        <div class="form-group row mb-2">
+                            <label for="drivers_license" class="col-md-5 col-form-label text-md-end">{{ __('Driver\'s License') }}</label>
 
                             <div class="col-md-6">
                                 <input id="drivers_license" type="text" class="form-control @error('drivers_license') is-invalid @enderror" name="drivers_license" value="{{ old('drivers_license', optional($user->driversLicense)->license_number) }}">
@@ -165,8 +165,8 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="car" class="col-md-5 col-form-label text-md-right">{{ __('Available Car') }}<span class="required">*</span></label>
+                        <div class="form-group row mb-0">
+                            <label for="car" class="col-md-5 col-form-label text-md-end">{{ __('Available Car') }}<span class="required">*</span></label>
 
                             <div class="col-md-6">
                                 <select id="car" class="form-control @error('car') is-invalid @enderror" name="car">
@@ -183,14 +183,14 @@
                             </div>
                         </div>
 
-                        <div class="row mt-5 ml-1">
+                        <div class="row mt-5 ms-1 mb-2">
                             <h5 class="text-muted">Contact persons</h5>
                             <hr class="narrow-hr" />
                         </div>
                         <contact-person-table :contact_persons="{{ json_encode(old('contact_person', $contactPersons)) }}" :checked="{{ old('primary', $primary) }}"></contact-person-table>
 
                         <div class="form-group row mb-0 mt-5 justify-content-center">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-aau">
                                 {{ __('Update Profile') }}
                             </button>
 

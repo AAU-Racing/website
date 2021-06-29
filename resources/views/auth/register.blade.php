@@ -11,9 +11,9 @@
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-2">
                                 <label for="firstname"
-                                       class="col-md-5 col-form-label text-md-right">{{ __('First Name') }}<span
+                                       class="col-md-5 col-form-label text-md-end">{{ __('First Name') }}<span
                                             class="required">*</span></label>
 
                                 <div class="col-md-6">
@@ -30,9 +30,9 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-2">
                                 <label for="lastname"
-                                       class="col-md-5 col-form-label text-md-right">{{ __('Last Name') }}<span
+                                       class="col-md-5 col-form-label text-md-end">{{ __('Last Name') }}<span
                                             class="required">*</span></label>
 
                                 <div class="col-md-6">
@@ -48,9 +48,9 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-2">
                                 <label for="date_of_birth"
-                                       class="col-md-5 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
+                                       class="col-md-5 col-form-label text-md-end">{{ __('Date of Birth') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="date_of_birth" type="text" data-provide="datepicker"
@@ -66,9 +66,9 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-2">
                                 <label for="email"
-                                       class="col-md-5 col-form-label text-md-right">{{ __('University E-Mail Address') }}
+                                       class="col-md-5 col-form-label text-md-end">{{ __('University E-Mail Address') }}
                                     <span class="required">*</span></label>
 
                                 <div class="col-md-6">
@@ -84,9 +84,9 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-0">
                                 <label for="phone_number"
-                                       class="col-md-5 col-form-label text-md-right">{{ __('Phone Number') }}<span
+                                       class="col-md-5 col-form-label text-md-end">{{ __('Phone Number') }}<span
                                             class="required">*</span></label>
 
                                 <div class="col-md-6">
@@ -104,11 +104,11 @@
                             </div>
 
                             <div class="row mt-5">
-                                <h5 class="col-md-5 text-muted text-md-right">Address</h5>
+                                <h5 class="col-md-5 text-muted text-md-end">Address</h5>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="address" class="col-md-5 col-form-label text-md-right">{{ __('Address') }}
+                            <div class="form-group row mb-2">
+                                <label for="address" class="col-md-5 col-form-label text-md-end">{{ __('Address') }}
                                     <span class="required">*</span></label>
 
                                 <div class="col-md-6">
@@ -129,11 +129,11 @@
                             </danish-zip-code>
 
                             <div class="row mt-5">
-                                <h5 class="col-md-5 text-muted text-md-right">Education</h5>
+                                <h5 class="col-md-5 text-muted text-md-end">Education</h5>
                             </div>
-                            <div class="form-group row">
+                            <div class="form-group row mb-2">
                                 <label for="education"
-                                       class="col-md-5 col-form-label text-md-right">{{ __('Education') }}</label>
+                                       class="col-md-5 col-form-label text-md-end">{{ __('Education') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="education" type="text"
@@ -148,9 +148,9 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-2">
                                 <label for="study_number"
-                                       class="col-md-5 col-form-label text-md-right">{{ __('Study Number') }}</label>
+                                       class="col-md-5 col-form-label text-md-end">{{ __('Study Number') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="study_number" type="text"
@@ -165,9 +165,9 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-0">
                                 <label for="study_card_number"
-                                       class="col-md-5 col-form-label text-md-right">{{ __('Study Card Number') }}</label>
+                                       class="col-md-5 col-form-label text-md-end">{{ __('Study Card Number') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="study_card_number" type="text"
@@ -183,11 +183,11 @@
                             </div>
 
                             <div class="row mt-5">
-                                <h5 class="col-md-5 text-muted text-md-right">Car</h5>
+                                <h5 class="col-md-5 text-muted text-md-end">Car</h5>
                             </div>
-                            <div class="form-group row">
+                            <div class="form-group row mb-2">
                                 <label for="drivers_license"
-                                       class="col-md-5 col-form-label text-md-right">{{ __('Driver\'s License') }}</label>
+                                       class="col-md-5 col-form-label text-md-end">{{ __('Driver\'s License') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="drivers_license" type="text"
@@ -202,8 +202,8 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="car" class="col-md-5 col-form-label text-md-right">{{ __('Car Available') }}
+                            <div class="form-group row mb-0">
+                                <label for="car" class="col-md-5 col-form-label text-md-end">{{ __('Car Available') }}
                                     <span class="required">*</span></label>
 
                                 <div class="col-md-6">
@@ -225,11 +225,11 @@
                             </div>
 
                             <div class="row mt-5">
-                                <h5 class="col-md-5 text-muted text-md-right">Contact Person</h5>
+                                <h5 class="col-md-5 text-muted text-md-end">Contact Person</h5>
                             </div>
-                            <div class="form-group row">
+                            <div class="form-group row mb-2">
                                 <label for="name_contact_person"
-                                       class="col-md-5 col-form-label text-md-right">{{ __('Name') }}<span
+                                       class="col-md-5 col-form-label text-md-end">{{ __('Name') }}<span
                                             class="required">*</span></label>
 
                                 <div class="col-md-6">
@@ -245,9 +245,9 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-0">
                                 <label for="phone_number_contact_person"
-                                       class="col-md-5 col-form-label text-md-right">{{ __('Phone Number') }}<span
+                                       class="col-md-5 col-form-label text-md-end">{{ __('Phone Number') }}<span
                                             class="required">*</span></label>
 
                                 <div class="col-md-6">
@@ -265,10 +265,10 @@
                             </div>
 
                             <div class="row mt-5">
-                                <h5 class="col-md-5 text-muted text-md-right">Credentials</h5>
+                                <h5 class="col-md-5 text-muted text-md-end">Credentials</h5>
                             </div>
-                            <div class="form-group row">
-                                <label for="password" class="col-md-5 col-form-label text-md-right">{{ __('Password') }}
+                            <div class="form-group row mb-2">
+                                <label for="password" class="col-md-5 col-form-label text-md-end">{{ __('Password') }}
                                     <span class="required">*</span></label>
 
                                 <div class="col-md-6">
@@ -284,9 +284,9 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-2">
                                 <label for="password-confirm"
-                                       class="col-md-5 col-form-label text-md-right">{{ __('Confirm Password') }}<span
+                                       class="col-md-5 col-form-label text-md-end">{{ __('Confirm Password') }}<span
                                             class="required">*</span></label>
 
                                 <div class="col-md-6">
@@ -295,8 +295,8 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="team_secret" class="col-md-5 col-form-label text-md-right">{{ __('Team Secret') }}
+                            <div class="form-group row mb-2">
+                                <label for="team_secret" class="col-md-5 col-form-label text-md-end">{{ __('Team Secret') }}
                                     <span class="required">*</span></label>
 
                                 <div class="col-md-6">
@@ -314,7 +314,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-5">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-aau">
                                         {{ __('Register') }}
                                     </button>
                                 </div>

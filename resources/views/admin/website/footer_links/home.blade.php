@@ -51,7 +51,7 @@
                         </table>
                         @can('create footer links')
                             <div class="float-right">
-                                <a href="{{ route('admin::footer_link::addForm') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                                <a href="{{ route('admin::footer_link::addForm') }}" class="btn btn-aau"><i class="fas fa-plus"></i></a>
                             </div>
                         @endcan
                     @endcan

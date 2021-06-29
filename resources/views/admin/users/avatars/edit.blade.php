@@ -14,8 +14,8 @@
                     <form method="POST" enctype="multipart/form-data">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="current_photo" class="col-md-4 col-form-label text-md-right">{{ __('Current Avatar') }}</label>
+                        <div class="form-group row mb-2">
+                            <label for="current_photo" class="col-md-4 col-form-label text-md-end">{{ __('Current Avatar') }}</label>
 
                             <div class="col-md-6">
                                 @if($avatar->getFirstMedia('avatar'))
@@ -26,8 +26,8 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-4 col-form-label text-md-right">{{ __('New Avatar') }}</div>
+                        <div class="form-group row mb-3">
+                            <div class="col-md-4 col-form-label text-md-end">{{ __('New Avatar') }}</div>
 
                             <div class="col-md-6">
                                 <file-upload invalid="{{ $errors->has('avatar') }}" name="avatar" placeholder="Choose new avatar">
@@ -40,8 +40,8 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0 mt-5 justify-content-center">
-                            <button type="submit" class="btn btn-primary">
+                        <div class="form-group row mb-0 mt-2 justify-content-center">
+                            <button type="submit" class="btn btn-aau">
                                 {{ __('Update Avatar') }}
                             </button>
 

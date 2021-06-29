@@ -27,7 +27,7 @@
             <a href="http://www.aau.dk/" target="_blank"><img src="{{ asset('images/aau_logo.png') }}" height="140px"></a>
         </div>
         <div class="col-md-3 right-col">
-            <button type="button" class="btn btn-primary btn-xs back-to-top">
+            <button type="button" class="btn btn-aau btn-xs back-to-top">
                 <a href="#">
                     <i class="fas fa-chevron-up"></i> Back to top
                 </a>

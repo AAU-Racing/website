@@ -15,7 +15,7 @@
                                         row_view="press-post-row"
                                         order_field_name="press_post_order">
                             @can('create press posts')
-                                <a href="{{ route('admin::press::addForm') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                                <a href="{{ route('admin::press::addForm') }}" class="btn btn-aau"><i class="fas fa-plus"></i></a>
                             @endcan
                         </sortable-table>
                     @else

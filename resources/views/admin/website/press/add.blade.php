@@ -19,8 +19,8 @@
                     @csrf
                     <input type="hidden" name="notfirst" value="1">
 
-                    <div class="form-group row">
-                        <label for="title" class="col-md-2 col-form-label text-md-right">{{ __('Title') }}<span class="required">*</span></label>
+                    <div class="form-group row mb-2">
+                        <label for="title" class="col-md-2 col-form-label text-md-end">{{ __('Title') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
                             <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autofocus>
@@ -33,8 +33,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="editable" class="col-md-2 col-form-label text-md-right">{{ __('Content') }}<span class="required">*</span></label>
+                    <div class="form-group row mb-2">
+                        <label for="editable" class="col-md-2 col-form-label text-md-end">{{ __('Content') }}<span class="required">*</span></label>
 
                         <div class="col-md-10">
                             <textarea id="editable" class="wysiwyg-editor" name="content">{{ old('content') }}</textarea>
@@ -47,8 +47,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <div class="col-md-2 col-form-label text-md-right">{{ __('Active') }}</div>
+                    <div class="form-group row mb-4">
+                        <div class="col-md-2 col-form-label text-md-end">{{ __('Active') }}</div>
 
                         <div class="col-md-6">
                             <div class="custom-control custom-checkbox">
@@ -65,9 +65,9 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row mb-0">
                         <div class="col-md-10 offset-md-2">
-                            <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                            <button type="submit" class="btn btn-aau">{{ __('Save') }}</button>
                         </div>
                     </div>
                 </form>

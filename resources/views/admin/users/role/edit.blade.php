@@ -13,7 +13,7 @@
                     <h4>{{ $user->name }}</h4>
                 </div>
                 @foreach($roles as $role)
-                    <div class="form-group row">
+                    <div class="form-group row mb-1">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" value={{ $role->id }} class="custom-control-input"
                                 id="role_checkbox_{{$role->id}}" name="roles[]" {{ $user->hasRole($role) ? 'checked' : ''}}>
@@ -22,12 +22,12 @@
                     </div>
                 @endforeach
                 @error('roles')
-                <div class="invalid-feedback" role="alert">
+                <div class="invalid-feedback my-2" role="alert">
                     <strong>{{ $message }}</strong>
                 </div>
                 @enderror
-                <div class="form-group row mb-0">
-                    <button type="submit" class="btn btn-primary">
+                <div class="form-group row mb-0 mt-3">
+                    <button type="submit" class="btn btn-aau">
                         {{ __('Update roles') }}
                     </button>
                 </div>

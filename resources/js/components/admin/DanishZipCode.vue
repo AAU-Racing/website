@@ -1,7 +1,7 @@
 <template>
-    <Fragment>
-        <div class="form-group row">
-            <label for="zip" class="col-md-5 col-form-label text-md-right" v-once>{{ zip_code_name }}<span
+    <fragment>
+        <div class="form-group row mb-2">
+            <label for="zip" class="col-md-5 col-form-label text-md-end" v-once>{{ zip_code_name }}<span
                 class="required">*</span></label>
 
             <div class="col-md-6">
@@ -14,8 +14,8 @@
             </div>
         </div>
 
-        <div class="form-group row">
-            <label for="city" class="col-md-5 col-form-label text-md-right" v-once>{{ city_name }}<span
+        <div class="form-group row mb-0">
+            <label for="city" class="col-md-5 col-form-label text-md-end" v-once>{{ city_name }}<span
                 class="required">*</span></label>
 
             <div class="col-md-6">
@@ -27,7 +27,7 @@
                 </span>
             </div>
         </div>
-    </Fragment>
+    </fragment>
 </template>
 
 <script>

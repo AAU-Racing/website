@@ -15,8 +15,8 @@
                     @csrf
                     <input type="hidden" name="notfirst" value="1">
 
-                    <div class="form-group row">
-                        <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}<span class="required">*</span></label>
+                    <div class="form-group row mb-2">
+                        <label for="name" class="col-md-2 col-form-label text-md-end">{{ __('Name') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $footer_link->name) }}" required autofocus>
@@ -29,8 +29,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="path" class="col-md-2 col-form-label text-md-right">{{ __('Path') }}<span class="required">*</span></label>
+                    <div class="form-group row mb-2">
+                        <label for="path" class="col-md-2 col-form-label text-md-end">{{ __('Path') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
                             <input id="path" type="text" class="form-control @error('path') is-invalid @enderror" name="path" value="{{ old('path', $footer_link->path) }}" required>
@@ -43,8 +43,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="target" class="col-md-2 col-form-label text-md-right">{{ __('Target') }}<span class="required">*</span></label>
+                    <div class="form-group row mb-2">
+                        <label for="target" class="col-md-2 col-form-label text-md-end">{{ __('Target') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
                             <select id="target" class="form-control @error('target') is-invalid @enderror" name="target" required>
@@ -60,8 +60,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <div class="col-md-2 col-form-label text-md-right">{{ __('Active') }}</div>
+                    <div class="form-group row mb-4">
+                        <div class="col-md-2 col-form-label text-md-end">{{ __('Active') }}</div>
 
                         <div class="col-md-6">
                             <div class="custom-control custom-checkbox">
@@ -78,7 +78,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row mb-0">
                         <div class="col-md-9 offset-md-3 col-lg-10 offset-lg-2">
                             <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
                         </div>

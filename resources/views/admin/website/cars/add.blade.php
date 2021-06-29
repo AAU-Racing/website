@@ -18,8 +18,8 @@
                 <form method="POST" enctype="multipart/form-data">
                     @csrf
 
-                    <div class="form-group row">
-                        <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}<span class="required">*</span></label>
+                    <div class="form-group row mb-2">
+                        <label for="name" class="col-md-2 col-form-label text-md-end">{{ __('Name') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autofocus>
@@ -32,8 +32,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="first_year" class="col-md-2 col-form-label text-md-right">{{ __('First Year') }}<span class="required">*</span></label>
+                    <div class="form-group row mb-2">
+                        <label for="first_year" class="col-md-2 col-form-label text-md-end">{{ __('First Year') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
                             <input id="first_year" type="text" class="form-control @error('first_year') is-invalid @enderror" name="first_year" value="{{ old('first_year') }}" required>
@@ -46,8 +46,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="last_year" class="col-md-2 col-form-label text-md-right">{{ __('Last Year') }}</label>
+                    <div class="form-group row mb-2">
+                        <label for="last_year" class="col-md-2 col-form-label text-md-end">{{ __('Last Year') }}</label>
 
                         <div class="col-md-6">
                             <input id="last_year" type="text" class="form-control @error('last_year') is-invalid @enderror" name="last_year" value="{{ old('last_year') }}">
@@ -60,8 +60,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <div class="col-md-2 col-form-label text-md-right">{{ __('Photo') }}<span class="required">*</span></div>
+                    <div class="form-group row mb-2">
+                        <div class="col-md-2 col-form-label text-md-end">{{ __('Photo') }}<span class="required">*</span></div>
 
                         <div class="col-md-6">
                             <file-upload invalid="{{ $errors->has('photo') }}" name="photo" placeholder="Choose photo" required>
@@ -74,8 +74,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="editable" class="col-md-2 col-form-label text-md-right">{{ __('Specifications') }}<span class="required">*</span></label>
+                    <div class="form-group row mb-4">
+                        <label for="editable" class="col-md-2 col-form-label text-md-end">{{ __('Specifications') }}<span class="required">*</span></label>
 
                         <div class="col-md-10">
                             <textarea id="editable" class="wysiwyg-editor" name="specifications">{{ old('specifications') }}</textarea>
@@ -88,9 +88,9 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row mb-0">
                         <div class="col-md-10 offset-md-2">
-                            <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                            <button type="submit" class="btn btn-aau">{{ __('Save') }}</button>
                         </div>
                     </div>
                 </form>

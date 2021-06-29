@@ -15,7 +15,7 @@
                                         row_view="sponsor-row"
                                         order_field_name="sponsor_order">
                             @can('create sponsors')
-                                <a href="{{ route('admin::sponsor::addForm') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                                <a href="{{ route('admin::sponsor::addForm') }}" class="btn btn-aau"><i class="fas fa-plus"></i></a>
                             @endcan
                         </sortable-table>
                     @else

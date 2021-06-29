@@ -14,7 +14,7 @@
                                         header_view="page-header"
                                         row_view="page-row"
                                         order_field_name="page_order">
-                            <a href="{{ route('admin::page::addForm') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                            <a href="{{ route('admin::page::addForm') }}" class="btn btn-aau"><i class="fas fa-plus"></i></a>
                         </sortable-table>
                     @else
                         <table class="table">

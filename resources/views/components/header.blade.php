@@ -9,7 +9,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto @auth logged-in @endauth">
+            <ul class="navbar-nav ms-auto @auth logged-in @endauth">
                 @foreach($pages as $page)
                     <li class="nav-item {{ Request::is($page->name) ? 'active' : '' }}">
                         <a class="nav-link" href="/{{ $page->name }}">{{ $page -> title }}</a>
@@ -19,16 +19,14 @@
 
                 @auth
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right mb-2" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-end mb-2" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('admin::home') }}">Team page</a>
                             <a class="dropdown-item" href="{{ route('auth::change_password') }}">Change password</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
+                            <a class="dropdown-item" href="#" onclick="document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 

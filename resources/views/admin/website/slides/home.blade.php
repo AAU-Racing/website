@@ -16,7 +16,7 @@
                                         row_view="carousel-slide-row"
                                         order_field_name="carousel_slides_order">
                             @can('create carousel slides')
-                                <a href="{{ route('admin::carousel::addForm') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                                <a href="{{ route('admin::carousel::addForm') }}" class="btn btn-aau"><i class="fas fa-plus"></i></a>
                             @endcan
                         </sortable-table>
                     @else

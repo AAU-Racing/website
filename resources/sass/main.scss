@@ -33,70 +33,70 @@ html, body {
 
 // header
 .navbar {
-  border-bottom: solid 3px $aau-primary;
-  padding: 0;
+    border-bottom: solid 3px $aau-primary;
+    padding: 0;
 
-  .navbar-toggler {
-    margin-right: 10px;
-  }
+    .navbar-toggler {
+        margin-right: 10px;
+    }
 
-  .navbar-brand img {
-    height: 50px;
-    margin-left: 15px;
-  }
+    .navbar-brand img {
+        height: 50px;
+        margin-left: 15px;
+    }
 
-  @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(md) {
+        .navbar-nav {
+            &:not(.logged-in) {
+                padding-right: 50px;
+            }
+
+            .nav-item .nav-link {
+                line-height: 46px;
+            }
+        }
+    }
+
     .navbar-nav {
-      &:not(.logged-in) {
-        padding-right: 50px;
-      }
+        .nav-item {
+            padding-left: 15px;
+            padding-right: 15px;
 
-      .nav-item .nav-link {
-          line-height: 46px;
-      }
+            &:hover {
+                text-decoration: none;
+                background-color: #eee;
+            }
+
+            .nav-link {
+                font-weight: bold;
+                color: $aau-muted;
+                padding-left: 0;
+                padding-right: 0;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+
+            &.active {
+                background-color: $aau-primary;
+
+                .nav-link {
+                    color: white;
+
+                    &:hover {
+                        text-decoration: none;
+                        background-color: #eee;
+                        color: #211d51;
+                    }
+                }
+
+                &:hover {
+                    background-color: #eee;
+                }
+            }
+        }
     }
-  }
-
-  .navbar-nav {
-    .nav-item {
-      padding-left: 15px;
-      padding-right: 15px;
-
-      &:hover {
-        text-decoration: none;
-        background-color: #eee;
-      }
-
-      .nav-link {
-        font-weight: bold;
-        color: #211d51;
-        padding-left: 0;
-        padding-right: 0;
-
-        &:hover {
-          text-decoration: none;
-        }
-      }
-
-      &.active {
-        background-color: $aau-primary;
-
-        .nav-link {
-          color: white;
-
-          &:hover {
-            text-decoration: none;
-            background-color: #eee;
-            color: #211d51;
-          }
-        }
-
-        &:hover {
-          background-color: #eee;
-        }
-      }
-    }
-  }
 }
 
 // footer
@@ -176,29 +176,29 @@ footer {
 // Pages
 .car {
 
-  .car-body {
-    position: relative;
+    .car-body {
+        position: relative;
 
-    .car-image {
-      width: 100%;
-      border-radius: 5px;
-    }
+        .car-image {
+            width: 100%;
+            border-radius: 5px;
+        }
 
-    @include media-breakpoint-up(md) {
-      .car-image {
-        position: absolute;
-        top: 0;
-        right: 0;
-        max-width: 20vw;
-      }
-    }
+        @include media-breakpoint-up(md) {
+            .car-image {
+                position: absolute;
+                top: 0;
+                right: 0;
+                max-width: 20vw;
+            }
+        }
 
-    @include media-breakpoint-up(md) {
-      .car-image {
-        max-width: 15vw;
-      }
+        @include media-breakpoint-up(md) {
+            .car-image {
+                max-width: 15vw;
+            }
+        }
     }
-  }
 }
 
 // Sponsor component
@@ -272,54 +272,74 @@ footer {
 }
 
 .table td.fit, .table th.fit {
-  white-space: nowrap;
-  width: 1%;
+    white-space: nowrap;
+    width: 1%;
 
-  &:last-child {
-    padding-right: 24px;
-  }
+    &:last-child {
+        padding-right: 24px;
+    }
 }
 
 .nav-pills-aau {
-  .nav-link {
-    background-color: white;
-    color: $aau-primary;
-  }
+    .nav-link {
+        background-color: white;
+        color: $aau-primary;
+    }
 
-  .nav-link.active {
-    background-color: $aau-primary;
+    .nav-link.active {
+        background-color: $aau-primary;
+        color: white;
+    }
+}
+
+.btn.btn-aau {
     color: white;
-  }
+    border-color: $aau-secondary;
+    background-color: $aau-secondary;
+
+    &:hover {
+        border-color: $aau-muted;
+        background-color: $aau-muted;
+    }
 }
 
 .btn.btn-outline-aau {
-  color: $aau-primary;
-  border-color: $aau-primary;
-
-  &:hover {
-    color: white;
+    color: $aau-primary;
     border-color: $aau-primary;
-    background-color: $aau-primary;
-  }
+
+    &:hover {
+        color: white;
+        border-color: $aau-primary;
+        background-color: $aau-primary;
+    }
 }
 
 .no-border {
-  border: none !important;
+    border: none !important;
 }
 
 .no-padding {
-  padding: 0 !important;
+    padding: 0 !important;
 }
 
 .page-padding {
-  padding: 1.5rem 60px;
+    padding: 1.5rem 60px;
 }
 
 .page-header {
-  color: #5a5a5a;
-  padding-bottom: 15px;
+    color: #5a5a5a;
+    padding-bottom: 15px;
 }
 
 .press-post-title h4 {
-  font-weight: bold;
+    font-weight: bold;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    background-color: $aau-primary;
+    color: white;
+}
+
+a .fas, .btn.btn-link .fas {
+    color: $aau-secondary;
 }

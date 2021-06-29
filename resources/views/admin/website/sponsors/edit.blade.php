@@ -15,8 +15,8 @@
                     @csrf
                     <input type="hidden" name="notfirst" value="1">
 
-                    <div class="form-group row">
-                        <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}<span class="required">*</span></label>
+                    <div class="form-group row mb-2">
+                        <label for="name" class="col-md-2 col-form-label text-md-end">{{ __('Name') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $sponsor->name) }}" required autofocus>
@@ -29,8 +29,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="link" class="col-md-2 col-form-label text-md-right">{{ __('Link') }}<span class="required">*</span></label>
+                    <div class="form-group row mb-2">
+                        <label for="link" class="col-md-2 col-form-label text-md-end">{{ __('Link') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
                             <input id="link" type="text" class="form-control @error('link') is-invalid @enderror" name="link" value="{{ old('link', $sponsor->link) }}" required>
@@ -43,8 +43,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="current_logo" class="col-md-3 col-lg-2 col-form-label text-md-right">{{ __('Current Logo') }}</label>
+                    <div class="form-group row mb-2">
+                        <label for="current_logo" class="col-md-3 col-lg-2 col-form-label text-md-end">{{ __('Current Logo') }}</label>
 
                         <div class="col-md-6">
                             @if($sponsor->getFirstMedia('logo'))
@@ -55,8 +55,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <div class="col-md-3 col-lg-2 col-form-label text-md-right">{{ __('New Logo') }}</div>
+                    <div class="form-group row mb-2">
+                        <div class="col-md-3 col-lg-2 col-form-label text-md-end">{{ __('New Logo') }}</div>
 
                         <div class="col-md-6">
                             <file-upload invalid="{{ $errors->has('logo') }}" name="logo" placeholder="Choose new logo">
@@ -69,8 +69,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <div class="col-md-2 col-form-label text-md-right">{{ __('Active') }}</div>
+                    <div class="form-group row mb-4">
+                        <div class="col-md-2 col-form-label text-md-end">{{ __('Active') }}</div>
 
                         <div class="col-md-6">
                             <div class="custom-control custom-checkbox">
@@ -87,9 +87,9 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row mb-0">
                         <div class="col-md-10 offset-md-2">
-                            <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                            <button type="submit" class="btn btn-aau">{{ __('Save') }}</button>
                         </div>
                     </div>
                 </form>

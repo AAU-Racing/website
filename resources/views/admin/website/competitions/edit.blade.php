@@ -14,8 +14,8 @@
                 <form method="POST">
                     @csrf
 
-                    <div class="form-group row">
-                        <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}<span class="required">*</span></label>
+                    <div class="form-group row mb-2">
+                        <label for="name" class="col-md-2 col-form-label text-md-end">{{ __('Name') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $competition->name) }}" required autofocus>
@@ -28,8 +28,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="country" class="col-md-2 col-form-label text-md-right">{{ __('Country') }}<span class="required">*</span></label>
+                    <div class="form-group row mb-2">
+                        <label for="country" class="col-md-2 col-form-label text-md-end">{{ __('Country') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
                             <input id="country" type="text" class="form-control @error('country') is-invalid @enderror" name="country" value="{{ old('country', $competition->country) }}" required>
@@ -42,8 +42,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="year" class="col-md-2 col-form-label text-md-right">{{ __('Year') }}<span class="required">*</span></label>
+                    <div class="form-group row mb-2">
+                        <label for="year" class="col-md-2 col-form-label text-md-end">{{ __('Year') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
                             <input id="year" type="number" min="2000" max="2200" class="form-control @error('year') is-invalid @enderror" name="year" value="{{ old('year', $competition->year) }}" required>
@@ -56,8 +56,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="link" class="col-md-2 col-form-label text-md-right">{{ __('Link') }}<span class="required">*</span></label>
+                    <div class="form-group row mb-4">
+                        <label for="link" class="col-md-2 col-form-label text-md-end">{{ __('Link') }}<span class="required">*</span></label>
 
                         <div class="col-md-6">
                             <input id="link" type="text" class="form-control @error('link') is-invalid @enderror" name="link" value="{{ old('link', $competition->link) }}" required>
@@ -70,9 +70,9 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row mb-0">
                         <div class="col-md-10 offset-md-2">
-                            <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                            <button type="submit" class="btn btn-aau">{{ __('Save') }}</button>
                         </div>
                     </div>
                 </form>

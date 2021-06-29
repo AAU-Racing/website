@@ -45,7 +45,7 @@
                         </tbody>
                     </table>
                     <div class="float-right">
-                        @can('create cars')<a href="{{ route('admin::car::addForm') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>@endcan
+                        @can('create cars')<a href="{{ route('admin::car::addForm') }}" class="btn btn-aau"><i class="fas fa-plus"></i></a>@endcan
                     </div>
                 </div>
             </div>

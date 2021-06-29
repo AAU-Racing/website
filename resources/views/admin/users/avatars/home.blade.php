@@ -20,7 +20,7 @@
                             @endif
                             <div class="card-body d-flex flex-column align-items-center flex-grow-0">
                                 <h5 class="card-title">{{ $avatar->name }}</h5>
-                                <a href="{{ route('admin::avatar::edit', ['id' => $avatar->id]) }}" class="btn btn-primary">
+                                <a href="{{ route('admin::avatar::edit', ['id' => $avatar->id]) }}" class="btn btn-aau">
                                     {{ __('Change Avatar') }}
                                 </a>
                             </div>
