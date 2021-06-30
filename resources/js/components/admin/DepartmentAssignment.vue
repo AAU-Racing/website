@@ -5,7 +5,7 @@
                 <div class="row mb-4">
                     <div class="input-group">
                         <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-search"></i></span>
-                        <input type="text" class="form-control" id="user-search" placeholder="Search for name" aria-describedby="inputGroupPrepend" v-model="searchQuery">
+                        <input type="text" class="form-control" id="user-search" placeholder="Search for name" aria-describedby="inputGroupPrepend" v-model="searchQuery" @keyup.enter.prevent @keydown.enter.prevent>
                     </div>
                 </div>
 
@@ -37,8 +37,9 @@
                     </table>
                 </div>
             </div>
-            <div class="col-5 offset-md-2" style="overflow-y: scroll; height: 75vh">
-                <div v-for="department in departments" class="row mb-4">
+            <div class="col-2 d-none d-md-block"></div>
+            <div class="col-5" style="overflow-y: scroll; height: 75vh">
+                <div v-for="department in localDepartments" class="row mb-4" :key="department.id">
                     <h4>{{ department.name }}</h4>
                     <div class="row">
                         <table class="table" @drop="onDrop($event, department)" @dragenter.prevent @dragover.prevent>
@@ -58,11 +59,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="user in department.users">
+                                <tr v-for="(user, index) in department.users">
                                     <td>{{ user.firstname }}</td>
                                     <td>{{ user.lastname }}</td>
                                     <td>{{ formatDate(user.created_at) }}</td>
-                                    <button type="button" class="btn btn-aau btn-sm"><i class="fas fa-trash"></i></button>
+                                    <td><button type="button" class="btn btn-aau btn-sm"><i class="fas fa-trash" @click="department.users.splice(index, 1)"></i></button></td>
                                 </tr>
                                 <tr v-if="department.users.length === 0">
                                     <td colspan="4" class="text-center text-muted">Drop a user here</td>
@@ -71,6 +72,11 @@
                         </table>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="d-none">
+            <div v-for="department in localDepartments">
+                <input type="hidden" v-for="(user, index) in department.users" :name="'department_assignment[' + department.id + '][' + index + ']'" :value="user.id">
             </div>
         </div>
     </div>
@@ -103,7 +109,8 @@ export default {
         return {
             searchQuery: '',
             fuse: null,
-            filteredUsers: []
+            filteredUsers: [],
+            localDepartments: JSON.parse(JSON.stringify(this.departments))
         }
     },
     watch: {
