@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-5 d-none d-md-block">
+            <div class="col-5 d-none d-md-block" style="height: 75vh">
                 <div class="row mb-4">
                     <div class="input-group">
                         <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-search"></i></span>
@@ -22,13 +22,16 @@
                                 <th scope="col">
                                     Join date
                                 </th>
+                                <th scope="col">
+                                </th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr v-for="user in users" draggable="true" @dragstart="onDrag($event, user)">
+                        <tbody style="overflow-y: scroll">
+                            <tr v-for="user in filteredUsers" draggable="true" @dragstart="onDrag($event, user)">
                                 <td>{{ user.firstname }}</td>
                                 <td>{{ user.lastname }}</td>
                                 <td>{{ formatDate(user.created_at) }}</td>
+                                <td><i class="fas fa-align-justify text-secondary" style="cursor: pointer"></i></td>
                             </tr>
                         </tbody>
                     </table>
@@ -86,31 +89,37 @@ export default {
     },
     created() {
         this.users.sort((a, b) => b.created_at - a.created_at);
+
+        const options = {
+            includeScore: false,
+            // Search in `author` and in `tags` array
+            keys: ['firstname', 'lastname']
+        }
+
+        this.fuse = new Fuse(this.users, options);
+        this.filteredUsers = this.users;
     },
     data() {
         return {
-            searchQuery: null,
+            searchQuery: '',
+            fuse: null,
+            filteredUsers: []
+        }
+    },
+    watch: {
+        searchQuery() {
+            if (this.searchQuery.trim() === '') {
+                this.filteredUsers = this.users;
+            }
+            else {
+                this.filteredUsers = this.fuse.search(this.searchQuery).map(res => res.item);
+            }
+
         }
     },
     methods: {
         formatDate(value) {
             return moment(value).format('DD-MM-YYYY');
-        },
-        filteredUsers() {
-            console.log(this.users)
-            if (this.searchQuery) {
-                const options = {
-                    includeScore: false,
-                    // Search in `author` and in `tags` array
-                    keys: ['firstname', 'lastname']
-                }
-
-                const fuse = new Fuse(this.users, options);
-                return fuse.search(this.searchQuery).map(res => res.item);
-            }
-            else {
-                return this.users;
-            }
         },
         onDrag(event, user) {
             event.dataTransfer.dropEffect = 'move';
