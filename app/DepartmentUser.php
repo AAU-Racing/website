@@ -19,6 +19,10 @@ class DepartmentUser extends Model implements Sortable
         'sort_when_creating' => true,
     ];
 
+    protected $fillable = [
+        'department_id', 'user_id', 'order'
+    ];
+
     protected $casts = [
         'order' => 'integer'
     ];
@@ -26,6 +30,11 @@ class DepartmentUser extends Model implements Sortable
     public function department()
     {
         return $this->belongsTo('App\Department', 'department_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'user_id');
     }
 
     public function buildSortQuery()

@@ -38,13 +38,19 @@ class Department extends Model implements Sortable
         return route('admin::department::delete', ['id' => $this->id]);
     }
 
-    public function users()
+    public function departmentUsers()
     {
         return $this->hasMany('App\DepartmentUser');
     }
 
     public function getUsersAttribute()
     {
-        return $this->users()->get();
+        $users = [];
+
+        foreach ($this->departmentUsers()->get() as $departmentUser) {
+            array_push($users, $departmentUser->user);
+        }
+
+        return $users;
     }
 }

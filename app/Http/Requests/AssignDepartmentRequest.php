@@ -13,7 +13,7 @@ class AssignDepartmentRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return $this->user()->can('assign departments');
     }
 
     /**
@@ -24,7 +24,8 @@ class AssignDepartmentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'department_assignment.*.id' => 'exists:departments,id',
+            'department_assignment.*.users.*' => 'exists:users,id'
         ];
     }
 }

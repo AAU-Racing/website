@@ -75,8 +75,9 @@
             </div>
         </div>
         <div class="d-none">
-            <div v-for="department in localDepartments">
-                <input type="hidden" v-for="(user, index) in department.users" :name="'department_assignment[' + department.id + '][' + index + ']'" :value="user.id">
+            <div v-for="(department, didx) in localDepartments">
+                <input type="hidden" :name="'department_assignment[' + didx + '][id]'" :value="department.id">
+                <input type="hidden" v-for="(user, uidx) in department.users" :name="'department_assignment[' + didx + '][users][' + uidx + ']'" :value="user.id">
             </div>
         </div>
     </div>

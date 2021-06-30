@@ -66,8 +66,7 @@ class DepartmentController extends Controller
     public function assign(AssignDepartmentRequest $request)
     {
         $this->authorize('assign departments');
-        $departments = $this->service->getAll();
-        $this->service->assign($departments, $request);
+        $this->service->assign($request);
 
         return redirect()->route('admin::department::home');
     }
@@ -75,9 +74,9 @@ class DepartmentController extends Controller
     public function delete($id)
     {
         $this->authorize('delete departments');
-        $footer_link = $this->service->findById($id);
+        $department = $this->service->findById($id);
 
-        $footer_link->delete();
+        $department->delete();
 
         return redirect()->route('admin::department::home');
     }
