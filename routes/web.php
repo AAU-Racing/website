@@ -28,6 +28,8 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'namespace' => 'Admin', 'as' => 'admin::'], function() {
     Route::get('/', 'HomeController@index')->name('home');
 
+    Route::post('/image', 'ImageController@post')->name('image');
+
     Route::group(['namespace' => 'Users'], function() {
         Route::group(['prefix' => 'role/', 'as' => 'role::'], function() {
             Route::get('/', 'RoleController@home')->name('home');

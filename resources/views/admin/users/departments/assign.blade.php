@@ -1,9 +1,5 @@
 @extends('admin.layouts.app')
 
-@push('extra-head')
-    @include('admin.components.tinymce')
-@endpush
-
 @section('content')
     <div class="container-fluid">
         <div class="row p-4">

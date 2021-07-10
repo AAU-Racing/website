@@ -85,13 +85,6 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::findOrCreate('delete pictures');
         Permission::findOrCreate('view disabled pictures');
 
-        // Media manager
-        Permission::findOrCreate('create files');
-        Permission::findOrCreate('rename files');
-        Permission::findOrCreate('move files');
-        Permission::findOrCreate('view files');
-        Permission::findOrCreate('delete files');
-
         // Avatars
         Permission::findOrCreate('view avatars');
         Permission::findOrCreate('edit avatars');
@@ -117,7 +110,6 @@ class RolesAndPermissionsSeeder extends Seeder
             'delete training sessions',
             'view disabled press posts',
             'view disabled pictures',
-            'view files',
             'view footer links',
             'view sponsors',
             'view press posts',
@@ -135,7 +127,6 @@ class RolesAndPermissionsSeeder extends Seeder
             'view training sessions',
             'view disabled press posts',
             'view disabled pictures',
-            'view files',
             'view footer links',
             'view sponsors',
             'view press posts',
@@ -177,11 +168,6 @@ class RolesAndPermissionsSeeder extends Seeder
             'edit pictures',
             'view disabled pictures',
             'delete pictures',
-            'create files',
-            'rename files',
-            'move files',
-            'view files',
-            'delete files',
             'edit avatars',
             'delete avatars',
             'view roles',
