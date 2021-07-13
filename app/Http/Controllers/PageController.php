@@ -24,7 +24,7 @@ class PageController extends Controller
 
     public function home()
     {
-        $page = ['html' => 'this is a test'];
+        $page = $this->pageService->findByName('home');
 
         return view('home', ['page' => $page]);
 
