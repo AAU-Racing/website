@@ -99,6 +99,18 @@ html, body {
     }
 }
 
+.logo-text {
+    margin-left: 10px;
+    text-align: center;
+    font-weight: 800;
+    font-size: 1.4em;
+    font-style: italic;
+    color: $aau-primary;
+    .logo-subtext {
+        color: $aau-tertiary;
+    }
+}
+
 // footer
 footer {
     width: 100%;

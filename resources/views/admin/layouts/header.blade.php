@@ -1,7 +1,10 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            <img alt="Logo of AAU Racing" src="{{ asset('images/aauracinglogo.png') }}">
+        <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+            <img alt="Logo of AAU Racing" src="{{ asset('images/Logo_AAU_Racing.svg') }}">
+            <span class="logo-text">
+                AAU <span class="logo-subtext">Racing</span>
+            </span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
