@@ -57,7 +57,7 @@
                 this.zip_code_prev = zip_code;
 
                 axios
-                    .get('http://dawa.aws.dk/postnumre/' + zip_code)
+                    .get('https://dawa.aws.dk/postnumre/' + zip_code)
                     .then(response => {
                         this.city_value = response.data.navn;
                         this.zip_code_error_ = [];
