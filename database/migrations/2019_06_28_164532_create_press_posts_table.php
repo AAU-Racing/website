@@ -16,7 +16,7 @@ class CreatePressPostsTable extends Migration
         Schema::create('press_posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('content');
+            $table->mediumText('content');
             $table->boolean('active')->default(true);
             $table->integer('order');
             $table->timestamps();

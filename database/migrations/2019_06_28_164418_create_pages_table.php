@@ -20,7 +20,7 @@ class CreatePagesTable extends Migration
             $table->boolean('in_header')->default(true);
             $table->char('name', 100);
             $table->string('title');
-            $table->string('content');
+            $table->mediumText('content');
             $table->integer('order');
             $table->boolean('active')->default(false);
             $table->timestamps();

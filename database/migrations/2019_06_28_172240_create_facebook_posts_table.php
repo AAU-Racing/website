@@ -17,7 +17,7 @@ class CreateFacebookPostsTable extends Migration
             $table->bigIncrements('id');
             $table->char('facebook_id', 100);
             $table->char('permalink_url', 255);
-            $table->string('message');
+            $table->mediumText('message');
             $table->integer('shares');
             $table->integer('likes');
             $table->timestamps();
