@@ -5,7 +5,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:title" content="AAU Racing" />
 <meta property="og:description" content="AAU Racing is the FSAE Team at Aalborg University, Denmark." />
-<meta property="og:image" content="http://aauracing.dk/img/faauracinglogo.png" />
+<meta property="og:image" content="{{ asset('images/Logo_AAU_Racing.svg') }}" />
 
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">

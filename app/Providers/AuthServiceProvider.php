@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -33,6 +34,18 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('edit profile', function ($authUser, $editUser) {
             return $authUser->id == $editUser->id || $authUser->can('edit all profiles');
+        });
+
+        Gate::define('upload images', function (User $user) {
+            return Gate::forUser($user)->any([
+                'create department',
+                'edit department',
+                'edit pages',
+                'create cars',
+                'edit cars',
+                'create press posts',
+                'edit press posts'
+            ]);
         });
     }
 }

@@ -20,13 +20,13 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => '/password', 'as
 });
 
 // Base
-Route::get('/', function () {
-    return redirect('home');
-});
+Route::get('/', 'PageController@index')->name('index');
 
 // Admin
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin/', 'namespace' => 'Admin', 'as' => 'admin::'], function() {
     Route::get('/', 'HomeController@index')->name('home');
+
+    Route::post('/image', 'ImageController@post')->name('image');
 
     Route::group(['namespace' => 'Users'], function() {
         Route::group(['prefix' => 'role/', 'as' => 'role::'], function() {

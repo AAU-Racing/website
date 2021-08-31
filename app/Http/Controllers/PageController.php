@@ -22,9 +22,14 @@ class PageController extends Controller
         $this->pressPostService = $pressPostService;
     }
 
+    public function index()
+    {
+        return redirect('home');
+    }
+
     public function home()
     {
-        $page = ['html' => 'this is a test'];
+        $page = $this->pageService->findByName('home');
 
         return view('home', ['page' => $page]);
 
