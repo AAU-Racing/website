@@ -27,7 +27,7 @@
         "fuse.js": "^6.4.6",
         "moment": "^2.29.1",
         "node-sass": "^6.0.1",
-        "tinymce": "^5.8.2",
+        "tinymce": "^5.10.0",
         "vue-fragment": "^1.5.2",
         "vuedraggable": "^2.24.0"
     }
